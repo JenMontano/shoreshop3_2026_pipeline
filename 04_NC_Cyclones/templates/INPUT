@@ -1,0 +1,28 @@
+PROJ 'unstruc' '{{ case_num }}'
+$
+MODE NONSTATIONARY TWOD
+SET level=0 cdcap=0.0025 NAUTICAL
+COORDINATES SPHERICAL CCM
+$
+CGRID UNSTRUCTURED 36 .03 28
+READGRID UNSTRUCTURED ADCirc
+$
+INPGRID WIND REGULAR {{lon_min}} {{lat_min}} 0.0 {{nx}} {{ny}} {{dlon}} {{dlat}} NONSTATIONARY {{time_rteference}} {{time_step}} SEC {{time_end}}
+READINP WIND 1 'wind_forcing.wind' 1 0 1 1
+$
+GEN3 ST6 2.8E-6 3.5E-5 4.0 4.0 UP HWANG VECTAU U10PROXY 32.0 DEBIAS 0.89 AGROW
+QUAD iquad=8
+WCAP
+TRIADS
+PROP BSBT
+SSWELL ARDHUIN 1.2
+$
+$
+BLOCK 'COMPGRID' NOHEAD 'output.mat' LAY 3 XP YP DEPTH WIND HSIGN TDIR TM01 TPS DIR PER HSWELL PDIR DIR WATLEV OUTPUT {{time_rteference}} {{time_step}} SEC
+POINTS 'outpts' FILE 'points_out.dat'
+SPECOUT 'outpts' SPEC2D ABS 'spec_outpts_main.nc' OUT {{time_rteference}} {{time_step}} SEC
+$
+TEST  1,0
+COMPUTE NONSTAT {{time_rteference}} {{time_step_comp}} SEC {{time_end_calc}}
+STOP
+$

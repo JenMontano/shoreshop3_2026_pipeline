@@ -1,0 +1,50 @@
+# NetCDF and related binary data
+*.nc
+*.nc4
+*.hdf
+*.hdf5
+*.h5
+*.mat
+*.npz
+*.pkl
+*.pickle
+*.pth
+*.pt
+
+# Heavy data directories (anywhere; any case)
+inputs/
+outputs/
+outputs_bulk/
+Projections/
+cases/
+CASES/
+figures/
+
+# Common heavy media (generated plots / videos)
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.pdf
+*.mp4
+*.gif
+
+# Python / notebooks
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+
+# Local / runtime junk
+*.tmp
+*.log
+logs/
+.DS_Store
+.vscode/
+.cursor/
+.git_broken_old_ignore
