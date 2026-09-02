@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Load Data &#8212; ShoreShop3_2026 — NC wave forcing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03a_06_mlr_tcs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="/shoreshop3_2026_pipeline/notebooks/03a_06_mlr_tcs.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Load Synthetic Tracks" href="03a_07_assing_tcs.html" />
+    <link rel="prev" title="03A — Stochastic GCMs (MSLP / SST / tropical cyclones)" href="../chapters/03a_stochastic_gcm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ShoreShop3_2026 — NC wave forcing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 — BinWaves (present climate)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/01_binwaves.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_propagation.html">Notebook — grid1 propagation (BinWaves core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 — Wind-wave metamodel</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/02_wind_metamodel.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_kma_wind_pipeline.html">Notebook — grid1 KMA wind pipeline (core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 — Wave emulator</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03_wave_emulator.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03a_stochastic_gcm.html">03A — Documentation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Load Data</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03a_07_assing_tcs.html">Load Synthetic Tracks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03b_century_gcm_waves.html">03B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_00_partitions_cluster_points.html">Notebook — 03B partitions at super points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_01_testing_clustering.html">MDA &amp; K-Means Clustering of Waves Conditions</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_02_pcs_mslp_sst.html">Load Data (Cyclone Model)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_03_clusters_and_pcs.html">Notebook — 03B link clusters ↔ PCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_04_alr_clusters_20cr.html">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 — Tropical cyclones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04_cyclones.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04a_cyclones_metamodel.html">04A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04a_13_reconstruction_trazas.html">Notebook — 04A apply metamodel to emulated tracks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04b_cyclones_emulator.html">04B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_00_cyclones_spectra.html">Cyclones MetaModel North Carolina</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04b_01_partitions_ptm4.html">Notebook — 04B PTM4 partition &amp; merge</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Book build</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Build &amp; serve instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/03a_06_mlr_tcs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Load Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dates-of-maximum-intensity">Dates of Maximum Intensity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor">Predictor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#predictand">Predictand</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-dates">Common Dates</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">Logistic Regression Model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-era5">02. Forecast ERA5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-gcm">03. Forecast GCM</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluemath_tk.teslakit.alr</span><span class="w"> </span><span class="kn">import</span> <span class="n">ALR_WRP</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-data">
+<h1>Load Data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Tracks</span>
+<span class="n">hist_tracks</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;inputs/ibtracs_na_tracks.nc&#39;</span><span class="p">)</span>
+<span class="n">track_types</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;inputs/track_types_hist.csv&#39;</span><span class="p">)</span>
+
+<span class="c1">#### Principal Components</span>
+<span class="n">era5_pcs_mslp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;outputs/era5/era5_mslp_pcs.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">era5_pcs_mslp</span> <span class="o">=</span> <span class="n">era5_pcs_mslp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">era5_pcs_sst</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;outputs/era5/era5_sst_pcs.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">detrend_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detrend each column of a DataFrame using polynomial fit.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - df: DataFrame (columns = PCs, rows = time)</span>
+<span class="sd">    - degree: 1 = linear, 2 = quadratic</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - detrended DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>  <span class="c1"># time index</span>
+
+    <span class="n">df_detrended</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="c1"># fit polynomial</span>
+        <span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+        <span class="n">trend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># remove trend</span>
+        <span class="n">df_detrended</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">trend</span>
+
+    <span class="k">return</span> <span class="n">df_detrended</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Remove LongTerm Trend</span>
+<span class="n">era5_pcs_sst_detrended</span> <span class="o">=</span> <span class="n">detrend_dataframe</span><span class="p">(</span><span class="n">era5_pcs_sst</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">era5_pcs_sst</span> <span class="o">=</span> <span class="n">era5_pcs_sst_detrended</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dates-of-maximum-intensity">
+<h1>Dates of Maximum Intensity<a class="headerlink" href="#dates-of-maximum-intensity" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times_max_int</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">hist_tracks</span><span class="o">.</span><span class="n">storm</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+    <span class="n">track_ds</span> <span class="o">=</span> <span class="n">hist_tracks</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">storm</span><span class="o">=</span><span class="n">track</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">track_ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">pres</span> <span class="o">=</span> <span class="n">track_ds</span><span class="o">.</span><span class="n">wmo_pres</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">min_pres_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
+    <span class="n">min_pres_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_int_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">min_pres_pos</span><span class="p">]</span>
+    <span class="n">formatted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime_as_string</span><span class="p">(</span><span class="n">max_int_time</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+    <span class="n">times_max_int</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+
+<span class="n">track_types</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">times_max_int</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">track_types</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;outputs/ibtracs_na_tracks_max_int.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predictor">
+<h1>Predictor<a class="headerlink" href="#predictor" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### 5 Day Average of PCs</span>
+<span class="n">era5_pcs_mslp_roll</span> <span class="o">=</span> <span class="n">era5_pcs_mslp</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;5D&quot;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">era5_pcs_sst_roll</span> <span class="o">=</span> <span class="n">era5_pcs_sst</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;5D&quot;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">era5_pcs_mslp_roll</span> <span class="o">=</span> <span class="n">era5_pcs_mslp_roll</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s2">&quot;_mslp&quot;</span><span class="p">)</span>
+<span class="n">era5_pcs_sst_roll</span> <span class="o">=</span> <span class="n">era5_pcs_sst_roll</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s2">&quot;_sst&quot;</span><span class="p">)</span>
+
+<span class="n">era5_pcs_roll</span> <span class="o">=</span> <span class="n">era5_pcs_mslp_roll</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">era5_pcs_sst_roll</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="predictand">
+<h1>Predictand<a class="headerlink" href="#predictand" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">era5_pcs_roll</span><span class="p">[</span><span class="s1">&#39;TrackType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">track_types</span><span class="p">)):</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">track_types</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">tt</span> <span class="o">=</span> <span class="n">track_types</span><span class="p">[</span><span class="s1">&#39;Track_Type&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;TrackType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="common-dates">
+<h1>Common Dates<a class="headerlink" href="#common-dates" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date_min</span> <span class="o">=</span> <span class="n">hist_tracks</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">storm</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">era5_pcs_roll</span> <span class="o">=</span> <span class="n">era5_pcs_roll</span><span class="p">[</span><span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">date_min</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistic-regression-model">
+<h1>Logistic Regression Model<a class="headerlink" href="#logistic-regression-model" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covar_ds</span> <span class="o">=</span> <span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+<span class="n">covar_ds</span> <span class="o">=</span> <span class="n">covar_ds</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;time&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nPCs</span> <span class="o">=</span> <span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cov_names_list</span> <span class="o">=</span> <span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">cov_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nPCs</span><span class="p">):</span>
+    <span class="n">cov_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">covar_ds</span><span class="p">[</span><span class="n">cov_names_list</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">cov_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">cov_list</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># shape (n_covariates, n_times)</span>
+
+<span class="n">cov_names_list</span> <span class="o">=</span> <span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">new_cov_norm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">cov_combined</span><span class="p">,</span>
+    <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;n_covariates&quot;</span><span class="p">],</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">covar_ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s2">&quot;n_covariates&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cov_combined</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># [0, 1, 2, 3, 4]</span>
+    <span class="p">},</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cov_norm&quot;</span>
+<span class="p">)</span>
+
+<span class="n">covariates_ds</span> <span class="o">=</span> <span class="n">new_cov_norm</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">()</span>
+<span class="n">covariates_ds</span> <span class="o">=</span> <span class="p">(</span><span class="n">covariates_ds</span> <span class="o">-</span> <span class="n">covariates_ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">))</span> <span class="o">/</span> <span class="n">covariates_ds</span><span class="o">.</span><span class="n">std</span><span class="p">(</span>
+    <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span>
+<span class="p">)</span>
+<span class="n">covariates_ds</span><span class="p">[</span><span class="s2">&quot;cov_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;n_covariates&quot;</span><span class="p">),</span> <span class="n">cov_names_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alr_model</span> <span class="o">=</span> <span class="n">ALR_WRP</span><span class="p">(</span>
+    <span class="n">p_base</span><span class="o">=</span><span class="s2">&quot;/lustre/geocean/WORK/users/alonsoap/personal/mini_projects/stochastic_gcms_clean_nc/outputs/tc_logit&quot;</span>
+<span class="p">)</span>
+
+<span class="n">alr_terms</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;mk_order&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;constant&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;long_term&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;seasonality&quot;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+    <span class="s2">&quot;covariates&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="kc">True</span><span class="p">,</span>
+        <span class="n">covariates_ds</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">nTT</span> <span class="o">=</span> <span class="n">track_types</span><span class="p">[</span><span class="s1">&#39;Track_Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># +1 for the &quot;no TC&quot; type</span>
+
+<span class="n">df_bmus_fit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df_bmus_fit</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">covar_ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span>
+<span class="n">df_bmus_fit</span><span class="p">[</span><span class="s1">&#39;bmus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">xds_bmus_fit</span> <span class="o">=</span> <span class="n">df_bmus_fit</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+
+<span class="n">alr_model</span><span class="o">.</span><span class="n">SetFitData</span><span class="p">(</span>
+    <span class="n">cluster_size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">nTT</span><span class="p">),</span>
+    <span class="n">xds_bmus_fit</span><span class="o">=</span><span class="n">xds_bmus_fit</span><span class="p">,</span>
+    <span class="n">d_terms_settings</span><span class="o">=</span><span class="n">alr_terms</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alr_model</span><span class="o">.</span><span class="n">FitModel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting autoregressive logistic model ...
+Optimization done in 0.62 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pvals</span> <span class="o">=</span> <span class="n">alr_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pvalues</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm_r&quot;</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;p-value&#39;</span><span class="p">})</span>
+
+<span class="c1"># Add black dots for significant coefficients</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pvals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pvals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">pvals</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">12.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>  <span class="c1"># s is size</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ALR Model Coefficients p-values (dots = p &lt; 0.05)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Dependent Variable&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Coefficient&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/55ba4e4ec64a66c826c63fb3d900fae31ed942b923ef67783940c0cb849f9a89.png" src="../_images/55ba4e4ec64a66c826c63fb3d900fae31ed942b923ef67783940c0cb849f9a89.png" />
+</div>
+</div>
+</section>
+<section id="forecast-era5">
+<h1>02. Forecast ERA5<a class="headerlink" href="#forecast-era5" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcs_per_sim_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">era5_pcs_roll</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">n_sims</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">pcs_per_sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">cov_names</span> <span class="o">=</span> <span class="n">pcs_per_sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">n_cov</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cov_names</span><span class="p">)</span>
+
+<span class="n">cov_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">pcs_per_sim_list</span><span class="p">])</span>
+
+
+<span class="n">covar_sim</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+    <span class="n">data_vars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">cov_values</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;n_sim&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;n_covariates&quot;</span><span class="p">),</span> <span class="n">cov_stack</span><span class="p">),</span>
+        <span class="n">cov_names</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;n_sim&quot;</span><span class="p">,</span> <span class="s2">&quot;n_covariates&quot;</span><span class="p">),</span>
+                   <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">cov_names</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">n_sims</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="p">),</span>
+    <span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">n_sim</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_sims</span><span class="p">),</span>
+        <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+        <span class="n">n_covariates</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cov</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">simulated_daily_bmus</span> <span class="o">=</span> <span class="n">alr_model</span><span class="o">.</span><span class="n">Simulate</span><span class="p">(</span>
+        <span class="n">num_sims</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">time_sim</span><span class="o">=</span><span class="n">covar_sim</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">xds_covars_sim</span><span class="o">=</span><span class="n">covar_sim</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">n_sim</span><span class="o">=</span><span class="n">i</span><span class="p">),</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ALR model fit   : 1981-09-04 --- 2023-11-22
+ALR model sim   : 1981-09-04 --- 2023-11-22
+
+Launching 1 simulations...
+
+Sim. Num. 001: 100%|██████████| 15420/15420 [00:05&lt;00:00, 2896.34it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Flatten simulated BMUs for comparison</span>
+<span class="n">sim_vals</span> <span class="o">=</span> <span class="n">simulated_daily_bmus</span><span class="o">.</span><span class="n">evbmus_sims</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">fit_vals</span> <span class="o">=</span> <span class="n">xds_bmus_fit</span><span class="o">.</span><span class="n">bmus</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="n">bmus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compute densities (or frequencies)</span>
+<span class="n">sim_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sim_vals</span> <span class="o">==</span> <span class="n">bmu</span><span class="p">)</span> <span class="k">for</span> <span class="n">bmu</span> <span class="ow">in</span> <span class="n">bmus</span><span class="p">]</span>
+<span class="n">fit_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fit_vals</span> <span class="o">==</span> <span class="n">bmu</span><span class="p">)</span> <span class="k">for</span> <span class="n">bmu</span> <span class="ow">in</span> <span class="n">bmus</span><span class="p">]</span>
+
+<span class="c1"># Width for bars</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bmus</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">sim_counts</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulated&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;coral&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_counts</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bmus</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;BMUS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Observed vs Simulated BMUS Distributions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/887823cb3de7bf22b4b4fafcb2739951c3f62f4c1ce9f570b1af91675df064d7.png" src="../_images/887823cb3de7bf22b4b4fafcb2739951c3f62f4c1ce9f570b1af91675df064d7.png" />
+</div>
+</div>
+</section>
+<section id="forecast-gcm">
+<h1>03. Forecast GCM<a class="headerlink" href="#forecast-gcm" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;ec_earth3_veg_lr&#39;</span><span class="p">]</span>
+<span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulated_daily_bmus_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ssp</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">:</span>
+
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/tc_logit/</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">gcm_pcs_mslp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/cmip6_models/</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">/mslp_</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">_pcs.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">gcm_pcs_mslp</span> <span class="o">=</span> <span class="n">gcm_pcs_mslp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">10</span><span class="p">]</span>
+        <span class="n">gcm_pcs_sst</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/cmip6_models/</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">/sst_</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">_pcs.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">gcm_pcs_sst_detrended</span> <span class="o">=</span> <span class="n">detrend_dataframe</span><span class="p">(</span><span class="n">gcm_pcs_sst</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">gcm_pcs_sst</span> <span class="o">=</span> <span class="n">gcm_pcs_sst_detrended</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">gcm_pcs_mslp_roll</span> <span class="o">=</span> <span class="n">gcm_pcs_mslp</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;5D&quot;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">gcm_pcs_sst_roll</span> <span class="o">=</span> <span class="n">gcm_pcs_sst</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;5D&quot;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+        <span class="n">gcm_pcs_mslp_roll</span> <span class="o">=</span> <span class="n">gcm_pcs_mslp_roll</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s2">&quot;_mslp&quot;</span><span class="p">)</span>
+        <span class="n">gcm_pcs_sst_roll</span> <span class="o">=</span> <span class="n">gcm_pcs_sst_roll</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s2">&quot;_sst&quot;</span><span class="p">)</span>
+
+        <span class="n">gcm_pcs_mslp_roll</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">gcm_pcs_mslp_roll</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+        <span class="n">gcm_pcs_sst_roll</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">gcm_pcs_sst_roll</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+
+        <span class="n">gcm_pcs_roll</span> <span class="o">=</span> <span class="n">gcm_pcs_mslp_roll</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gcm_pcs_sst_roll</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+
+        <span class="n">pcs_per_sim_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">gcm_pcs_roll</span><span class="p">]</span>
+        <span class="n">n_sims</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">time</span> <span class="o">=</span> <span class="n">pcs_per_sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">cov_names</span> <span class="o">=</span> <span class="n">pcs_per_sim_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span>
+        <span class="n">n_cov</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cov_names</span><span class="p">)</span>
+
+        <span class="n">cov_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">pcs_per_sim_list</span><span class="p">])</span>
+
+        <span class="n">covar_sim</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+            <span class="n">data_vars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">cov_values</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;n_sim&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;n_covariates&quot;</span><span class="p">),</span> <span class="n">cov_stack</span><span class="p">),</span>
+                <span class="n">cov_names</span><span class="o">=</span><span class="p">((</span><span class="s2">&quot;n_sim&quot;</span><span class="p">,</span> <span class="s2">&quot;n_covariates&quot;</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">cov_names</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">n_sims</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))),</span>
+            <span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">n_sim</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_sims</span><span class="p">),</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span><span class="n">n_covariates</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cov</span><span class="p">),))</span>
+        
+        <span class="n">covar_sim</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covar_sim</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">covar_sim</span><span class="o">.</span><span class="n">cov_values</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">n_sim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">n_covariates</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">simulated_daily_bmus</span> <span class="o">=</span> <span class="n">alr_model</span><span class="o">.</span><span class="n">Simulate</span><span class="p">(</span>
+                <span class="n">num_sims</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">time_sim</span><span class="o">=</span><span class="n">covar_sim</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                <span class="n">xds_covars_sim</span><span class="o">=</span><span class="n">covar_sim</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">n_sim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+            <span class="p">)</span>
+        
+        <span class="n">simulated_daily_bmus</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/tc_logit/</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">/simulated_tracktypes_</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">ssp</span><span class="si">}</span><span class="s1">.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ALR model fit   : 1981-09-04 --- 2023-11-22
+ALR model sim   : 1979-01-31 --- 2014-12-31
+
+Launching 5 simulations...
+
+Sim. Num. 001: 100%|██████████| 13119/13119 [00:04&lt;00:00, 2978.60it/s]
+Sim. Num. 002: 100%|██████████| 13119/13119 [00:04&lt;00:00, 2973.58it/s]
+Sim. Num. 003: 100%|██████████| 13119/13119 [00:04&lt;00:00, 2969.19it/s]
+Sim. Num. 004: 100%|██████████| 13119/13119 [00:04&lt;00:00, 2963.72it/s]
+Sim. Num. 005: 100%|██████████| 13119/13119 [00:04&lt;00:00, 2962.16it/s]
+
+ALR model fit   : 1981-09-04 --- 2023-11-22
+ALR model sim   : 2015-01-31 --- 2100-12-31
+
+Launching 5 simulations...
+
+Sim. Num. 001: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2898.38it/s]
+Sim. Num. 002: 100%|██████████| 31381/31381 [00:11&lt;00:00, 2847.88it/s]
+Sim. Num. 003: 100%|██████████| 31381/31381 [00:11&lt;00:00, 2842.84it/s]
+Sim. Num. 004: 100%|██████████| 31381/31381 [00:11&lt;00:00, 2814.18it/s]
+Sim. Num. 005: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2902.81it/s]
+
+ALR model fit   : 1981-09-04 --- 2023-11-22
+ALR model sim   : 2015-01-31 --- 2100-12-31
+
+Launching 5 simulations...
+
+Sim. Num. 001: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2946.11it/s]
+Sim. Num. 002: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2940.85it/s]
+Sim. Num. 003: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2899.77it/s]
+Sim. Num. 004: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2908.32it/s]
+Sim. Num. 005: 100%|██████████| 31381/31381 [00:10&lt;00:00, 2919.94it/s]
+</pre></div>
+</div>
+<img alt="../_images/6694ac227356d2b53418d13d081b6b526fd6737a9f6242c51412f59bd0fa377b.png" src="../_images/6694ac227356d2b53418d13d081b6b526fd6737a9f6242c51412f59bd0fa377b.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapters/03a_stochastic_gcm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">03A — Stochastic GCMs (MSLP / SST / tropical cyclones)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03a_07_assing_tcs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Load Synthetic Tracks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dates-of-maximum-intensity">Dates of Maximum Intensity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor">Predictor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#predictand">Predictand</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-dates">Common Dates</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">Logistic Regression Model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-era5">02. Forecast ERA5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-gcm">03. Forecast GCM</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GEOCEAN / ShoreShop3
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

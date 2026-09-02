@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ShoreShop3_2026 — Jupyter Book &#8212; ShoreShop3_2026 — NC wave forcing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="/shoreshop3_2026_pipeline/README.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Cyclone Partitions Compact PTM4" href="notebooks/04b_01_partitions_ptm4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ShoreShop3_2026 — NC wave forcing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 — BinWaves (present climate)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/01_binwaves.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/01_propagation.html">Notebook — grid1 propagation (BinWaves core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 — Wind-wave metamodel</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/02_wind_metamodel.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/02_kma_wind_pipeline.html">Notebook — grid1 KMA wind pipeline (core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 — Wave emulator</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/03_wave_emulator.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/03a_stochastic_gcm.html">03A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03a_06_mlr_tcs.html">Load Data</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03a_07_assing_tcs.html">Load Synthetic Tracks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chapters/03b_century_gcm_waves.html">03B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_00_partitions_cluster_points.html">Notebook — 03B partitions at super points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_01_testing_clustering.html">MDA &amp; K-Means Clustering of Waves Conditions</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_02_pcs_mslp_sst.html">Load Data (Cyclone Model)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_03_clusters_and_pcs.html">Notebook — 03B link clusters ↔ PCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_04_alr_clusters_20cr.html">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 — Tropical cyclones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/04_cyclones.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/04a_cyclones_metamodel.html">04A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04a_13_reconstruction_trazas.html">Notebook — 04A apply metamodel to emulated tracks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/04b_cyclones_emulator.html">04B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04b_00_cyclones_spectra.html">Cyclones MetaModel North Carolina</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04b_01_partitions_ptm4.html">Notebook — 04B PTM4 partition &amp; merge</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Book build</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Build &amp; serve instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ShoreShop3_2026 — Jupyter Book</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-locally">Build locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-site-github-pages">Public site (GitHub Pages)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#after-editing-documentation">After editing documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout">Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-cross-links">Note on cross-links</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="shoreshop3-2026-jupyter-book">
+<h1>ShoreShop3_2026 — Jupyter Book<a class="headerlink" href="#shoreshop3-2026-jupyter-book" title="Link to this heading">#</a></h1>
+<p>Static documentation site built from the repo README files. Stage chapters are symlinks to each folder README; the start page (<code class="docutils literal notranslate"><span class="pre">intro.md</span></code>) is a book-specific copy of the root overview with chapter links.</p>
+<section id="build-locally">
+<h2>Build locally<a class="headerlink" href="#build-locally" title="Link to this heading">#</a></h2>
+<p>Requires <strong>Python ≥ 3.9</strong> and <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> (works in <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">bluemath-dev</span></code> on this cluster).</p>
+<p><strong>From the repo root:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/ShoreShop3_2026
+conda<span class="w"> </span>activate<span class="w"> </span>bluemath-dev<span class="w">   </span><span class="c1"># optional but recommended here</span>
+bash<span class="w"> </span>docs/build.sh
+</pre></div>
+</div>
+<p><strong>Already inside <code class="docutils literal notranslate"><span class="pre">docs/</span></code>:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>build.sh
+</pre></div>
+</div>
+<p>Equivalent manual command from the repo root: <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">docs</span></code></p>
+<p>Open the book in a <strong>web browser</strong> (not the Cursor editor — HTML preview does not work for remote cluster paths).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Where you work</p></th>
+<th class="head"><p>How to view</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>On the cluster (desktop/browser there)</strong></p></td>
+<td><p>Open <code class="docutils literal notranslate"><span class="pre">docs/_build/html/intro.html</span></code> in Firefox/Chrome</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SSH from laptop</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">docs/serve.sh</span></code> on cluster, then <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-L</span> <span class="pre">8765:localhost:8765</span> <span class="pre">you&#64;geocean05</span></code>, open <a class="reference external" href="http://localhost:8765/intro.html">http://localhost:8765/intro.html</a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>In Cursor</strong></p></td>
+<td><p>Read the markdown READMEs directly (<code class="docutils literal notranslate"><span class="pre">README.md</span></code>, <code class="docutils literal notranslate"><span class="pre">01_BinWaves/README.md</span></code>, …) — same content as the book</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Start page is <strong><code class="docutils literal notranslate"><span class="pre">intro.html</span></code></strong> (<code class="docutils literal notranslate"><span class="pre">index.html</span></code> only redirects there).</p>
+</section>
+<section id="public-site-github-pages">
+<h2>Public site (GitHub Pages)<a class="headerlink" href="#public-site-github-pages" title="Link to this heading">#</a></h2>
+<p>After enabling Pages (see below), the book is published at:</p>
+<p><strong><a class="reference external" href="https://jenmontano.github.io/shoreshop3_2026_pipeline/intro.html">https://jenmontano.github.io/shoreshop3_2026_pipeline/intro.html</a></strong></p>
+<p>Workflow: <a class="reference download internal" download="" href="_downloads/8432119dd78369e2ce3b8f2d11baf7a9/publish-book.yml"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">.github/workflows/publish-book.yml</span></code></span></a> — runs on every push to <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+<p><strong>One-time setup on GitHub</strong></p>
+<ol class="arabic simple">
+<li><p>Open <a class="reference external" href="https://github.com/JenMontano/shoreshop3_2026_pipeline/settings/pages">repo Settings → Pages</a></p></li>
+<li><p>Under <strong>Build and deployment → Source</strong>, choose <strong>Deploy from a branch</strong> (not “GitHub Actions”)</p></li>
+<li><p><strong>Branch:</strong> <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> → folder <strong><code class="docutils literal notranslate"><span class="pre">/</span> <span class="pre">(root)</span></code></strong> → Save</p></li>
+<li><p>Push to <code class="docutils literal notranslate"><span class="pre">main</span></code> (or re-run <strong>Publish Jupyter Book</strong> under Actions)</p></li>
+</ol>
+<p>After the workflow succeeds (~1–3 min), the site URL appears at the top of the Pages settings.</p>
+<p>Local <code class="docutils literal notranslate"><span class="pre">baseurl</span></code> stays empty; CI sets <code class="docutils literal notranslate"><span class="pre">/shoreshop3_2026_pipeline</span></code> only for the Pages build.</p>
+</section>
+<section id="after-editing-documentation">
+<h2>After editing documentation<a class="headerlink" href="#after-editing-documentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Stage READMEs</strong> (<code class="docutils literal notranslate"><span class="pre">01_BinWaves/README.md</span></code>, …): edit, then re-run <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">docs/build.sh</span></code>. Symlinks in <code class="docutils literal notranslate"><span class="pre">docs/chapters/</span></code> pick them up automatically.</p></li>
+<li><p><strong>Root overview</strong> (<code class="docutils literal notranslate"><span class="pre">README.md</span></code>): GitHub-facing links (<code class="docutils literal notranslate"><span class="pre">01_BinWaves/README.md</span></code>, …). After changing prose there, regenerate the book intro:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>docs/sync_intro_from_readme.py<span class="w">   </span><span class="c1"># or copy link substitutions manually into docs/intro.md</span>
+</pre></div>
+</div>
+<p>If you only change stage READMEs, rebuilding the book is enough.</p>
+</section>
+<section id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">docs/_config.yml</span></code></p></td>
+<td><p>Book title, theme, notebook execution off</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">docs/_toc.yml</span></code></p></td>
+<td><p>Sidebar navigation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">docs/intro.md</span></code></p></td>
+<td><p>Book start page (chapter links; prose mirrors root <code class="docutils literal notranslate"><span class="pre">README.md</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">docs/chapters/*.md</span></code></p></td>
+<td><p>Symlinks → each stage README</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">docs/notebooks/*.ipynb</span></code></p></td>
+<td><p>Symlinks → <strong>key process notebooks</strong> (rendered, not executed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">docs/_build/html/</span></code></p></td>
+<td><p>Generated site (gitignored)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="note-on-cross-links">
+<h2>Note on cross-links<a class="headerlink" href="#note-on-cross-links" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>GitHub:</strong> use root <code class="docutils literal notranslate"><span class="pre">README.md</span></code> — links point at folder READMEs.</p></li>
+<li><p><strong>Jupyter Book:</strong> use <code class="docutils literal notranslate"><span class="pre">intro.html</span></code> and the sidebar — <code class="docutils literal notranslate"><span class="pre">intro.md</span></code> links use <code class="docutils literal notranslate"><span class="pre">chapters/…</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notebooks/04b_01_partitions_ptm4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cyclone Partitions Compact PTM4</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-locally">Build locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-site-github-pages">Public site (GitHub Pages)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#after-editing-documentation">After editing documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout">Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-cross-links">Note on cross-links</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GEOCEAN / ShoreShop3
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

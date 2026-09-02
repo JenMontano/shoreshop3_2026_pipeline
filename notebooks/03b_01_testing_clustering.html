@@ -1,0 +1,3542 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MDA &amp; K-Means Clustering of Waves Conditions &#8212; ShoreShop3_2026 — NC wave forcing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03b_01_testing_clustering';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="/shoreshop3_2026_pipeline/notebooks/03b_01_testing_clustering.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Load Data (Cyclone Model)" href="03b_02_pcs_mslp_sst.html" />
+    <link rel="prev" title="🌊 Partitions - Grid 1 (Single Point)" href="03b_00_partitions_cluster_points.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ShoreShop3_2026 — NC wave forcing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 — BinWaves (present climate)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/01_binwaves.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_propagation.html">Notebook — grid1 propagation (BinWaves core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 — Wind-wave metamodel</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/02_wind_metamodel.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_kma_wind_pipeline.html">Notebook — grid1 KMA wind pipeline (core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 — Wave emulator</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03_wave_emulator.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03a_stochastic_gcm.html">03A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03a_06_mlr_tcs.html">Load Data</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03a_07_assing_tcs.html">Load Synthetic Tracks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03b_century_gcm_waves.html">03B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_00_partitions_cluster_points.html">Notebook — 03B partitions at super points</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MDA &amp; K-Means Clustering of Waves Conditions</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_02_pcs_mslp_sst.html">Load Data (Cyclone Model)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_03_clusters_and_pcs.html">Notebook — 03B link clusters ↔ PCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_04_alr_clusters_20cr.html">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 — Tropical cyclones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04_cyclones.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04a_cyclones_metamodel.html">04A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04a_13_reconstruction_trazas.html">Notebook — 04A apply metamodel to emulated tracks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04b_cyclones_emulator.html">04B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_00_cyclones_spectra.html">Cyclones MetaModel North Carolina</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04b_01_partitions_ptm4.html">Notebook — 04B PTM4 partition &amp; merge</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Book build</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Build &amp; serve instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/03b_01_testing_clustering.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MDA & K-Means Clustering of Waves Conditions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MDA &amp; K-Means Clustering of Waves Conditions</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data">Prepare data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mda">MDA</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-medoids-from-mda">K-medoids from MDA</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-clusters-plots">Final Clusters Plots</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
+import xarray as xr
+import os
+import matplotlib.pyplot as plt 
+
+from matplotlib.colors import Normalize
+from matplotlib import cm
+from matplotlib.patches import FancyArrowPatch
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+from matplotlib.cm import get_cmap
+
+from bluemath_tk.datamining.pca import PCA
+from bluemath_tk.datamining.kma import KMA
+from bluemath_tk.datamining.mda import MDA
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mda-k-means-clustering-of-waves-conditions">
+<h1>MDA &amp; K-Means Clustering of Waves Conditions<a class="headerlink" href="#mda-k-means-clustering-of-waves-conditions" title="Link to this heading">#</a></h1>
+<section id="prepare-data">
+<h2>Prepare data<a class="headerlink" href="#prepare-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from pathlib import Path
+import os
+
+BASE = Path(&quot;/lustre/geocean/WORK/users/montanoj/personal/ShoreShop3_2026/03_NC_Wave_Emulator/outputss&quot;)
+BASE.mkdir(parents=True, exist_ok=True)
+
+# Optional compatibility: if code still uses relative &quot;outputs/...&quot;
+os.chdir(&quot;/lustre/geocean/WORK/users/montanoj/personal/ShoreShop3_2026/03_NC_Wave_Emulator/outputs&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from itertools import filterfalse
+use_PCA =True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+# Target points: 1 per grid (lat, lon)
+TARGET_POINTS = {
+    &quot;grid1&quot;: {&quot;label&quot;: &quot;grid1&quot;, &quot;lat&quot;: 33.441,  &quot;lon&quot;: -77.766},
+    &quot;grid2&quot;: {&quot;label&quot;: &quot;grid2&quot;, &quot;lat&quot;: 33.8928, &quot;lon&quot;: -76.9845},
+    &quot;grid3&quot;: {&quot;label&quot;: &quot;grid3&quot;, &quot;lat&quot;: 35.10,   &quot;lon&quot;: -75.36},
+    &quot;grid4&quot;: {&quot;label&quot;: &quot;grid4&quot;, &quot;lat&quot;: 36.603,  &quot;lon&quot;: -74.837},
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># wind data 
+uwnd=xr.open_dataset(&#39;inputs/uwnd.nc&#39;)
+vwnd=xr.open_dataset(&#39;inputs/vwnd.nc&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Partitions_DIR = &quot;outputs/partitions_SuperPoint/&quot;
+grids = [&quot;grid1&quot;, &quot;grid2&quot;, &quot;grid3&quot;, &quot;grid4&quot;]
+parts = [0, 1]  # 0 = sea, 1 = swell
+
+# Load per-grid partition datasets
+ds_phs = {g: xr.open_dataset(os.path.join(Partitions_DIR, f&quot;phs_{g}.nc&quot;)) for g in grids}
+ds_ptp = {g: xr.open_dataset(os.path.join(Partitions_DIR, f&quot;ptp_{g}.nc&quot;)) for g in grids}
+ds_pdp = {g: xr.open_dataset(os.path.join(Partitions_DIR, f&quot;pdp_{g}.nc&quot;)) for g in grids}
+
+# 1) Build common time index = intersection across all grids
+time_idx = None
+for g in grids:
+    t = ds_phs[g][&quot;phs&quot;].time.to_index()
+    if time_idx is None:
+        time_idx = t
+    else:
+        time_idx = time_idx.intersection(t)
+
+# Keep only 1980 onward
+START_DATE = &quot;1980-01-01&quot;
+time_idx = time_idx[time_idx &gt;= START_DATE]
+print(&quot;Common time span:&quot;, time_idx[0], &quot;to&quot;, time_idx[-1], &quot;len =&quot;, len(time_idx))
+
+# 2) Build DataFrame on this common index
+df = pd.DataFrame(index=time_idx)
+df.index.name = &quot;time&quot;
+
+for gi, g in enumerate(grids, start=1):
+    hs_da = ds_phs[g][&quot;phs&quot;].sel(time=time_idx)   # align to common time
+    tp_da = ds_ptp[g][&quot;ptp&quot;].sel(time=time_idx)
+    dp_da = ds_pdp[g][&quot;pdp&quot;].sel(time=time_idx)
+
+    for p in parts:
+        suffix = f&quot;g{gi}&quot;
+        df[f&quot;hs{p}{suffix}&quot;] = hs_da.isel(part=p).values
+        df[f&quot;tp{p}{suffix}&quot;] = tp_da.isel(part=p).values
+        df[f&quot;dp{p}{suffix}&quot;] = dp_da.isel(part=p).values
+
+# 3) Add wind speed (ws) and direction (wd) at each target (or closest grid point)
+from math import radians, sin, cos, sqrt, atan2
+
+def haversine_km(lat1, lon1, lat2, lon2):
+    &quot;&quot;&quot;Great circle distance in km.&quot;&quot;&quot;
+    R = 6371
+    lat1_rad, lat2_rad = radians(lat1), radians(lat2)
+    dlat = radians(lat2 - lat1)
+    dlon = radians(lon2 - lon1)
+    a = sin(dlat / 2) ** 2 + cos(lat1_rad) * cos(lat2_rad) * sin(dlon / 2) ** 2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    return R * c
+
+# Use wind coordinates from 1980 reference (not raw time=0)
+time_ref = np.datetime64(START_DATE)
+lat_wnd = uwnd.latitude.sel(time=time_ref).values
+lon_wnd = uwnd.longitude.sel(time=time_ref).values
+
+WIND_SEAPOINT_INDICES = {}
+print(&quot;\nDistance from target to closest wind grid point (km):&quot;)
+for name, pt in TARGET_POINTS.items():
+    dists = np.array([haversine_km(pt[&quot;lat&quot;], pt[&quot;lon&quot;], la, lo) for la, lo in zip(lat_wnd, lon_wnd)])
+    idx = np.argmin(dists)
+    WIND_SEAPOINT_INDICES[name] = int(idx)
+    print(
+        f&quot;  {name}: {dists[idx]:.4f} km  &quot;
+        f&quot;(target {pt[&#39;lat&#39;]:.3f},{pt[&#39;lon&#39;]:.3f} -&gt; grid {lat_wnd[idx]:.4f},{lon_wnd[idx]:.4f})&quot;
+    )
+
+# Wind values only for 1980 onward period
+u_sel = uwnd.uwnd.sel(time=time_idx)
+v_sel = vwnd.vwnd.sel(time=time_idx)
+
+for gname, sp_idx in WIND_SEAPOINT_INDICES.items():
+    gi = int(gname.replace(&quot;grid&quot;, &quot;&quot;))
+    u = u_sel.isel(seapoint=sp_idx).values
+    v = v_sel.isel(seapoint=sp_idx).values
+    ws = np.sqrt(u**2 + v**2)
+    wd = (np.degrees(np.arctan2(-u, -v)) + 360) % 360  # meteorological direction (from which wind comes)
+    df[f&quot;ws0g{gi}&quot;] = ws
+    df[f&quot;wd0g{gi}&quot;] = wd
+
+# Keep wide format for KMA/MDA workflow
+df_reset_wide = df.reset_index()
+
+# Build long format (time, latitude, longitude, vars) to match NC-style structure
+# similar to inputs/data_daily_mslp_sst_mld_q_index.nc convention.
+grid_meta = {
+    f&quot;g{gi}&quot;: {
+        &quot;latitude&quot;: TARGET_POINTS[f&quot;grid{gi}&quot;][&quot;lat&quot;],
+        &quot;longitude&quot;: TARGET_POINTS[f&quot;grid{gi}&quot;][&quot;lon&quot;],
+    }
+    for gi in range(1, len(grids) + 1)
+}
+
+long_parts = []
+for gkey, meta in grid_meta.items():
+    cols_g = [&quot;time&quot;] + [c for c in df_reset_wide.columns if c.endswith(gkey)]
+    tmp = df_reset_wide[cols_g].copy()
+
+    # Remove grid suffix so each row represents one (time, lat, lon) point
+    rename_map = {c: c.replace(gkey, &quot;&quot;) for c in cols_g if c != &quot;time&quot;}
+    tmp = tmp.rename(columns=rename_map)
+
+    tmp[&quot;latitude&quot;] = meta[&quot;latitude&quot;]
+    tmp[&quot;longitude&quot;] = meta[&quot;longitude&quot;]
+    long_parts.append(tmp)
+
+# Final table in NC-like stacked layout
+df_reset = pd.concat(long_parts, ignore_index=True)
+df_reset = df_reset.sort_values([&quot;time&quot;, &quot;latitude&quot;, &quot;longitude&quot;]).reset_index(drop=True)
+
+# Put coords first for readability / compatibility
+coord_cols = [&quot;time&quot;, &quot;latitude&quot;, &quot;longitude&quot;]
+var_cols = [c for c in df_reset.columns if c not in coord_cols]
+df_reset = df_reset[coord_cols + var_cols]
+
+df_reset.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common time span: 1980-01-01 00:00:00 to 2023-12-31 23:00:00 len = 384960
+
+Distance from target to closest wind grid point (km):
+  grid1: 1.5347 km  (target 33.441,-77.766 -&gt; grid 33.4375,-77.7500)
+  grid2: 2.4424 km  (target 33.893,-76.984 -&gt; grid 33.8750,-77.0000)
+  grid3: 3.0968 km  (target 35.100,-75.360 -&gt; grid 35.1250,-75.3750)
+  grid4: 3.2810 km  (target 36.603,-74.837 -&gt; grid 36.6250,-74.8125)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>hs0</th>
+      <th>tp0</th>
+      <th>dp0</th>
+      <th>hs1</th>
+      <th>tp1</th>
+      <th>dp1</th>
+      <th>ws0</th>
+      <th>wd0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980-01-01 00:00:00</td>
+      <td>33.4410</td>
+      <td>-77.7660</td>
+      <td>0.458163</td>
+      <td>3.463372</td>
+      <td>31.282648</td>
+      <td>0.470408</td>
+      <td>3.483541</td>
+      <td>89.980125</td>
+      <td>6.802941</td>
+      <td>358.315316</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1980-01-01 00:00:00</td>
+      <td>33.8928</td>
+      <td>-76.9845</td>
+      <td>1.442618</td>
+      <td>4.959985</td>
+      <td>37.623508</td>
+      <td>0.366058</td>
+      <td>5.387362</td>
+      <td>183.934891</td>
+      <td>10.358571</td>
+      <td>30.774036</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1980-01-01 00:00:00</td>
+      <td>35.1000</td>
+      <td>-75.3600</td>
+      <td>1.040798</td>
+      <td>4.888400</td>
+      <td>25.187220</td>
+      <td>0.386813</td>
+      <td>6.038879</td>
+      <td>193.351868</td>
+      <td>10.448445</td>
+      <td>39.173658</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1980-01-01 00:00:00</td>
+      <td>36.6030</td>
+      <td>-74.8370</td>
+      <td>1.009253</td>
+      <td>4.889982</td>
+      <td>27.594248</td>
+      <td>0.327218</td>
+      <td>4.891499</td>
+      <td>335.372925</td>
+      <td>7.887332</td>
+      <td>39.340518</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1980-01-01 01:00:00</td>
+      <td>33.4410</td>
+      <td>-77.7660</td>
+      <td>0.643689</td>
+      <td>3.734118</td>
+      <td>28.599438</td>
+      <td>0.521210</td>
+      <td>3.760188</td>
+      <td>88.749870</td>
+      <td>7.502666</td>
+      <td>358.472475</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+
+# Force 1980+ reference for plotted wind grid
+START_DATE = &quot;1980-01-01&quot;
+time_ref = np.datetime64(START_DATE)
+
+wind_lats = uwnd.latitude.sel(time=time_ref).values
+wind_lons = uwnd.longitude.sel(time=time_ref).values
+
+target_names = list(TARGET_POINTS.keys())
+target_lats = [TARGET_POINTS[k][&quot;lat&quot;] for k in target_names]
+target_lons = [TARGET_POINTS[k][&quot;lon&quot;] for k in target_names]
+
+# Recompute nearest for THIS exact plotted coordinate snapshot
+plot_nearest_idx = {}
+for name in target_names:
+    pt = TARGET_POINTS[name]
+    d = np.array(
+        [haversine_km(pt[&quot;lat&quot;], pt[&quot;lon&quot;], la, lo) for la, lo in zip(wind_lats, wind_lons)]
+    )
+    plot_nearest_idx[name] = int(np.argmin(d))
+
+nearest_lats = [wind_lats[plot_nearest_idx[k]] for k in target_names]
+nearest_lons = [wind_lons[plot_nearest_idx[k]] for k in target_names]
+
+fig = plt.figure(figsize=(10, 8))
+ax = plt.axes(projection=ccrs.PlateCarree())
+
+all_lats = np.array(list(wind_lats) + target_lats)
+all_lons = np.array(list(wind_lons) + target_lons)
+ax.set_extent(
+    [
+        float(np.nanmin(all_lons) - 0.4),
+        float(np.nanmax(all_lons) + 0.4),
+        float(np.nanmin(all_lats) - 0.4),
+        float(np.nanmax(all_lats) + 0.4),
+    ],
+    crs=ccrs.PlateCarree(),
+)
+
+ax.add_feature(cfeature.LAND, facecolor=&quot;lightgray&quot;, zorder=0)
+ax.add_feature(cfeature.OCEAN, facecolor=&quot;aliceblue&quot;, zorder=0)
+ax.add_feature(cfeature.COASTLINE, linewidth=0.8)
+ax.add_feature(cfeature.BORDERS, linewidth=0.5)
+
+gl = ax.gridlines(draw_labels=True, linewidth=0.4, color=&quot;gray&quot;, alpha=0.5, linestyle=&quot;--&quot;)
+gl.top_labels = False
+gl.right_labels = False
+
+ax.scatter(
+    wind_lons, wind_lats, s=10, color=&quot;tab:blue&quot;, alpha=0.45,
+    transform=ccrs.PlateCarree(), label=&quot;Wind seapoints (1980 ref)&quot;
+)
+ax.scatter(
+    target_lons, target_lats, s=90, color=&quot;crimson&quot;, marker=&quot;x&quot;, linewidths=2,
+    transform=ccrs.PlateCarree(), label=&quot;Desired coordinates&quot;
+)
+ax.scatter(
+    nearest_lons, nearest_lats, s=55, facecolors=&quot;none&quot;, edgecolors=&quot;black&quot;,
+    marker=&quot;o&quot;, linewidths=1.2, transform=ccrs.PlateCarree(),
+    label=&quot;Chosen nearest&quot;
+)
+
+for name, lon, lat in zip(target_names, target_lons, target_lats):
+    ax.text(lon + 0.03, lat + 0.03, name, fontsize=9, color=&quot;crimson&quot;, transform=ccrs.PlateCarree())
+
+ax.set_title(&quot;Wind seapoints and desired coordinates (1980 reference)&quot;)
+ax.legend(loc=&quot;lower left&quot;)
+plt.tight_layout()
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/66ea43c807f4b6406c09a6006069fad38372856ce6268501f5f891a144b3fba9.png" src="../_images/66ea43c807f4b6406c09a6006069fad38372856ce6268501f5f891a144b3fba9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># df_reset has time as column; filter by time range
+df_reset[(df_reset[&quot;time&quot;] &gt;= &quot;1980-01-09 00:00:00&quot;)]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>hs0</th>
+      <th>tp0</th>
+      <th>dp0</th>
+      <th>hs1</th>
+      <th>tp1</th>
+      <th>dp1</th>
+      <th>ws0</th>
+      <th>wd0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>768</th>
+      <td>1980-01-09 00:00:00</td>
+      <td>33.4410</td>
+      <td>-77.7660</td>
+      <td>0.190321</td>
+      <td>3.207462</td>
+      <td>257.043793</td>
+      <td>1.161628</td>
+      <td>5.676017</td>
+      <td>213.630768</td>
+      <td>4.346263</td>
+      <td>293.025492</td>
+    </tr>
+    <tr>
+      <th>769</th>
+      <td>1980-01-09 00:00:00</td>
+      <td>33.8928</td>
+      <td>-76.9845</td>
+      <td>0.021489</td>
+      <td>2.607721</td>
+      <td>295.406952</td>
+      <td>1.186876</td>
+      <td>5.677886</td>
+      <td>212.837189</td>
+      <td>3.488553</td>
+      <td>332.700428</td>
+    </tr>
+    <tr>
+      <th>770</th>
+      <td>1980-01-09 00:00:00</td>
+      <td>35.1000</td>
+      <td>-75.3600</td>
+      <td>0.552015</td>
+      <td>3.605955</td>
+      <td>15.893236</td>
+      <td>1.161022</td>
+      <td>9.958192</td>
+      <td>62.983879</td>
+      <td>3.981206</td>
+      <td>25.277722</td>
+    </tr>
+    <tr>
+      <th>771</th>
+      <td>1980-01-09 00:00:00</td>
+      <td>36.6030</td>
+      <td>-74.8370</td>
+      <td>0.706083</td>
+      <td>3.780783</td>
+      <td>12.538882</td>
+      <td>0.904757</td>
+      <td>9.969284</td>
+      <td>62.532021</td>
+      <td>6.888396</td>
+      <td>27.681062</td>
+    </tr>
+    <tr>
+      <th>772</th>
+      <td>1980-01-09 01:00:00</td>
+      <td>33.4410</td>
+      <td>-77.7660</td>
+      <td>0.095787</td>
+      <td>2.891500</td>
+      <td>268.881042</td>
+      <td>1.129800</td>
+      <td>5.671141</td>
+      <td>213.343994</td>
+      <td>3.448188</td>
+      <td>299.538782</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1539835</th>
+      <td>2023-12-31 22:00:00</td>
+      <td>36.6030</td>
+      <td>-74.8370</td>
+      <td>0.385670</td>
+      <td>3.255950</td>
+      <td>239.931580</td>
+      <td>0.489457</td>
+      <td>10.147433</td>
+      <td>106.766914</td>
+      <td>4.623851</td>
+      <td>248.428693</td>
+    </tr>
+    <tr>
+      <th>1539836</th>
+      <td>2023-12-31 23:00:00</td>
+      <td>33.4410</td>
+      <td>-77.7660</td>
+      <td>1.340088</td>
+      <td>5.133469</td>
+      <td>232.743088</td>
+      <td>0.342190</td>
+      <td>10.404208</td>
+      <td>109.500114</td>
+      <td>9.775480</td>
+      <td>239.237280</td>
+    </tr>
+    <tr>
+      <th>1539837</th>
+      <td>2023-12-31 23:00:00</td>
+      <td>33.8928</td>
+      <td>-76.9845</td>
+      <td>1.326520</td>
+      <td>5.134686</td>
+      <td>231.731277</td>
+      <td>0.356444</td>
+      <td>10.272058</td>
+      <td>104.469170</td>
+      <td>10.023971</td>
+      <td>241.389540</td>
+    </tr>
+    <tr>
+      <th>1539838</th>
+      <td>2023-12-31 23:00:00</td>
+      <td>35.1000</td>
+      <td>-75.3600</td>
+      <td>0.986716</td>
+      <td>5.478639</td>
+      <td>232.411880</td>
+      <td>0.738887</td>
+      <td>5.482986</td>
+      <td>191.241348</td>
+      <td>7.472617</td>
+      <td>254.475889</td>
+    </tr>
+    <tr>
+      <th>1539839</th>
+      <td>2023-12-31 23:00:00</td>
+      <td>36.6030</td>
+      <td>-74.8370</td>
+      <td>0.280547</td>
+      <td>3.469378</td>
+      <td>223.339005</td>
+      <td>0.487526</td>
+      <td>10.266487</td>
+      <td>106.405670</td>
+      <td>4.294182</td>
+      <td>242.241459</td>
+    </tr>
+  </tbody>
+</table>
+<p>1539072 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Build PCA input from wide table so each g# keeps its physical coordinate.
+grids_idx = [f&quot;g{i}&quot; for i in range(1, len(grids) + 1)]
+grid_to_lat = {f&quot;g{i}&quot;: TARGET_POINTS[f&quot;grid{i}&quot;][&quot;lat&quot;] for i in range(1, len(grids) + 1)}
+grid_to_lon = {f&quot;g{i}&quot;: TARGET_POINTS[f&quot;grid{i}&quot;][&quot;lon&quot;] for i in range(1, len(grids) + 1)}
+
+# ----- hourly -&gt; daily -----
+df_pca_wide = df_reset_wide.copy()
+df_pca_wide[&quot;time&quot;] = pd.to_datetime(df_pca_wide[&quot;time&quot;])
+df_pca_wide = df_pca_wide.set_index(&quot;time&quot;).sort_index()
+
+dir_cols = [c for c in df_pca_wide.columns if c.startswith((&quot;dp&quot;, &quot;wd&quot;))]
+non_dir_cols = [c for c in df_pca_wide.columns if c not in dir_cols]
+
+def circular_mean_deg(s):
+    rad = np.deg2rad(s.dropna())
+    if len(rad) == 0:
+        return np.nan
+    ang = np.rad2deg(np.arctan2(np.sin(rad).mean(), np.cos(rad).mean()))
+    return (ang + 360) % 360
+
+daily = df_pca_wide[non_dir_cols].resample(&quot;D&quot;).mean()
+for c in dir_cols:
+    daily[c] = df_pca_wide[c].resample(&quot;D&quot;).apply(circular_mean_deg)
+
+# optional final fill for any remaining gaps
+daily = daily.interpolate(method=&quot;time&quot;, limit_direction=&quot;both&quot;).bfill().ffill()
+
+if use_PCA:
+    pca = PCA(n_components=0.95)
+    pca_vars = [&quot;hs0&quot;, &quot;tp0&quot;, &quot;dp0&quot;, &quot;hs1&quot;, &quot;tp1&quot;, &quot;dp1&quot;, &quot;ws0&quot;, &quot;wd0&quot;]
+
+    ds_vars = {}
+    for base_var in pca_vars:
+        cols = [f&quot;{base_var}{g}&quot; for g in grids_idx]
+        ds_vars[base_var] = ((&quot;time&quot;, &quot;grid&quot;), daily[cols].to_numpy())
+
+    ds_pca = xr.Dataset(
+        data_vars=ds_vars,
+        coords={
+            &quot;time&quot;: daily.index.values,
+            &quot;grid&quot;: grids_idx,
+            &quot;latitude&quot;: (&quot;grid&quot;, [grid_to_lat[g] for g in grids_idx]),
+            &quot;longitude&quot;: (&quot;grid&quot;, [grid_to_lon[g] for g in grids_idx]),
+        },
+    )
+
+    pca.fit_transform(
+        data=ds_pca,
+        vars_to_stack=pca_vars,
+        coords_to_stack=[&quot;grid&quot;],
+        pca_dim_for_rows=&quot;time&quot;,
+    )
+
+    pca.plot_pcs(num_pcs=10)
+    data = pca.pcs_df.copy()
+    feature_cols = [c for c in data.columns if c.startswith(&quot;PC&quot;)]
+    if len(feature_cols) == 0:
+        raise ValueError(&quot;use_PCA=True but no PC columns were generated in pca.pcs_df&quot;)
+    data = data.loc[:, feature_cols]
+else:
+    data = daily.copy()
+    feature_cols = [
+        c for c in data.columns
+        if c.startswith((&quot;hs&quot;, &quot;tp&quot;, &quot;ws&quot;, &quot;dp&quot;, &quot;wd&quot;))
+    ]
+
+# Keep a deterministic ordering for downstream MDA/KMA
+if len(feature_cols) == 0:
+    raise ValueError(&quot;No feature columns found for clustering&quot;)
+
+data.index = pd.to_datetime(data.index)
+data = data.sort_index()
+feature_cols = list(data.columns)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.95
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-08 12:10:58,498 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,499 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,499 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,500 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,501 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,501 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,502 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+2026-07-08 12:10:58,502 - PCA - WARNING - Using 4 out of 4 available variablesIf this is originated by using few times, please check &#39;nan_threshold_to_drop&#39; parameter in fit method
+</pre></div>
+</div>
+<img alt="../_images/426cc09620608d6dd3b76df8bb9bb2f0dcf76fa2fc13f1ae15d196dc56414658.png" src="../_images/426cc09620608d6dd3b76df8bb9bb2f0dcf76fa2fc13f1ae15d196dc56414658.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>PC3</th>
+      <th>PC4</th>
+      <th>PC5</th>
+      <th>PC6</th>
+      <th>PC7</th>
+      <th>PC8</th>
+      <th>PC9</th>
+      <th>PC10</th>
+      <th>PC11</th>
+      <th>PC12</th>
+      <th>PC13</th>
+      <th>PC14</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>0.619855</td>
+      <td>-1.292098</td>
+      <td>-2.979650</td>
+      <td>-1.874167</td>
+      <td>1.823666</td>
+      <td>-1.889442</td>
+      <td>0.328605</td>
+      <td>0.572648</td>
+      <td>1.818576</td>
+      <td>-1.118854</td>
+      <td>0.553774</td>
+      <td>-1.635412</td>
+      <td>-1.320633</td>
+      <td>2.256849</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>3.776736</td>
+      <td>2.170439</td>
+      <td>0.828006</td>
+      <td>-1.223420</td>
+      <td>2.339741</td>
+      <td>-1.935077</td>
+      <td>0.511117</td>
+      <td>-0.936700</td>
+      <td>-0.290170</td>
+      <td>-1.283785</td>
+      <td>0.233727</td>
+      <td>-1.810496</td>
+      <td>-0.666133</td>
+      <td>-1.097558</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>-1.559385</td>
+      <td>1.495612</td>
+      <td>3.756596</td>
+      <td>-2.543712</td>
+      <td>2.095535</td>
+      <td>0.315672</td>
+      <td>-0.756117</td>
+      <td>0.162446</td>
+      <td>-1.195109</td>
+      <td>0.690312</td>
+      <td>0.156136</td>
+      <td>1.276504</td>
+      <td>1.426322</td>
+      <td>-0.122977</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>-1.521929</td>
+      <td>-3.672464</td>
+      <td>0.293766</td>
+      <td>-1.944003</td>
+      <td>1.811750</td>
+      <td>-0.881205</td>
+      <td>1.323161</td>
+      <td>0.007692</td>
+      <td>-0.214386</td>
+      <td>0.142603</td>
+      <td>-0.000686</td>
+      <td>0.255574</td>
+      <td>-0.013191</td>
+      <td>0.392484</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>4.923933</td>
+      <td>2.971154</td>
+      <td>0.980235</td>
+      <td>-0.534036</td>
+      <td>2.360283</td>
+      <td>-2.627799</td>
+      <td>1.552745</td>
+      <td>-2.051353</td>
+      <td>0.094612</td>
+      <td>2.285852</td>
+      <td>-0.083389</td>
+      <td>0.093646</td>
+      <td>0.990989</td>
+      <td>-0.891518</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># date_to_check = &quot;1980-01-09&quot;
+# data_daily = data
+# row = data_daily.loc[date_to_check]
+# nan_vars = row[row.isna()].index.tolist()
+# print(f&quot;{date_to_check}: NaNs in {len(nan_vars)} variable(s): {nan_vars}&quot;)
+# print(f&quot;\nFull row (NaN = missing):\n{row}&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="mda">
+<h1>MDA<a class="headerlink" href="#mda" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n_clusters = 5000
+
+mda_ob = MDA(num_centers=n_clusters)
+mda_ob.logger_disabled = True
+custom_scale_factor = {}
+
+if use_PCA:
+    columns_names = tuple(c for c in data.columns if c.startswith(&quot;PC&quot;))
+    dir_vars = []
+else:
+    columns_names = tuple(c for c in data.columns if c.startswith((&quot;hs&quot;, &quot;tp&quot;, &quot;ws&quot;, &quot;dp&quot;, &quot;wd&quot;)))
+    dir_vars = [
+        &#39;dp0g1&#39;, &#39;dp0g2&#39;, &#39;dp0g3&#39;, &#39;dp0g4&#39;,
+        &#39;dp1g1&#39;, &#39;dp1g2&#39;, &#39;dp1g3&#39;, &#39;dp1g4&#39;,
+        &#39;wd0g1&#39;, &#39;wd0g2&#39;, &#39;wd0g3&#39;, &#39;wd0g4&#39;,
+    ]
+
+if len(columns_names) == 0:
+    raise ValueError(&quot;No clustering columns found for MDA&quot;)
+
+# 1) Feature variables: data-based [min, max]
+for col in columns_names:
+    vmin = float(data[col].min())
+    vmax = float(data[col].max())
+    if vmin == vmax:
+        vmax = vmin + 1e-6
+    custom_scale_factor[col] = [vmin, vmax]
+
+# 2) Directional variables: weaken their influence via u/v scales
+for dv in dir_vars:
+    custom_scale_factor[f&quot;{dv}_u&quot;] = [-1.5, 1.5]
+    custom_scale_factor[f&quot;{dv}_v&quot;] = [-1.5, 1.5]
+
+# 3) Fit MDA
+mda_ob.fit(
+    data=data.loc[:, list(columns_names)],
+    directional_variables=dir_vars,
+    normalize_data=True,
+    custom_scale_factor=custom_scale_factor,
+)
+
+if len(mda_ob.centroid_real_indices) == 0:
+    raise ValueError(&quot;MDA returned no centroid_real_indices&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fig, axes = plt.subplots(len(data.columns),len(data.columns), figsize=(2*len(data.columns), 2*len(data.columns)))
+
+for i in range(len(data.columns)):
+    for j in range(len(data.columns)):
+        if i &gt;= j:              # lower triangle
+            axes[i, j].set_visible(False)
+        else:
+            axes[i,j].scatter(data[data.columns[j]],data[data.columns[i]], color=&#39;lightgray&#39;,s=2)
+            axes[i,j].scatter(mda_ob.centroids[data.columns[j]], mda_ob.centroids[data.columns[i]], color=&#39;k&#39;,s=3)
+            if j-i == 1:
+                axes[i,j].set_xlabel(data.columns[j])
+                axes[i,j].set_ylabel(data.columns[i])
+
+plt.tight_layout()
+# Save figure
+fig.savefig(f&#39;outputs/Figures/correlation_matrix_data_MDA_Waves.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0f3d35ebabd7fd953b3ae673b2eaf29ca7bb57efe5294d16100379f1e7c9b5e8.png" src="../_images/0f3d35ebabd7fd953b3ae673b2eaf29ca7bb57efe5294d16100379f1e7c9b5e8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Build KMA training dataframe directly from current MDA output
+kma_df = data.iloc[mda_ob.centroid_real_indices].copy()
+
+if use_PCA:
+    kma_feature_cols = [c for c in kma_df.columns if c.startswith(&quot;PC&quot;)]
+else:
+    kma_feature_cols = [
+        c for c in kma_df.columns
+        if c.startswith((&quot;hs&quot;, &quot;tp&quot;, &quot;ws&quot;, &quot;dp&quot;, &quot;wd&quot;))
+    ]
+
+if len(kma_feature_cols) == 0:
+    raise ValueError(&quot;No KMA feature columns found in kma_df&quot;)
+
+kma_df = kma_df.loc[:, kma_feature_cols].sort_index()
+print(&quot;kma_df shape:&quot;, kma_df.shape)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kma_df shape: (5000, 14)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="k-medoids-from-mda">
+<h2>K-medoids from MDA<a class="headerlink" href="#k-medoids-from-mda" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n_clusters = 144
+kma_ob = KMA(num_clusters=n_clusters, seed=0, algorithm=&quot;kmeans&quot;)
+kma_ob.logger_disabled = True
+custom_scale_factor = {}
+
+# Rebuild kma_df from current MDA state to avoid stale notebook variables
+kma_df = data.iloc[mda_ob.centroid_real_indices].copy()
+
+if use_PCA:
+    columns_names = tuple(c for c in kma_df.columns if c.startswith(&quot;PC&quot;))
+    dir_vars = []
+else:
+    columns_names = tuple(c for c in kma_df.columns if c.startswith((&quot;hs&quot;, &quot;tp&quot;, &quot;ws&quot;, &quot;dp&quot;, &quot;wd&quot;)))
+    dir_vars = [
+        &#39;dp0g1&#39;, &#39;dp0g2&#39;, &#39;dp0g3&#39;, &#39;dp0g4&#39;,
+        &#39;dp1g1&#39;, &#39;dp1g2&#39;, &#39;dp1g3&#39;, &#39;dp1g4&#39;,
+        &#39;wd0g1&#39;, &#39;wd0g2&#39;, &#39;wd0g3&#39;, &#39;wd0g4&#39;,
+    ]
+
+if len(columns_names) == 0:
+    raise ValueError(&quot;No clustering columns found for KMA&quot;)
+
+kma_df = kma_df.loc[:, list(columns_names)].sort_index()
+print(&quot;KMA scaling source: kma_df (from MDA centroid_real_indices)&quot;)
+print(&quot;kma_df rows/features:&quot;, kma_df.shape)
+
+# 1) Feature variables: data-based [min, max]
+for col in columns_names:
+    vmin = float(kma_df[col].min())
+    vmax = float(kma_df[col].max())
+    if vmin == vmax:
+        vmax = vmin + 1e-6
+    custom_scale_factor[col] = [vmin, vmax]
+
+# 2) Directional variables: weaken their influence via u/v scales
+for dv in dir_vars:
+    custom_scale_factor[f&quot;{dv}_u&quot;] = [-1.5, 1.5]
+    custom_scale_factor[f&quot;{dv}_v&quot;] = [-1.5, 1.5]
+
+# 3) Fit KMA with k-medoids
+kma_ob.fit(
+    data=kma_df,
+    directional_variables=dir_vars,
+    normalize_data=True,
+    custom_scale_factor=custom_scale_factor,
+    min_number_of_points=5,
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KMA scaling source: kma_df (from MDA centroid_real_indices)
+kma_df rows/features: (5000, 14)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fig, axes = plt.subplots(len(kma_df.columns),len(kma_df.columns), figsize=(2*len(kma_df.columns), 2*len(kma_df.columns)))
+
+for i in range(len(kma_df.columns)):
+    for j in range(len(kma_df.columns)):
+        if i &gt;= j:              # lower triangle
+            axes[i, j].set_visible(False)
+        else:
+            axes[i,j].scatter(kma_df[kma_df.columns[j]],kma_df[kma_df.columns[i]], color=&#39;lightgray&#39;,s=2)
+            axes[i,j].scatter(kma_ob.centroids[kma_df.columns[j]], kma_ob.centroids[kma_df.columns[i]], color=&#39;k&#39;,s=3)
+            if j-i == 1:
+                axes[i,j].set_xlabel(kma_df.columns[j])
+                axes[i,j].set_ylabel(kma_df.columns[i])
+
+plt.tight_layout()
+# Save figure
+fig.savefig(f&#39;outputs/Figures/correlation_matrix_kma_Waves.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3060f1fc1887ef6712ab6e0551265ca5b83bc2061d6309d70dcca32f436b0d50.png" src="../_images/3060f1fc1887ef6712ab6e0551265ca5b83bc2061d6309d70dcca32f436b0d50.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kma_ob.centroids
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>PC3</th>
+      <th>PC4</th>
+      <th>PC5</th>
+      <th>PC6</th>
+      <th>PC7</th>
+      <th>PC8</th>
+      <th>PC9</th>
+      <th>PC10</th>
+      <th>PC11</th>
+      <th>PC12</th>
+      <th>PC13</th>
+      <th>PC14</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.099306</td>
+      <td>-3.911079</td>
+      <td>-0.587737</td>
+      <td>0.599351</td>
+      <td>0.686840</td>
+      <td>-0.495559</td>
+      <td>-1.005177</td>
+      <td>0.115941</td>
+      <td>-0.119156</td>
+      <td>0.163866</td>
+      <td>0.332131</td>
+      <td>0.196199</td>
+      <td>0.081037</td>
+      <td>0.118823</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.747420</td>
+      <td>-2.873128</td>
+      <td>-0.408958</td>
+      <td>-0.413325</td>
+      <td>-0.298761</td>
+      <td>1.251718</td>
+      <td>-1.671026</td>
+      <td>-0.533081</td>
+      <td>-0.092339</td>
+      <td>-1.643448</td>
+      <td>-0.623899</td>
+      <td>0.227600</td>
+      <td>0.260881</td>
+      <td>0.033474</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-3.492327</td>
+      <td>-2.916338</td>
+      <td>0.498289</td>
+      <td>0.720961</td>
+      <td>0.432618</td>
+      <td>0.834688</td>
+      <td>-0.008378</td>
+      <td>-0.116390</td>
+      <td>-0.105077</td>
+      <td>-1.063801</td>
+      <td>0.230834</td>
+      <td>-0.144719</td>
+      <td>0.297168</td>
+      <td>-0.181293</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.723427</td>
+      <td>-0.769458</td>
+      <td>-1.681671</td>
+      <td>0.728819</td>
+      <td>-2.935513</td>
+      <td>-0.452933</td>
+      <td>-1.630234</td>
+      <td>0.093450</td>
+      <td>-0.206625</td>
+      <td>0.456762</td>
+      <td>0.954945</td>
+      <td>-0.567947</td>
+      <td>0.083168</td>
+      <td>-0.394087</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.921584</td>
+      <td>-3.064216</td>
+      <td>3.087464</td>
+      <td>3.586370</td>
+      <td>1.158486</td>
+      <td>0.672543</td>
+      <td>0.089719</td>
+      <td>0.045185</td>
+      <td>0.520480</td>
+      <td>-0.185042</td>
+      <td>0.847645</td>
+      <td>-0.116131</td>
+      <td>0.491639</td>
+      <td>-0.172215</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>0.291908</td>
+      <td>-2.111185</td>
+      <td>-2.020073</td>
+      <td>0.408672</td>
+      <td>-1.320994</td>
+      <td>-0.382077</td>
+      <td>-0.780887</td>
+      <td>-0.537282</td>
+      <td>0.607254</td>
+      <td>-0.050593</td>
+      <td>-0.575653</td>
+      <td>-0.089561</td>
+      <td>0.348890</td>
+      <td>-0.070548</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>-0.274518</td>
+      <td>-1.801751</td>
+      <td>0.185779</td>
+      <td>-0.013671</td>
+      <td>1.491279</td>
+      <td>-1.819695</td>
+      <td>0.700899</td>
+      <td>0.313850</td>
+      <td>0.662095</td>
+      <td>-0.621582</td>
+      <td>-0.459353</td>
+      <td>-1.233938</td>
+      <td>-0.733047</td>
+      <td>0.719224</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>-0.048872</td>
+      <td>1.464028</td>
+      <td>-1.611733</td>
+      <td>0.516719</td>
+      <td>0.111871</td>
+      <td>0.087439</td>
+      <td>0.166052</td>
+      <td>-0.288414</td>
+      <td>-0.175315</td>
+      <td>0.109789</td>
+      <td>-0.457463</td>
+      <td>0.408229</td>
+      <td>-0.333486</td>
+      <td>-0.108599</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>1.040498</td>
+      <td>-2.214624</td>
+      <td>-2.024025</td>
+      <td>-0.532100</td>
+      <td>-0.940324</td>
+      <td>-0.654104</td>
+      <td>-1.805707</td>
+      <td>-0.285271</td>
+      <td>-0.487465</td>
+      <td>0.203077</td>
+      <td>0.391300</td>
+      <td>-0.301878</td>
+      <td>0.077755</td>
+      <td>-0.071526</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>4.036422</td>
+      <td>-0.008038</td>
+      <td>-1.740158</td>
+      <td>2.562206</td>
+      <td>-1.097579</td>
+      <td>-0.046024</td>
+      <td>-1.596597</td>
+      <td>-0.185752</td>
+      <td>-0.616562</td>
+      <td>0.515802</td>
+      <td>0.285261</td>
+      <td>0.172546</td>
+      <td>-0.513512</td>
+      <td>0.136739</td>
+    </tr>
+  </tbody>
+</table>
+<p>144 rows × 14 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Predict on the same feature set used to train KMA
+predict_data = data.loc[:, list(kma_df.columns)].copy().sort_index()
+print(&quot;Predict data aligned to KMA training columns:&quot;, len(kma_df.columns), &quot;features&quot;)
+
+nearest_centroids_idxs, nearest_centroids_df = kma_ob.predict(data=predict_data)
+
+if len(nearest_centroids_idxs) != len(predict_data):
+    raise ValueError(
+        f&quot;Prediction length mismatch: {len(nearest_centroids_idxs)} vs {len(predict_data)}&quot;
+    )
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predict data aligned to KMA training columns: 14 features
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#save as csv
+kma_ob.centroids.to_csv(f&#39;outputs/KMA/centroids_kma_pcs.csv&#39;)
+nearest_centroids_idxs.to_csv(f&#39;outputs/KMA/nearest_centroids_idxs_kma_pcs.csv&#39;)
+nearest_centroids_df.to_csv(f&#39;outputs/KMA/nearest_centroids_df_kma_pcs.csv&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>kma_ob.centroids
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>PC3</th>
+      <th>PC4</th>
+      <th>PC5</th>
+      <th>PC6</th>
+      <th>PC7</th>
+      <th>PC8</th>
+      <th>PC9</th>
+      <th>PC10</th>
+      <th>PC11</th>
+      <th>PC12</th>
+      <th>PC13</th>
+      <th>PC14</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.099306</td>
+      <td>-3.911079</td>
+      <td>-0.587737</td>
+      <td>0.599351</td>
+      <td>0.686840</td>
+      <td>-0.495559</td>
+      <td>-1.005177</td>
+      <td>0.115941</td>
+      <td>-0.119156</td>
+      <td>0.163866</td>
+      <td>0.332131</td>
+      <td>0.196199</td>
+      <td>0.081037</td>
+      <td>0.118823</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.747420</td>
+      <td>-2.873128</td>
+      <td>-0.408958</td>
+      <td>-0.413325</td>
+      <td>-0.298761</td>
+      <td>1.251718</td>
+      <td>-1.671026</td>
+      <td>-0.533081</td>
+      <td>-0.092339</td>
+      <td>-1.643448</td>
+      <td>-0.623899</td>
+      <td>0.227600</td>
+      <td>0.260881</td>
+      <td>0.033474</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-3.492327</td>
+      <td>-2.916338</td>
+      <td>0.498289</td>
+      <td>0.720961</td>
+      <td>0.432618</td>
+      <td>0.834688</td>
+      <td>-0.008378</td>
+      <td>-0.116390</td>
+      <td>-0.105077</td>
+      <td>-1.063801</td>
+      <td>0.230834</td>
+      <td>-0.144719</td>
+      <td>0.297168</td>
+      <td>-0.181293</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.723427</td>
+      <td>-0.769458</td>
+      <td>-1.681671</td>
+      <td>0.728819</td>
+      <td>-2.935513</td>
+      <td>-0.452933</td>
+      <td>-1.630234</td>
+      <td>0.093450</td>
+      <td>-0.206625</td>
+      <td>0.456762</td>
+      <td>0.954945</td>
+      <td>-0.567947</td>
+      <td>0.083168</td>
+      <td>-0.394087</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.921584</td>
+      <td>-3.064216</td>
+      <td>3.087464</td>
+      <td>3.586370</td>
+      <td>1.158486</td>
+      <td>0.672543</td>
+      <td>0.089719</td>
+      <td>0.045185</td>
+      <td>0.520480</td>
+      <td>-0.185042</td>
+      <td>0.847645</td>
+      <td>-0.116131</td>
+      <td>0.491639</td>
+      <td>-0.172215</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>0.291908</td>
+      <td>-2.111185</td>
+      <td>-2.020073</td>
+      <td>0.408672</td>
+      <td>-1.320994</td>
+      <td>-0.382077</td>
+      <td>-0.780887</td>
+      <td>-0.537282</td>
+      <td>0.607254</td>
+      <td>-0.050593</td>
+      <td>-0.575653</td>
+      <td>-0.089561</td>
+      <td>0.348890</td>
+      <td>-0.070548</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>-0.274518</td>
+      <td>-1.801751</td>
+      <td>0.185779</td>
+      <td>-0.013671</td>
+      <td>1.491279</td>
+      <td>-1.819695</td>
+      <td>0.700899</td>
+      <td>0.313850</td>
+      <td>0.662095</td>
+      <td>-0.621582</td>
+      <td>-0.459353</td>
+      <td>-1.233938</td>
+      <td>-0.733047</td>
+      <td>0.719224</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>-0.048872</td>
+      <td>1.464028</td>
+      <td>-1.611733</td>
+      <td>0.516719</td>
+      <td>0.111871</td>
+      <td>0.087439</td>
+      <td>0.166052</td>
+      <td>-0.288414</td>
+      <td>-0.175315</td>
+      <td>0.109789</td>
+      <td>-0.457463</td>
+      <td>0.408229</td>
+      <td>-0.333486</td>
+      <td>-0.108599</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>1.040498</td>
+      <td>-2.214624</td>
+      <td>-2.024025</td>
+      <td>-0.532100</td>
+      <td>-0.940324</td>
+      <td>-0.654104</td>
+      <td>-1.805707</td>
+      <td>-0.285271</td>
+      <td>-0.487465</td>
+      <td>0.203077</td>
+      <td>0.391300</td>
+      <td>-0.301878</td>
+      <td>0.077755</td>
+      <td>-0.071526</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>4.036422</td>
+      <td>-0.008038</td>
+      <td>-1.740158</td>
+      <td>2.562206</td>
+      <td>-1.097579</td>
+      <td>-0.046024</td>
+      <td>-1.596597</td>
+      <td>-0.185752</td>
+      <td>-0.616562</td>
+      <td>0.515802</td>
+      <td>0.285261</td>
+      <td>0.172546</td>
+      <td>-0.513512</td>
+      <td>0.136739</td>
+    </tr>
+  </tbody>
+</table>
+<p>144 rows × 14 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nearest_centroids_idxs
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kma_bmus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-27</th>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>2023-12-28</th>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>2023-12-29</th>
+      <td>102</td>
+    </tr>
+    <tr>
+      <th>2023-12-30</th>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>2023-12-31</th>
+      <td>78</td>
+    </tr>
+  </tbody>
+</table>
+<p>16071 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nearest_centroids_df
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>PC3</th>
+      <th>PC4</th>
+      <th>PC5</th>
+      <th>PC6</th>
+      <th>PC7</th>
+      <th>PC8</th>
+      <th>PC9</th>
+      <th>PC10</th>
+      <th>PC11</th>
+      <th>PC12</th>
+      <th>PC13</th>
+      <th>PC14</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>140</th>
+      <td>-0.274518</td>
+      <td>-1.801751</td>
+      <td>0.185779</td>
+      <td>-0.013671</td>
+      <td>1.491279</td>
+      <td>-1.819695</td>
+      <td>0.700899</td>
+      <td>0.313850</td>
+      <td>0.662095</td>
+      <td>-0.621582</td>
+      <td>-0.459353</td>
+      <td>-1.233938</td>
+      <td>-0.733047</td>
+      <td>0.719224</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>-0.062442</td>
+      <td>1.349026</td>
+      <td>1.419215</td>
+      <td>-0.403594</td>
+      <td>1.349734</td>
+      <td>-1.292453</td>
+      <td>-0.009482</td>
+      <td>0.210630</td>
+      <td>-0.090546</td>
+      <td>-1.521701</td>
+      <td>-0.361279</td>
+      <td>-1.567511</td>
+      <td>-0.945183</td>
+      <td>-0.259776</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>-0.475143</td>
+      <td>1.686311</td>
+      <td>3.539084</td>
+      <td>-1.286507</td>
+      <td>1.771291</td>
+      <td>-0.256143</td>
+      <td>-0.443123</td>
+      <td>-0.346635</td>
+      <td>-0.915664</td>
+      <td>-0.118585</td>
+      <td>-0.130130</td>
+      <td>0.311553</td>
+      <td>0.661228</td>
+      <td>-0.002072</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>-0.966169</td>
+      <td>-2.735623</td>
+      <td>-0.987642</td>
+      <td>-0.871301</td>
+      <td>1.740715</td>
+      <td>-0.652433</td>
+      <td>1.230668</td>
+      <td>-0.348860</td>
+      <td>0.219647</td>
+      <td>-0.099431</td>
+      <td>0.069974</td>
+      <td>0.460477</td>
+      <td>-0.049443</td>
+      <td>-0.166437</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.689280</td>
+      <td>2.133498</td>
+      <td>-0.606436</td>
+      <td>0.314826</td>
+      <td>1.178305</td>
+      <td>-2.192460</td>
+      <td>0.422474</td>
+      <td>-1.711450</td>
+      <td>0.254250</td>
+      <td>1.858908</td>
+      <td>0.200644</td>
+      <td>-0.375361</td>
+      <td>0.058136</td>
+      <td>-0.223742</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>5.321597</td>
+      <td>-1.959639</td>
+      <td>-0.946242</td>
+      <td>-0.645636</td>
+      <td>-0.097479</td>
+      <td>-0.444962</td>
+      <td>-0.974838</td>
+      <td>0.651349</td>
+      <td>0.211124</td>
+      <td>0.171993</td>
+      <td>0.031240</td>
+      <td>0.478441</td>
+      <td>-0.452683</td>
+      <td>-0.036441</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>2.901114</td>
+      <td>0.911897</td>
+      <td>4.049817</td>
+      <td>2.026079</td>
+      <td>2.576065</td>
+      <td>-0.861238</td>
+      <td>-0.965882</td>
+      <td>-0.355987</td>
+      <td>-0.773902</td>
+      <td>0.161338</td>
+      <td>-0.317360</td>
+      <td>-0.582944</td>
+      <td>1.306231</td>
+      <td>-0.300128</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>-1.767424</td>
+      <td>1.277980</td>
+      <td>0.932334</td>
+      <td>-0.009059</td>
+      <td>-1.012058</td>
+      <td>-0.646137</td>
+      <td>-1.131119</td>
+      <td>-0.044848</td>
+      <td>-0.160018</td>
+      <td>-0.000169</td>
+      <td>-0.203423</td>
+      <td>-0.416746</td>
+      <td>0.026197</td>
+      <td>0.267797</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>2.209151</td>
+      <td>2.856654</td>
+      <td>-1.323335</td>
+      <td>1.538309</td>
+      <td>-0.808201</td>
+      <td>-0.043527</td>
+      <td>-0.926678</td>
+      <td>-0.161790</td>
+      <td>-0.853041</td>
+      <td>0.022899</td>
+      <td>-0.377554</td>
+      <td>-0.334400</td>
+      <td>0.353200</td>
+      <td>0.055339</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>2.209151</td>
+      <td>2.856654</td>
+      <td>-1.323335</td>
+      <td>1.538309</td>
+      <td>-0.808201</td>
+      <td>-0.043527</td>
+      <td>-0.926678</td>
+      <td>-0.161790</td>
+      <td>-0.853041</td>
+      <td>0.022899</td>
+      <td>-0.377554</td>
+      <td>-0.334400</td>
+      <td>0.353200</td>
+      <td>0.055339</td>
+    </tr>
+  </tbody>
+</table>
+<p>16071 rows × 14 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Histogram: how often each cluster appears in the KMA assignments
+
+# Use the labels from nearest_centroids_idxs (each row = one time step)
+cluster_ids = nearest_centroids_idxs[&quot;kma_bmus&quot;]
+
+# Count occurrences per cluster ID
+cluster_counts = cluster_ids.value_counts().sort_index()
+
+fig, ax = plt.subplots(figsize=(20, 4))
+ax.bar(cluster_counts.index, cluster_counts.values, width=0.8, color=&#39;fuchsia&#39;, edgecolor=&quot;k&quot;)
+
+ax.set_xlabel(&quot;Cluster ID&quot;)
+ax.set_ylabel(&quot;Number of occurrences&quot;)
+ax.set_title(&quot;Cluster frequency in nearest_centroids assignments&quot;)
+ax.set_xticks(cluster_counts.index)
+ax.grid(axis=&quot;y&quot;, alpha=0.3)
+
+plt.tight_layout()
+# Save figure
+fig.savefig(f&#39;outputs/Figures/histogram_cluster_frequency_KMA.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)
+
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dbda3a834d975e2990f6e4b610ace324eef625b41c8b1941ce4ad92a8b3a71b3.png" src="../_images/dbda3a834d975e2990f6e4b610ace324eef625b41c8b1941ce4ad92a8b3a71b3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Attach ORIGINAL BMUs from nearest_centroids_idxs to daily dataframe
+# (run this after `nearest_centroids_idxs` is created)
+
+# Choose your daily frame source
+if &quot;daily&quot; in globals():
+    daily_with_bmus = daily.copy()
+else:
+    daily_with_bmus = data.copy()
+
+daily_with_bmus.index = pd.to_datetime(daily_with_bmus.index)
+
+bmus_daily = nearest_centroids_idxs.copy()
+bmus_daily.index = pd.to_datetime(bmus_daily.index)
+
+# Match by date (robust to timestamp hour differences)
+daily_with_bmus[&quot;date&quot;] = daily_with_bmus.index.normalize()
+bmus_daily[&quot;date&quot;] = bmus_daily.index.normalize()
+
+# Keep one original label per day and join only kma_bmus
+bmus_by_date = bmus_daily.drop_duplicates(subset=[&quot;date&quot;]).set_index(&quot;date&quot;)
+daily_with_bmus = daily_with_bmus.join(bmus_by_date[[&quot;kma_bmus&quot;]], on=&quot;date&quot;, how=&quot;left&quot;)
+
+daily_with_bmus = daily_with_bmus.drop(columns=[&quot;date&quot;])
+
+print(&quot;daily_with_bmus shape:&quot;, daily_with_bmus.shape)
+print(&quot;Rows without kma_bmus:&quot;, int(daily_with_bmus[&quot;kma_bmus&quot;].isna().sum()))
+daily_with_bmus.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>daily_with_bmus shape: (16071, 33)
+Rows without kma_bmus: 0
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hs0g1</th>
+      <th>tp0g1</th>
+      <th>hs1g1</th>
+      <th>tp1g1</th>
+      <th>hs0g2</th>
+      <th>tp0g2</th>
+      <th>hs1g2</th>
+      <th>tp1g2</th>
+      <th>hs0g3</th>
+      <th>tp0g3</th>
+      <th>...</th>
+      <th>dp1g2</th>
+      <th>dp0g3</th>
+      <th>dp1g3</th>
+      <th>dp0g4</th>
+      <th>dp1g4</th>
+      <th>wd0g1</th>
+      <th>wd0g2</th>
+      <th>wd0g3</th>
+      <th>wd0g4</th>
+      <th>kma_bmus</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>0.504218</td>
+      <td>4.407562</td>
+      <td>0.941927</td>
+      <td>5.509542</td>
+      <td>1.092657</td>
+      <td>5.538350</td>
+      <td>1.003170</td>
+      <td>5.698326</td>
+      <td>1.182951</td>
+      <td>4.826117</td>
+      <td>...</td>
+      <td>87.456085</td>
+      <td>36.762909</td>
+      <td>146.434998</td>
+      <td>42.303162</td>
+      <td>30.113525</td>
+      <td>343.059347</td>
+      <td>357.431806</td>
+      <td>28.793336</td>
+      <td>46.879320</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>1.109726</td>
+      <td>4.669451</td>
+      <td>1.124877</td>
+      <td>7.137868</td>
+      <td>1.118281</td>
+      <td>4.936560</td>
+      <td>1.385420</td>
+      <td>6.841274</td>
+      <td>1.718988</td>
+      <td>6.411386</td>
+      <td>...</td>
+      <td>85.963379</td>
+      <td>6.120483</td>
+      <td>70.231689</td>
+      <td>8.173706</td>
+      <td>74.062805</td>
+      <td>313.736234</td>
+      <td>318.592456</td>
+      <td>336.293129</td>
+      <td>346.699814</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>0.309096</td>
+      <td>3.182370</td>
+      <td>0.612484</td>
+      <td>9.368897</td>
+      <td>0.289012</td>
+      <td>3.217473</td>
+      <td>0.769247</td>
+      <td>8.450166</td>
+      <td>0.583798</td>
+      <td>4.959516</td>
+      <td>...</td>
+      <td>62.904877</td>
+      <td>345.953613</td>
+      <td>50.527283</td>
+      <td>333.084839</td>
+      <td>54.089111</td>
+      <td>0.701913</td>
+      <td>349.223979</td>
+      <td>339.195547</td>
+      <td>327.400677</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>0.182427</td>
+      <td>2.909696</td>
+      <td>0.546047</td>
+      <td>9.211833</td>
+      <td>0.306896</td>
+      <td>3.902409</td>
+      <td>0.782542</td>
+      <td>6.842764</td>
+      <td>0.685079</td>
+      <td>5.999275</td>
+      <td>...</td>
+      <td>64.404175</td>
+      <td>70.481750</td>
+      <td>50.212250</td>
+      <td>46.614288</td>
+      <td>44.358154</td>
+      <td>98.817560</td>
+      <td>99.419199</td>
+      <td>68.972997</td>
+      <td>47.526108</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>1.289812</td>
+      <td>4.874638</td>
+      <td>1.083421</td>
+      <td>6.654879</td>
+      <td>1.219720</td>
+      <td>4.865240</td>
+      <td>1.161102</td>
+      <td>6.588326</td>
+      <td>1.404817</td>
+      <td>7.689563</td>
+      <td>...</td>
+      <td>156.619568</td>
+      <td>358.071899</td>
+      <td>54.617310</td>
+      <td>33.345734</td>
+      <td>92.664429</td>
+      <td>318.105656</td>
+      <td>318.722730</td>
+      <td>320.125084</td>
+      <td>16.728776</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 33 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Convert PC-based KMA assignments back to ORIGINAL 32-variable daily space
+# Goal:
+# 1) Keep BMUs from KMA-on-PCs (date -&gt; kma_bmus)
+# 2) Build nearest_centroids_idxs / nearest_centroids_df
+# 3) Build kma_ob_32-like object with centroids in 32-variable space
+
+from types import SimpleNamespace
+
+# 32-variable columns in original daily space
+vars32 = [
+    c for c in daily_with_bmus.columns
+    if c.startswith((&quot;hs0g&quot;, &quot;hs1g&quot;, &quot;tp0g&quot;, &quot;tp1g&quot;, &quot;dp0g&quot;, &quot;dp1g&quot;, &quot;ws0g&quot;, &quot;wd0g&quot;))
+]
+vars32 = sorted(vars32)
+if len(vars32) == 0:
+    raise ValueError(&quot;No 32-variable columns found in daily_with_bmus.&quot;)
+
+# BMUs from PC-based KMA
+bmus = nearest_centroids_idxs[[&quot;kma_bmus&quot;]].copy()
+bmus.index = pd.to_datetime(bmus.index)
+
+# Daily original-variable dataframe aligned to BMU dates
+daily32 = daily_with_bmus.copy()
+daily32.index = pd.to_datetime(daily32.index)
+
+daily32_aligned = daily32.reindex(bmus.index)
+
+# Equivalent of nearest_centroids_df but in 32-variable space
+nearest_centroids_df_waves = daily32_aligned[vars32].copy()
+nearest_centroids_df_waves[&quot;kma_bmus&quot;] = bmus[&quot;kma_bmus&quot;].values
+
+# Equivalent of nearest_centroids_idxs (same BMUs, date index)
+nearest_centroids_idxs_waves = bmus.copy()
+
+# Equivalent of kma_ob.centroids in 32-variable space:
+# centroid for each cluster = mean of original variables for dates assigned to that cluster
+kma_centroids_32 = (
+    nearest_centroids_df_waves
+    .dropna(subset=[&quot;kma_bmus&quot;])
+    .groupby(&quot;kma_bmus&quot;)[vars32]
+    .mean()
+    .sort_index()
+)
+
+# Lightweight object so downstream code can use kma_ob_32.centroids
+kma_ob_waves= SimpleNamespace(centroids=kma_centroids_32)
+
+print(&quot;vars32:&quot;, len(vars32))
+print(&quot;nearest_centroids_idxs_32:&quot;, nearest_centroids_idxs_waves.shape)
+print(&quot;nearest_centroids_df_32:&quot;, nearest_centroids_df_waves.shape)
+print(&quot;kma_ob_32.centroids:&quot;, kma_ob_waves.centroids.shape)
+
+# # Save files
+nearest_centroids_idxs_waves.to_csv(f&quot;outputs/KMA/nearest_centroids_idxs_kma_waves.csv&quot;)
+nearest_centroids_df_waves.to_csv(f&quot;outputs/KMA/nearest_centroids_df_kma_waves.csv&quot;)
+kma_ob_waves.centroids.to_csv(f&quot;outputs/KMA/centroids_kma_waves.csv&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vars32: 32
+nearest_centroids_idxs_32: (16071, 1)
+nearest_centroids_df_32: (16071, 33)
+kma_ob_32.centroids: (144, 32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nearest_centroids_df_waves.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dp0g1</th>
+      <th>dp0g2</th>
+      <th>dp0g3</th>
+      <th>dp0g4</th>
+      <th>dp1g1</th>
+      <th>dp1g2</th>
+      <th>dp1g3</th>
+      <th>dp1g4</th>
+      <th>hs0g1</th>
+      <th>hs0g2</th>
+      <th>...</th>
+      <th>tp1g4</th>
+      <th>wd0g1</th>
+      <th>wd0g2</th>
+      <th>wd0g3</th>
+      <th>wd0g4</th>
+      <th>ws0g1</th>
+      <th>ws0g2</th>
+      <th>ws0g3</th>
+      <th>ws0g4</th>
+      <th>kma_bmus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>11.369049</td>
+      <td>23.596039</td>
+      <td>36.762909</td>
+      <td>42.303162</td>
+      <td>83.274261</td>
+      <td>87.456085</td>
+      <td>146.434998</td>
+      <td>30.113525</td>
+      <td>0.504218</td>
+      <td>1.092657</td>
+      <td>...</td>
+      <td>4.954474</td>
+      <td>343.059347</td>
+      <td>357.431806</td>
+      <td>28.793336</td>
+      <td>46.879320</td>
+      <td>6.794482</td>
+      <td>8.926181</td>
+      <td>10.832924</td>
+      <td>8.401535</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>311.676697</td>
+      <td>324.960144</td>
+      <td>6.120483</td>
+      <td>8.173706</td>
+      <td>171.626465</td>
+      <td>85.963379</td>
+      <td>70.231689</td>
+      <td>74.062805</td>
+      <td>1.109726</td>
+      <td>1.118281</td>
+      <td>...</td>
+      <td>6.988623</td>
+      <td>313.736234</td>
+      <td>318.592456</td>
+      <td>336.293129</td>
+      <td>346.699814</td>
+      <td>9.916078</td>
+      <td>10.299135</td>
+      <td>12.306847</td>
+      <td>11.604951</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>353.975891</td>
+      <td>343.836151</td>
+      <td>345.953613</td>
+      <td>333.084839</td>
+      <td>70.085419</td>
+      <td>62.904877</td>
+      <td>50.527283</td>
+      <td>54.089111</td>
+      <td>0.309096</td>
+      <td>0.289012</td>
+      <td>...</td>
+      <td>8.358103</td>
+      <td>0.701913</td>
+      <td>349.223979</td>
+      <td>339.195547</td>
+      <td>327.400677</td>
+      <td>4.958947</td>
+      <td>5.421560</td>
+      <td>6.140924</td>
+      <td>7.739953</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>66.610535</td>
+      <td>84.603668</td>
+      <td>70.481750</td>
+      <td>46.614288</td>
+      <td>70.112457</td>
+      <td>64.404175</td>
+      <td>50.212250</td>
+      <td>44.358154</td>
+      <td>0.182427</td>
+      <td>0.306896</td>
+      <td>...</td>
+      <td>7.986774</td>
+      <td>98.817560</td>
+      <td>99.419199</td>
+      <td>68.972997</td>
+      <td>47.526108</td>
+      <td>4.228852</td>
+      <td>4.961302</td>
+      <td>6.692020</td>
+      <td>7.123397</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>318.671417</td>
+      <td>313.440186</td>
+      <td>358.071899</td>
+      <td>33.345734</td>
+      <td>173.840637</td>
+      <td>156.619568</td>
+      <td>54.617310</td>
+      <td>92.664429</td>
+      <td>1.289812</td>
+      <td>1.219720</td>
+      <td>...</td>
+      <td>7.691811</td>
+      <td>318.105656</td>
+      <td>318.722730</td>
+      <td>320.125084</td>
+      <td>16.728776</td>
+      <td>10.617166</td>
+      <td>10.577474</td>
+      <td>10.336028</td>
+      <td>12.739545</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 33 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nearest_centroids_idxs_waves.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kma_bmus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># 1) Order of clusters from kma_sort (highest hs_total_avg first)
+hs0g_cols = [&#39;hs0g1&#39;, &#39;hs0g2&#39;, &#39;hs0g3&#39;, &#39;hs0g4&#39;]
+hs1g_cols = [&#39;hs1g1&#39;, &#39;hs1g2&#39;, &#39;hs1g3&#39;, &#39;hs1g4&#39;]
+hs_total_cols = [f&quot;hs_totalg{i}&quot; for i in range(1, 5)]
+
+centroids_with_total = kma_ob_waves.centroids.copy()
+for i in range(1, 5):
+    centroids_with_total[f&quot;hs_totalg{i}&quot;] = (
+        centroids_with_total[f&quot;hs0g{i}&quot;] + centroids_with_total[f&quot;hs1g{i}&quot;]
+    )
+
+kma_sort = centroids_with_total.assign(
+    hs_total_avg=centroids_with_total[hs_total_cols].mean(axis=1)
+).sort_values(by=&#39;hs_total_avg&#39;, ascending=False)
+
+# Old cluster IDs in desired order
+cluster_order = list(kma_sort.index)
+
+# Mapping: old_id -&gt; new_id (0-based; use start=1 for 1-based)
+mapping = {old: new for new, old in enumerate(cluster_order, start=0)}
+
+# 2) Apply mapping to nearest_centroids_idxs_waves
+#    (keep original labels in case they are needed later)
+if &#39;kma_bmus_orig&#39; not in nearest_centroids_idxs_waves.columns:
+    nearest_centroids_idxs_waves[&#39;kma_bmus_orig&#39;] = nearest_centroids_idxs_waves[&#39;kma_bmus&#39;]
+
+nearest_centroids_idxs_waves[&#39;kma_bmus_sorted&#39;] = nearest_centroids_idxs_waves[&#39;kma_bmus&#39;].map(mapping)
+
+# 3) (Optional but often useful) Attach sorted cluster ID to nearest_centroids_df
+#    Indices of both dfs are datetimes, so this aligns row by row.
+nearest_centroids_df_waves = nearest_centroids_df_waves.copy()
+nearest_centroids_df_waves[&#39;kma_bmus_sorted&#39;] = (
+    nearest_centroids_idxs_waves[&#39;kma_bmus_sorted&#39;].reindex(nearest_centroids_df_waves.index)
+)
+# Saving sorted files
+nearest_centroids_idxs_waves.to_csv(f&#39;outputs/KMA/nearest_centroids_idxs_kma_sorted.csv&#39;)
+nearest_centroids_df_waves.to_csv(f&#39;outputs/KMA/nearest_centroids_df_kma_sorted.csv&#39;)
+kma_sort.to_csv(f&#39;outputs/KMA/centroids_kma_sorted.csv&#39;)
+
+# 4) Histogram using the sorted cluster IDs
+cluster_ids_sorted = nearest_centroids_idxs_waves[&#39;kma_bmus_sorted&#39;]
+cluster_counts_sorted = cluster_ids_sorted.value_counts().sort_index()
+
+fig, ax = plt.subplots(figsize=(25, 4))
+ax.bar(cluster_counts_sorted.index, cluster_counts_sorted.values,
+       width=0.8, color=&quot;turquoise&quot;, edgecolor=&quot;k&quot;)
+
+ax.set_xlabel(&quot;Cluster ID (sorted by hs_total_avg)&quot;)
+ax.set_ylabel(&quot;Number of occurrences&quot;)
+ax.set_title(&quot;Cluster frequency in nearest_centroids assignments (sorted)&quot;)
+ax.set_xticks(cluster_counts_sorted.index)
+ax.tick_params(axis=&#39;x&#39;, labelrotation=90)
+ax.grid(axis=&quot;y&quot;, alpha=0.3)
+
+plt.tight_layout()
+# Save figure
+fig.savefig(f&#39;outputs/Figures/cluster_frequency_sorted.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)
+
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/eb43d10248cd391c6585fa0001735ef2ef6ce31660970a849bb22c1f63588897.png" src="../_images/eb43d10248cd391c6585fa0001735ef2ef6ce31660970a849bb22c1f63588897.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sorted_rep = cluster_counts_sorted.sort_values(ascending=False)
+sorted_id = sorted_rep.index
+sorted_id
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([138,  92,  95, 139, 108, 125, 114,  70, 127,  40,
+       ...
+        19,  10,  13,  59,   4,  38,  88,  80,   0,   1],
+      dtype=&#39;int64&#39;, name=&#39;kma_bmus_sorted&#39;, length=144)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nearest_centroids_df_waves.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dp0g1</th>
+      <th>dp0g2</th>
+      <th>dp0g3</th>
+      <th>dp0g4</th>
+      <th>dp1g1</th>
+      <th>dp1g2</th>
+      <th>dp1g3</th>
+      <th>dp1g4</th>
+      <th>hs0g1</th>
+      <th>hs0g2</th>
+      <th>...</th>
+      <th>wd0g1</th>
+      <th>wd0g2</th>
+      <th>wd0g3</th>
+      <th>wd0g4</th>
+      <th>ws0g1</th>
+      <th>ws0g2</th>
+      <th>ws0g3</th>
+      <th>ws0g4</th>
+      <th>kma_bmus</th>
+      <th>kma_bmus_sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>11.369049</td>
+      <td>23.596039</td>
+      <td>36.762909</td>
+      <td>42.303162</td>
+      <td>83.274261</td>
+      <td>87.456085</td>
+      <td>146.434998</td>
+      <td>30.113525</td>
+      <td>0.504218</td>
+      <td>1.092657</td>
+      <td>...</td>
+      <td>343.059347</td>
+      <td>357.431806</td>
+      <td>28.793336</td>
+      <td>46.879320</td>
+      <td>6.794482</td>
+      <td>8.926181</td>
+      <td>10.832924</td>
+      <td>8.401535</td>
+      <td>140</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>311.676697</td>
+      <td>324.960144</td>
+      <td>6.120483</td>
+      <td>8.173706</td>
+      <td>171.626465</td>
+      <td>85.963379</td>
+      <td>70.231689</td>
+      <td>74.062805</td>
+      <td>1.109726</td>
+      <td>1.118281</td>
+      <td>...</td>
+      <td>313.736234</td>
+      <td>318.592456</td>
+      <td>336.293129</td>
+      <td>346.699814</td>
+      <td>9.916078</td>
+      <td>10.299135</td>
+      <td>12.306847</td>
+      <td>11.604951</td>
+      <td>106</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>353.975891</td>
+      <td>343.836151</td>
+      <td>345.953613</td>
+      <td>333.084839</td>
+      <td>70.085419</td>
+      <td>62.904877</td>
+      <td>50.527283</td>
+      <td>54.089111</td>
+      <td>0.309096</td>
+      <td>0.289012</td>
+      <td>...</td>
+      <td>0.701913</td>
+      <td>349.223979</td>
+      <td>339.195547</td>
+      <td>327.400677</td>
+      <td>4.958947</td>
+      <td>5.421560</td>
+      <td>6.140924</td>
+      <td>7.739953</td>
+      <td>50</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>66.610535</td>
+      <td>84.603668</td>
+      <td>70.481750</td>
+      <td>46.614288</td>
+      <td>70.112457</td>
+      <td>64.404175</td>
+      <td>50.212250</td>
+      <td>44.358154</td>
+      <td>0.182427</td>
+      <td>0.306896</td>
+      <td>...</td>
+      <td>98.817560</td>
+      <td>99.419199</td>
+      <td>68.972997</td>
+      <td>47.526108</td>
+      <td>4.228852</td>
+      <td>4.961302</td>
+      <td>6.692020</td>
+      <td>7.123397</td>
+      <td>28</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>318.671417</td>
+      <td>313.440186</td>
+      <td>358.071899</td>
+      <td>33.345734</td>
+      <td>173.840637</td>
+      <td>156.619568</td>
+      <td>54.617310</td>
+      <td>92.664429</td>
+      <td>1.289812</td>
+      <td>1.219720</td>
+      <td>...</td>
+      <td>318.105656</td>
+      <td>318.722730</td>
+      <td>320.125084</td>
+      <td>16.728776</td>
+      <td>10.617166</td>
+      <td>10.577474</td>
+      <td>10.336028</td>
+      <td>12.739545</td>
+      <td>11</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 34 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="final-clusters-plots">
+<h1>Final Clusters Plots<a class="headerlink" href="#final-clusters-plots" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nearest_centroids_idxs_waves
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kma_bmus</th>
+      <th>kma_bmus_orig</th>
+      <th>kma_bmus_sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>140</td>
+      <td>140</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>106</td>
+      <td>106</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>50</td>
+      <td>50</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>28</td>
+      <td>28</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>11</td>
+      <td>11</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-27</th>
+      <td>33</td>
+      <td>33</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2023-12-28</th>
+      <td>38</td>
+      <td>38</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2023-12-29</th>
+      <td>102</td>
+      <td>102</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>2023-12-30</th>
+      <td>78</td>
+      <td>78</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>2023-12-31</th>
+      <td>78</td>
+      <td>78</td>
+      <td>56</td>
+    </tr>
+  </tbody>
+</table>
+<p>16071 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+# --- 1. Centroids dataframe (1 row per cluster) ------------------------------
+
+centroids = kma_sort.reset_index(drop=True)
+
+# column groups (same as before)
+hs0_cols = [f&quot;hs0g{i}&quot; for i in range(1, 5)]
+hs1_cols = [f&quot;hs1g{i}&quot; for i in range(1, 5)]
+tp0_cols = [f&quot;tp0g{i}&quot; for i in range(1, 5)]
+tp1_cols = [f&quot;tp1g{i}&quot; for i in range(1, 5)]
+dp0_cols = [f&quot;dp0g{i}&quot; for i in range(1, 5)]
+dp1_cols = [f&quot;dp1g{i}&quot; for i in range(1, 5)]
+ws0_cols = [f&quot;ws0g{i}&quot; for i in range(1, 5)]
+wd0_cols = [f&quot;wd0g{i}&quot; for i in range(1, 5)]
+
+# Wind speed scale for arrow length (deg per m/s) - 90th pct ws gives ~1.5 deg
+all_ws = centroids[ws0_cols].to_numpy().ravel()
+ws_scale = 1.5 / np.nanpercentile(all_ws, 90) if np.nanpercentile(all_ws, 90) &gt; 0 else 0.2
+
+# --- 2. Colour scales --------------------------------------------------------
+# Hs for circles
+all_hs = centroids[hs0_cols + hs1_cols].to_numpy().ravel()
+vmin_hs, vmax_hs = np.percentile(all_hs, [2, 98])
+norm_hs = Normalize(vmin=vmin_hs, vmax=vmax_hs, clip=True)
+# norm_hs = Normalize(vmin=np.nanmin(all_hs), vmax=np.quantile(all_hs,.9))
+cmap_hs = cm.get_cmap(&quot;magma_r&quot;)
+
+# Tp for arrow colour &amp; length
+all_tp = centroids[tp0_cols + tp1_cols].to_numpy().ravel()
+norm_tp = Normalize(vmin=np.nanmin(all_tp), vmax=np.quantile(all_tp,.9))
+cmap_tp = cm.get_cmap(&quot;cool&quot;)
+
+# cluster frame colours
+n_clusters = len(centroids)
+cluster_norm = Normalize(vmin=0, vmax=n_clusters - 1)
+cluster_cmap = cm.get_cmap(&quot;tab20&quot;, n_clusters)
+
+# --- cluster sizes (number of states per cluster) -----------------------------
+cluster_counts = None
+if &quot;nearest_centroids_idxs_waves&quot; in globals() and &quot;kma_bmus_sorted&quot; in nearest_centroids_idxs_waves.columns:
+    counts = nearest_centroids_idxs_waves[&quot;kma_bmus_sorted&quot;].value_counts()
+    # reindex to [0, 1, ..., n_clusters-1] so cid can be used directly
+    cluster_counts = counts.reindex(range(n_clusters)).fillna(0).astype(int)
+
+# --- 3. Map extent from TARGET_POINTS ----------------------------------------
+lats = [p[&quot;lat&quot;] for p in TARGET_POINTS.values()]
+lons = [p[&quot;lon&quot;] for p in TARGET_POINTS.values()]
+lon_min, lon_max = min(lons) - 1.5 , max(lons) + 1.5
+lat_min, lat_max = min(lats) - 1.5, max(lats) + 1.5
+
+# --- 4. Layout of small maps -------------------------------------------------
+n_cols = 12
+n_rows = 12  
+
+fig, axes = plt.subplots(
+    n_rows, n_cols,
+    figsize=(2.0 * n_cols, 2.0 * n_rows),   # wide, not too tall
+    subplot_kw={&quot;projection&quot;: ccrs.PlateCarree()}
+)
+
+axes = np.atleast_2d(axes)
+plt.subplots_adjust(wspace=0.1, hspace=0.07, bottom=0.1)
+
+for cid in range(n_clusters):
+    r = cid // n_cols
+    c = cid % n_cols
+    ax = axes[r, c]
+
+    # background coast
+    ax.set_extent([lon_min, lon_max, lat_min, lat_max], crs=ccrs.PlateCarree())
+    ax.add_feature(cfeature.LAND, facecolor=&quot;0.8&quot;, linewidth=0)
+    ax.add_feature(cfeature.OCEAN, facecolor=&quot;lightsteelblue&quot;, alpha=0.7, linewidth=0)
+    ax.add_feature(cfeature.COASTLINE, linewidth=0.5, edgecolor=&quot;k&quot;)
+
+    # label cluster id + n states in top-left
+    if cluster_counts is not None:
+        n_states = int(cluster_counts.iloc[cid])
+        label = f&quot;{cid} (n={n_states})&quot;
+    else:
+        label = f&quot;{cid}&quot;
+    ax.text(0.02, 0.95, label, transform=ax.transAxes,
+            ha=&quot;left&quot;, va=&quot;top&quot;, fontsize=10, color=&quot;white&quot;,
+            bbox=dict(facecolor=&quot;black&quot;, alpha=0.4, boxstyle=&quot;round,pad=0.1&quot;))
+
+    # plot 4 points with circles and arrows
+    for gi in range(1, 5):
+        pt = TARGET_POINTS[f&quot;grid{gi}&quot;]
+        lat = pt[&quot;lat&quot;]
+        lon = pt[&quot;lon&quot;]
+        
+        # Hs0 / Hs1 colours
+        hs0 = centroids.loc[cid, f&quot;hs0g{gi}&quot;]
+        hs1 = centroids.loc[cid, f&quot;hs1g{gi}&quot;]
+        col_hs0 = cmap_hs(norm_hs(hs0))
+        col_hs1 = cmap_hs(norm_hs(hs1))
+
+        # outer circle (hs1), inner circle (hs0)
+        ax.scatter(lon, lat, s=300, color=col_hs1, edgecolor=&quot;k&quot;,
+                   linewidths=0.5, transform=ccrs.PlateCarree(), zorder=3)
+        ax.scatter(lon, lat, s=100, color=col_hs0, edgecolor=&quot;k&quot;,
+                   linewidths=0.5, transform=ccrs.PlateCarree(), zorder=4)
+
+        # arrows for sea (0) and swell (1)
+        for part, tp_cols, dp_cols, linestyle, lw, arrowstyle in [
+            (0, tp0_cols, dp0_cols, &quot;-&quot;, 4.0, &quot;-|&gt;&quot;),   # sea: thicker, solid, full head
+            (1, tp1_cols, dp1_cols, &quot;:&quot;, 1.5, &quot;-&gt;&quot;),    # swell: thinner, dashed, simple head
+        ]:
+            tp = centroids.loc[cid, tp_cols[gi - 1]]
+            dp = centroids.loc[cid, dp_cols[gi - 1]]
+
+            if np.isnan(tp) or np.isnan(dp):
+                continue
+
+            # colour from Tp; fixed length for visibility
+            tpn = norm_tp(tp)
+            length_deg = 1.7  # fixed length, visible
+            theta = np.deg2rad(dp + 180)
+
+            dx = length_deg * np.sin(theta)
+            dy = length_deg * np.cos(theta)
+
+            arrow_color = cmap_tp(tpn)
+
+            arrow = FancyArrowPatch(
+                (lon, lat),
+                (lon + dx, lat + dy),
+                transform=ccrs.PlateCarree(),
+                arrowstyle=arrowstyle,
+                linewidth=lw,
+                linestyle=linestyle,
+                color=arrow_color,
+                mutation_scale=10,
+                zorder=5,
+            )
+            ax.add_patch(arrow)
+
+            # black wind arrows (wd0 = direction, ws0 = magnitude/length)
+            ws0 = centroids.loc[cid, f&quot;ws0g{gi}&quot;]
+            wd0 = centroids.loc[cid, f&quot;wd0g{gi}&quot;]
+            if not (np.isnan(ws0) or np.isnan(wd0) or ws0 &lt;= 0):
+                length_deg = ws0 * ws_scale
+                theta = np.deg2rad(wd0 + 180)  # meteorological: wd = from, arrow = toward
+                dx = length_deg * np.sin(theta)
+                dy = length_deg * np.cos(theta)
+                wind_arrow = FancyArrowPatch(
+                    (lon, lat),
+                    (lon + dx, lat + dy),
+                    transform=ccrs.PlateCarree(),
+                    arrowstyle=&quot;-|&gt;&quot;,
+                    linewidth=2,
+                    linestyle=&quot;-&quot;,
+                    color=&quot;black&quot;,
+                    mutation_scale=8,
+                    zorder=6,
+                )
+                ax.add_patch(wind_arrow)
+
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+# Hide any unused axes (if n_clusters &lt; n_rows*n_cols)
+for cid in range(n_clusters, n_rows * n_cols):
+    r = cid // n_cols
+    c = cid % n_cols
+    axes[r, c].set_visible(False)
+
+# --- colorbars at the bottom (below plots) -------------------------------------------
+sm_hs = plt.cm.ScalarMappable(norm=norm_hs, cmap=cmap_hs)
+sm_hs.set_array([])
+
+sm_tp = plt.cm.ScalarMappable(norm=norm_tp, cmap=cmap_tp)
+sm_tp.set_array([])
+
+# sm_cluster = plt.cm.ScalarMappable(norm=cluster_norm, cmap=cluster_cmap)
+# sm_cluster.set_array([])
+
+cax_hs = fig.add_axes([0.08, 0.03, 0.22, 0.02])
+cax_tp = fig.add_axes([0.38, 0.03, 0.22, 0.02])
+# cax_cl = fig.add_axes([0.68, 0.03, 0.22, 0.02])
+
+cbar_hs = fig.colorbar(sm_hs, cax=cax_hs, orientation=&#39;horizontal&#39;)
+cbar_tp = fig.colorbar(sm_tp, cax=cax_tp, orientation=&#39;horizontal&#39;)
+# cbar_cl = fig.colorbar(sm_cluster, cax=cax_cl, orientation=&#39;horizontal&#39;)
+
+cbar_hs.set_label(&#39;Hs (m)&#39;)
+cbar_tp.set_label(&#39;Tp (s) – arrow colour&#39;)
+# cbar_cl.set_label(&#39;Cluster index&#39;)
+
+# Save figure
+fig.savefig(f&#39;outputs/Figures/maps_clusters_sorted.png&#39;, dpi=150, bbox_inches=&#39;tight&#39;)
+
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3675361/551355781.py:25: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  cmap_hs = cm.get_cmap(&quot;magma_r&quot;)
+/tmp/ipykernel_3675361/551355781.py:30: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  cmap_tp = cm.get_cmap(&quot;cool&quot;)
+/tmp/ipykernel_3675361/551355781.py:35: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  cluster_cmap = cm.get_cmap(&quot;tab20&quot;, n_clusters)
+</pre></div>
+</div>
+<img alt="../_images/ce96d9c42e80f4cafe9bc65da353dc4b7a4716d0e3ed5c47413b8cfe3820a683.png" src="../_images/ce96d9c42e80f4cafe9bc65da353dc4b7a4716d0e3ed5c47413b8cfe3820a683.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sorted_idxs = [0, 1, 2, 3, 4, 5,6,7]+list(sorted_id[0:8])
+sorted_idxs
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 138, 92, 95, 139, 108, 125, 114, 70]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03b_00_partitions_cluster_points.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🌊 Partitions - Grid 1 (Single Point)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03b_02_pcs_mslp_sst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Load Data (Cyclone Model)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MDA &amp; K-Means Clustering of Waves Conditions</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data">Prepare data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mda">MDA</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-medoids-from-mda">K-medoids from MDA</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-clusters-plots">Final Clusters Plots</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GEOCEAN / ShoreShop3
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

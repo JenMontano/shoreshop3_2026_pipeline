@@ -1,0 +1,2119 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Load Data &#8212; ShoreShop3_2026 — NC wave forcing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03b_03_clusters_and_pcs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="/shoreshop3_2026_pipeline/notebooks/03b_03_clusters_and_pcs.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)" href="03b_04_alr_clusters_20cr.html" />
+    <link rel="prev" title="Load Data (Cyclone Model)" href="03b_02_pcs_mslp_sst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ShoreShop3_2026 — NC wave forcing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 — BinWaves (present climate)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/01_binwaves.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_propagation.html">Notebook — grid1 propagation (BinWaves core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 — Wind-wave metamodel</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/02_wind_metamodel.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_kma_wind_pipeline.html">Notebook — grid1 KMA wind pipeline (core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 — Wave emulator</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03_wave_emulator.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03a_stochastic_gcm.html">03A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03a_06_mlr_tcs.html">Load Data</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03a_07_assing_tcs.html">Load Synthetic Tracks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03b_century_gcm_waves.html">03B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_00_partitions_cluster_points.html">Notebook — 03B partitions at super points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_01_testing_clustering.html">MDA &amp; K-Means Clustering of Waves Conditions</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_02_pcs_mslp_sst.html">Load Data (Cyclone Model)</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebook — 03B link clusters ↔ PCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_04_alr_clusters_20cr.html">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 — Tropical cyclones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04_cyclones.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04a_cyclones_metamodel.html">04A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04a_13_reconstruction_trazas.html">Notebook — 04A apply metamodel to emulated tracks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04b_cyclones_emulator.html">04B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_00_cyclones_spectra.html">Cyclones MetaModel North Carolina</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04b_01_partitions_ptm4.html">Notebook — 04B PTM4 partition &amp; merge</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Book build</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Build &amp; serve instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/03b_03_clusters_and_pcs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Load Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluemath_tk.core.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-data">
+<h1>Load Data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/KMA/centroids_kma_sorted.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">nearest_centroids_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/KMA/nearest_centroids_df_kma_sorted.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">nearest_centroids_idx</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;outputs/KMA/nearest_centroids_idxs_kma_sorted.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids_df</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dp0g1</th>
+      <th>dp0g2</th>
+      <th>dp0g3</th>
+      <th>dp0g4</th>
+      <th>dp1g1</th>
+      <th>dp1g2</th>
+      <th>dp1g3</th>
+      <th>dp1g4</th>
+      <th>hs0g1</th>
+      <th>hs0g2</th>
+      <th>...</th>
+      <th>wd0g4</th>
+      <th>ws0g1</th>
+      <th>ws0g2</th>
+      <th>ws0g3</th>
+      <th>ws0g4</th>
+      <th>hs_totalg1</th>
+      <th>hs_totalg2</th>
+      <th>hs_totalg3</th>
+      <th>hs_totalg4</th>
+      <th>hs_total_avg</th>
+    </tr>
+    <tr>
+      <th>kma_bmus</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>126</th>
+      <td>233.002170</td>
+      <td>221.321380</td>
+      <td>152.00706</td>
+      <td>134.159330</td>
+      <td>143.355090</td>
+      <td>142.964300</td>
+      <td>168.186000</td>
+      <td>158.156460</td>
+      <td>3.764003</td>
+      <td>3.629424</td>
+      <td>...</td>
+      <td>121.572744</td>
+      <td>20.117091</td>
+      <td>21.585839</td>
+      <td>22.759026</td>
+      <td>16.327751</td>
+      <td>5.696502</td>
+      <td>6.532300</td>
+      <td>9.655147</td>
+      <td>7.236809</td>
+      <td>7.280189</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>110.915700</td>
+      <td>121.615440</td>
+      <td>131.48915</td>
+      <td>125.326550</td>
+      <td>171.738500</td>
+      <td>176.147140</td>
+      <td>179.511800</td>
+      <td>149.725740</td>
+      <td>3.011760</td>
+      <td>2.737005</td>
+      <td>...</td>
+      <td>116.437468</td>
+      <td>17.181788</td>
+      <td>16.220901</td>
+      <td>10.540514</td>
+      <td>6.634176</td>
+      <td>6.468140</td>
+      <td>6.189592</td>
+      <td>5.146850</td>
+      <td>2.917222</td>
+      <td>5.180451</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>239.469540</td>
+      <td>229.678400</td>
+      <td>200.67264</td>
+      <td>168.869980</td>
+      <td>144.088680</td>
+      <td>134.448260</td>
+      <td>126.495400</td>
+      <td>125.572174</td>
+      <td>1.848053</td>
+      <td>1.964192</td>
+      <td>...</td>
+      <td>196.820829</td>
+      <td>12.015882</td>
+      <td>12.440818</td>
+      <td>13.894698</td>
+      <td>12.470560</td>
+      <td>3.993667</td>
+      <td>4.270995</td>
+      <td>5.527408</td>
+      <td>5.052266</td>
+      <td>4.711084</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>45.279793</td>
+      <td>48.207623</td>
+      <td>51.42470</td>
+      <td>49.475723</td>
+      <td>106.365135</td>
+      <td>103.271100</td>
+      <td>103.745010</td>
+      <td>101.121056</td>
+      <td>2.071686</td>
+      <td>2.289286</td>
+      <td>...</td>
+      <td>33.846004</td>
+      <td>12.541742</td>
+      <td>13.259048</td>
+      <td>14.211601</td>
+      <td>12.397095</td>
+      <td>3.854738</td>
+      <td>4.237133</td>
+      <td>5.138799</td>
+      <td>5.167538</td>
+      <td>4.599552</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>227.889700</td>
+      <td>79.176600</td>
+      <td>76.99772</td>
+      <td>66.336464</td>
+      <td>106.110920</td>
+      <td>99.773710</td>
+      <td>101.201170</td>
+      <td>105.408750</td>
+      <td>1.516057</td>
+      <td>1.617552</td>
+      <td>...</td>
+      <td>56.261138</td>
+      <td>11.229962</td>
+      <td>11.792700</td>
+      <td>14.492733</td>
+      <td>13.210695</td>
+      <td>3.214924</td>
+      <td>3.835685</td>
+      <td>5.493859</td>
+      <td>5.359910</td>
+      <td>4.476095</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>129.754930</td>
+      <td>131.286100</td>
+      <td>141.47688</td>
+      <td>137.584690</td>
+      <td>125.913490</td>
+      <td>126.622600</td>
+      <td>132.823520</td>
+      <td>133.049120</td>
+      <td>0.245613</td>
+      <td>0.254162</td>
+      <td>...</td>
+      <td>140.521470</td>
+      <td>3.989072</td>
+      <td>4.070567</td>
+      <td>4.346205</td>
+      <td>3.952215</td>
+      <td>0.962753</td>
+      <td>0.970673</td>
+      <td>1.012843</td>
+      <td>0.971910</td>
+      <td>0.979545</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>84.718864</td>
+      <td>78.244900</td>
+      <td>68.97585</td>
+      <td>147.000780</td>
+      <td>107.101746</td>
+      <td>105.422554</td>
+      <td>101.077860</td>
+      <td>100.592430</td>
+      <td>0.241072</td>
+      <td>0.201159</td>
+      <td>...</td>
+      <td>214.105300</td>
+      <td>3.994731</td>
+      <td>3.845873</td>
+      <td>3.512844</td>
+      <td>3.096157</td>
+      <td>0.992422</td>
+      <td>0.967658</td>
+      <td>0.963963</td>
+      <td>0.926580</td>
+      <td>0.962656</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>79.777940</td>
+      <td>74.332664</td>
+      <td>229.75775</td>
+      <td>103.616250</td>
+      <td>125.870670</td>
+      <td>123.724380</td>
+      <td>117.950740</td>
+      <td>124.246210</td>
+      <td>0.157817</td>
+      <td>0.151672</td>
+      <td>...</td>
+      <td>192.235450</td>
+      <td>3.740037</td>
+      <td>3.697417</td>
+      <td>4.536764</td>
+      <td>4.667119</td>
+      <td>0.859853</td>
+      <td>0.856811</td>
+      <td>1.026395</td>
+      <td>1.048115</td>
+      <td>0.947793</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>229.061810</td>
+      <td>213.823240</td>
+      <td>84.12847</td>
+      <td>88.466440</td>
+      <td>109.591460</td>
+      <td>102.842120</td>
+      <td>99.525116</td>
+      <td>101.446655</td>
+      <td>0.127760</td>
+      <td>0.142438</td>
+      <td>...</td>
+      <td>110.126198</td>
+      <td>3.618493</td>
+      <td>3.749510</td>
+      <td>4.249165</td>
+      <td>3.622366</td>
+      <td>0.765047</td>
+      <td>0.841844</td>
+      <td>1.051557</td>
+      <td>1.037392</td>
+      <td>0.923960</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>119.436320</td>
+      <td>130.708500</td>
+      <td>167.02615</td>
+      <td>181.189420</td>
+      <td>118.177680</td>
+      <td>117.647450</td>
+      <td>105.892930</td>
+      <td>103.413240</td>
+      <td>0.277971</td>
+      <td>0.238832</td>
+      <td>...</td>
+      <td>191.561499</td>
+      <td>4.139027</td>
+      <td>4.049482</td>
+      <td>4.211432</td>
+      <td>4.623236</td>
+      <td>0.927817</td>
+      <td>0.868182</td>
+      <td>0.807793</td>
+      <td>0.807809</td>
+      <td>0.852901</td>
+    </tr>
+  </tbody>
+</table>
+<p>144 rows × 37 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># centroids_df= centroids_df.drop(columns=[&#39;hsg_avg&#39;])</span>
+<span class="c1"># centroids_df= centroids_df.drop(columns=[&#39;hs_sum_g1&#39;])</span>
+<span class="n">centroids_df</span><span class="o">=</span> <span class="n">centroids_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hs_totalg1&#39;</span><span class="p">,</span>	<span class="s1">&#39;hs_totalg2&#39;</span><span class="p">,</span>	<span class="s1">&#39;hs_totalg3&#39;</span><span class="p">,</span>	<span class="s1">&#39;hs_totalg4&#39;</span><span class="p">,</span>	<span class="s1">&#39;hs_total_avg&#39;</span><span class="p">])</span>
+
+<span class="n">centroids_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dp0g1</th>
+      <th>dp0g2</th>
+      <th>dp0g3</th>
+      <th>dp0g4</th>
+      <th>dp1g1</th>
+      <th>dp1g2</th>
+      <th>dp1g3</th>
+      <th>dp1g4</th>
+      <th>hs0g1</th>
+      <th>hs0g2</th>
+      <th>...</th>
+      <th>tp1g3</th>
+      <th>tp1g4</th>
+      <th>wd0g1</th>
+      <th>wd0g2</th>
+      <th>wd0g3</th>
+      <th>wd0g4</th>
+      <th>ws0g1</th>
+      <th>ws0g2</th>
+      <th>ws0g3</th>
+      <th>ws0g4</th>
+    </tr>
+    <tr>
+      <th>kma_bmus</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>126</th>
+      <td>233.002170</td>
+      <td>221.321380</td>
+      <td>152.00706</td>
+      <td>134.159330</td>
+      <td>143.355090</td>
+      <td>142.96430</td>
+      <td>168.18600</td>
+      <td>158.156460</td>
+      <td>3.764003</td>
+      <td>3.629424</td>
+      <td>...</td>
+      <td>12.545710</td>
+      <td>11.602006</td>
+      <td>286.967683</td>
+      <td>273.318162</td>
+      <td>136.667012</td>
+      <td>121.572744</td>
+      <td>20.117091</td>
+      <td>21.585839</td>
+      <td>22.759026</td>
+      <td>16.327751</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>110.915700</td>
+      <td>121.615440</td>
+      <td>131.48915</td>
+      <td>125.326550</td>
+      <td>171.738500</td>
+      <td>176.14714</td>
+      <td>179.51180</td>
+      <td>149.725740</td>
+      <td>3.011760</td>
+      <td>2.737005</td>
+      <td>...</td>
+      <td>13.647295</td>
+      <td>11.406211</td>
+      <td>88.660108</td>
+      <td>99.873020</td>
+      <td>113.711939</td>
+      <td>116.437468</td>
+      <td>17.181788</td>
+      <td>16.220901</td>
+      <td>10.540514</td>
+      <td>6.634176</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>239.469540</td>
+      <td>229.678400</td>
+      <td>200.67264</td>
+      <td>168.869980</td>
+      <td>144.088680</td>
+      <td>134.44826</td>
+      <td>126.49540</td>
+      <td>125.572174</td>
+      <td>1.848053</td>
+      <td>1.964192</td>
+      <td>...</td>
+      <td>9.266826</td>
+      <td>9.191651</td>
+      <td>258.211884</td>
+      <td>248.080310</td>
+      <td>220.037305</td>
+      <td>196.820829</td>
+      <td>12.015882</td>
+      <td>12.440818</td>
+      <td>13.894698</td>
+      <td>12.470560</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>45.279793</td>
+      <td>48.207623</td>
+      <td>51.42470</td>
+      <td>49.475723</td>
+      <td>106.365135</td>
+      <td>103.27110</td>
+      <td>103.74501</td>
+      <td>101.121056</td>
+      <td>2.071686</td>
+      <td>2.289286</td>
+      <td>...</td>
+      <td>9.426130</td>
+      <td>9.334442</td>
+      <td>22.537725</td>
+      <td>28.418356</td>
+      <td>27.819568</td>
+      <td>33.846004</td>
+      <td>12.541742</td>
+      <td>13.259048</td>
+      <td>14.211601</td>
+      <td>12.397095</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>227.889700</td>
+      <td>79.176600</td>
+      <td>76.99772</td>
+      <td>66.336464</td>
+      <td>106.110920</td>
+      <td>99.77371</td>
+      <td>101.20117</td>
+      <td>105.408750</td>
+      <td>1.516057</td>
+      <td>1.617552</td>
+      <td>...</td>
+      <td>8.883035</td>
+      <td>8.857621</td>
+      <td>330.045123</td>
+      <td>285.257569</td>
+      <td>52.326244</td>
+      <td>56.261138</td>
+      <td>11.229962</td>
+      <td>11.792700</td>
+      <td>14.492733</td>
+      <td>13.210695</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nearest_centroids_idx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kma_bmus</th>
+      <th>kma_bmus_orig</th>
+      <th>kma_bmus_sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>140</td>
+      <td>140</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>106</td>
+      <td>106</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>50</td>
+      <td>50</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>28</td>
+      <td>28</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>11</td>
+      <td>11</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-27</th>
+      <td>33</td>
+      <td>33</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2023-12-28</th>
+      <td>38</td>
+      <td>38</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2023-12-29</th>
+      <td>102</td>
+      <td>102</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>2023-12-30</th>
+      <td>78</td>
+      <td>78</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>2023-12-31</th>
+      <td>78</td>
+      <td>78</td>
+      <td>56</td>
+    </tr>
+  </tbody>
+</table>
+<p>16071 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nearest_centroids_df</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dp0g1</th>
+      <th>dp0g2</th>
+      <th>dp0g3</th>
+      <th>dp0g4</th>
+      <th>dp1g1</th>
+      <th>dp1g2</th>
+      <th>dp1g3</th>
+      <th>dp1g4</th>
+      <th>hs0g1</th>
+      <th>hs0g2</th>
+      <th>...</th>
+      <th>wd0g1</th>
+      <th>wd0g2</th>
+      <th>wd0g3</th>
+      <th>wd0g4</th>
+      <th>ws0g1</th>
+      <th>ws0g2</th>
+      <th>ws0g3</th>
+      <th>ws0g4</th>
+      <th>kma_bmus</th>
+      <th>kma_bmus_sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>11.369049</td>
+      <td>23.596039</td>
+      <td>36.762910</td>
+      <td>42.303160</td>
+      <td>83.274260</td>
+      <td>87.456085</td>
+      <td>146.435000</td>
+      <td>30.113525</td>
+      <td>0.504218</td>
+      <td>1.092657</td>
+      <td>...</td>
+      <td>343.059347</td>
+      <td>357.431806</td>
+      <td>28.793336</td>
+      <td>46.879320</td>
+      <td>6.794482</td>
+      <td>8.926181</td>
+      <td>10.832924</td>
+      <td>8.401535</td>
+      <td>140</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>311.676700</td>
+      <td>324.960140</td>
+      <td>6.120483</td>
+      <td>8.173706</td>
+      <td>171.626460</td>
+      <td>85.963380</td>
+      <td>70.231690</td>
+      <td>74.062805</td>
+      <td>1.109726</td>
+      <td>1.118281</td>
+      <td>...</td>
+      <td>313.736234</td>
+      <td>318.592456</td>
+      <td>336.293129</td>
+      <td>346.699814</td>
+      <td>9.916078</td>
+      <td>10.299135</td>
+      <td>12.306847</td>
+      <td>11.604951</td>
+      <td>106</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>353.975900</td>
+      <td>343.836150</td>
+      <td>345.953600</td>
+      <td>333.084840</td>
+      <td>70.085420</td>
+      <td>62.904877</td>
+      <td>50.527283</td>
+      <td>54.089110</td>
+      <td>0.309096</td>
+      <td>0.289012</td>
+      <td>...</td>
+      <td>0.701913</td>
+      <td>349.223979</td>
+      <td>339.195547</td>
+      <td>327.400677</td>
+      <td>4.958947</td>
+      <td>5.421560</td>
+      <td>6.140924</td>
+      <td>7.739953</td>
+      <td>50</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>66.610535</td>
+      <td>84.603670</td>
+      <td>70.481750</td>
+      <td>46.614290</td>
+      <td>70.112460</td>
+      <td>64.404175</td>
+      <td>50.212250</td>
+      <td>44.358154</td>
+      <td>0.182427</td>
+      <td>0.306896</td>
+      <td>...</td>
+      <td>98.817560</td>
+      <td>99.419199</td>
+      <td>68.972997</td>
+      <td>47.526108</td>
+      <td>4.228852</td>
+      <td>4.961302</td>
+      <td>6.692020</td>
+      <td>7.123397</td>
+      <td>28</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>318.671420</td>
+      <td>313.440200</td>
+      <td>358.071900</td>
+      <td>33.345734</td>
+      <td>173.840640</td>
+      <td>156.619570</td>
+      <td>54.617310</td>
+      <td>92.664430</td>
+      <td>1.289812</td>
+      <td>1.219720</td>
+      <td>...</td>
+      <td>318.105656</td>
+      <td>318.722730</td>
+      <td>320.125084</td>
+      <td>16.728776</td>
+      <td>10.617166</td>
+      <td>10.577474</td>
+      <td>10.336028</td>
+      <td>12.739545</td>
+      <td>11</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-27</th>
+      <td>159.589970</td>
+      <td>154.263800</td>
+      <td>142.150200</td>
+      <td>113.220700</td>
+      <td>108.438510</td>
+      <td>113.500430</td>
+      <td>140.402800</td>
+      <td>108.095184</td>
+      <td>1.537852</td>
+      <td>1.728324</td>
+      <td>...</td>
+      <td>167.668978</td>
+      <td>160.391985</td>
+      <td>132.359039</td>
+      <td>109.294437</td>
+      <td>8.028384</td>
+      <td>8.752776</td>
+      <td>9.849789</td>
+      <td>6.400503</td>
+      <td>33</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2023-12-28</th>
+      <td>247.635680</td>
+      <td>237.278530</td>
+      <td>229.743480</td>
+      <td>206.890990</td>
+      <td>115.379730</td>
+      <td>110.423800</td>
+      <td>128.037930</td>
+      <td>137.766360</td>
+      <td>0.999801</td>
+      <td>0.995721</td>
+      <td>...</td>
+      <td>267.395319</td>
+      <td>264.031367</td>
+      <td>254.540372</td>
+      <td>252.202011</td>
+      <td>9.162432</td>
+      <td>9.425423</td>
+      <td>8.499945</td>
+      <td>5.604288</td>
+      <td>38</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2023-12-29</th>
+      <td>233.459410</td>
+      <td>234.366060</td>
+      <td>230.651410</td>
+      <td>216.311510</td>
+      <td>112.857025</td>
+      <td>106.291080</td>
+      <td>139.267300</td>
+      <td>130.203220</td>
+      <td>1.249844</td>
+      <td>1.204726</td>
+      <td>...</td>
+      <td>253.636841</td>
+      <td>254.091113</td>
+      <td>247.685698</td>
+      <td>230.156499</td>
+      <td>9.627664</td>
+      <td>8.985215</td>
+      <td>7.107272</td>
+      <td>6.160563</td>
+      <td>102</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>2023-12-30</th>
+      <td>249.984600</td>
+      <td>247.507980</td>
+      <td>237.124700</td>
+      <td>255.306700</td>
+      <td>192.969510</td>
+      <td>192.414140</td>
+      <td>182.973790</td>
+      <td>164.595460</td>
+      <td>1.946958</td>
+      <td>1.852688</td>
+      <td>...</td>
+      <td>276.031332</td>
+      <td>275.412867</td>
+      <td>267.893310</td>
+      <td>261.024545</td>
+      <td>12.575667</td>
+      <td>12.250268</td>
+      <td>11.648194</td>
+      <td>9.915409</td>
+      <td>78</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>2023-12-31</th>
+      <td>255.559390</td>
+      <td>251.275020</td>
+      <td>259.634430</td>
+      <td>273.924870</td>
+      <td>183.479540</td>
+      <td>183.316450</td>
+      <td>204.366240</td>
+      <td>179.097230</td>
+      <td>0.993777</td>
+      <td>0.956879</td>
+      <td>...</td>
+      <td>272.916018</td>
+      <td>273.284443</td>
+      <td>273.135844</td>
+      <td>272.591908</td>
+      <td>8.823123</td>
+      <td>9.002603</td>
+      <td>8.047323</td>
+      <td>7.062927</td>
+      <td>78</td>
+      <td>56</td>
+    </tr>
+  </tbody>
+</table>
+<p>16071 rows × 34 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;outputs/PCA/pcs_mslp_df.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># pcs_df = pd.read_csv(&#39;outputs/PCA_95/pcs_mslp_df.csv&#39;, index_col=0, parse_dates=True)</span>
+<span class="c1"># Add kma_bmus by matching dates with nearest_centroids_idx; keep only common dates</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="n">nearest_centroids_idx</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">nc</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;mixed&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="n">common_dates</span> <span class="o">=</span> <span class="n">pcs_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">nc</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">pcs_df</span> <span class="o">=</span> <span class="n">pcs_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pcs_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_dates</span><span class="p">)]</span>
+<span class="n">pcs_df</span><span class="p">[</span><span class="s1">&#39;kma_bmus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">pcs_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">normalize</span><span class="p">())[</span><span class="s1">&#39;kma_bmus_sorted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">pcs_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;outputs/PCA/pcs_clusters_ordered_ERA5.csv&#39;</span><span class="p">)</span>
+<span class="n">pcs_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3710820/2798508912.py:8: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  pcs_df[&#39;kma_bmus&#39;] = nc.reindex(pcs_df.index.normalize())[&#39;kma_bmus_sorted&#39;].values
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>PC3</th>
+      <th>PC4</th>
+      <th>PC5</th>
+      <th>PC6</th>
+      <th>PC7</th>
+      <th>PC8</th>
+      <th>PC9</th>
+      <th>PC10</th>
+      <th>...</th>
+      <th>PC414</th>
+      <th>PC415</th>
+      <th>PC416</th>
+      <th>PC417</th>
+      <th>PC418</th>
+      <th>PC419</th>
+      <th>PC420</th>
+      <th>PC421</th>
+      <th>PC422</th>
+      <th>kma_bmus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1980-01-01</th>
+      <td>-49.458400</td>
+      <td>-34.048107</td>
+      <td>-7.929733</td>
+      <td>-0.975224</td>
+      <td>-23.111797</td>
+      <td>5.615498</td>
+      <td>-13.778695</td>
+      <td>3.980211</td>
+      <td>0.646035</td>
+      <td>-25.690119</td>
+      <td>...</td>
+      <td>-1.207088</td>
+      <td>-0.051512</td>
+      <td>-0.116706</td>
+      <td>-0.139034</td>
+      <td>0.895172</td>
+      <td>1.738079</td>
+      <td>0.481316</td>
+      <td>1.242083</td>
+      <td>0.381649</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>1980-01-02</th>
+      <td>-55.407116</td>
+      <td>-25.120966</td>
+      <td>-15.827502</td>
+      <td>4.537589</td>
+      <td>-24.490154</td>
+      <td>7.925308</td>
+      <td>-18.712046</td>
+      <td>7.001968</td>
+      <td>2.070619</td>
+      <td>-13.881749</td>
+      <td>...</td>
+      <td>0.333494</td>
+      <td>-0.688912</td>
+      <td>0.324859</td>
+      <td>0.914038</td>
+      <td>0.563842</td>
+      <td>0.911562</td>
+      <td>-0.177970</td>
+      <td>0.123352</td>
+      <td>-0.992092</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1980-01-03</th>
+      <td>-56.924335</td>
+      <td>-17.005570</td>
+      <td>-18.541697</td>
+      <td>11.153529</td>
+      <td>-23.551619</td>
+      <td>11.860006</td>
+      <td>-17.197592</td>
+      <td>8.691975</td>
+      <td>1.607635</td>
+      <td>-3.346325</td>
+      <td>...</td>
+      <td>1.006207</td>
+      <td>0.585742</td>
+      <td>-0.303038</td>
+      <td>0.473561</td>
+      <td>-1.106718</td>
+      <td>0.601525</td>
+      <td>0.486609</td>
+      <td>-0.385596</td>
+      <td>0.221510</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>1980-01-04</th>
+      <td>-55.253220</td>
+      <td>-11.977421</td>
+      <td>-16.137165</td>
+      <td>13.210090</td>
+      <td>-16.443144</td>
+      <td>10.612020</td>
+      <td>-6.392672</td>
+      <td>13.554341</td>
+      <td>-0.226324</td>
+      <td>5.771776</td>
+      <td>...</td>
+      <td>-0.013758</td>
+      <td>-0.041140</td>
+      <td>0.464463</td>
+      <td>0.032919</td>
+      <td>0.315654</td>
+      <td>-1.283754</td>
+      <td>-0.402260</td>
+      <td>-0.350686</td>
+      <td>0.502584</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>1980-01-05</th>
+      <td>-47.471718</td>
+      <td>-7.726556</td>
+      <td>-12.295485</td>
+      <td>10.334167</td>
+      <td>-14.233707</td>
+      <td>8.815292</td>
+      <td>5.338915</td>
+      <td>16.309042</td>
+      <td>-11.480149</td>
+      <td>2.939295</td>
+      <td>...</td>
+      <td>-1.435816</td>
+      <td>-2.086801</td>
+      <td>0.540014</td>
+      <td>-0.443706</td>
+      <td>-0.636304</td>
+      <td>0.640091</td>
+      <td>-0.084544</td>
+      <td>1.144686</td>
+      <td>-1.595476</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>1980-01-06</th>
+      <td>-41.984394</td>
+      <td>-3.156262</td>
+      <td>-8.090857</td>
+      <td>9.345588</td>
+      <td>-19.545244</td>
+      <td>10.517530</td>
+      <td>6.814421</td>
+      <td>10.253082</td>
+      <td>-9.603621</td>
+      <td>-7.065017</td>
+      <td>...</td>
+      <td>-0.602329</td>
+      <td>0.725590</td>
+      <td>-0.707149</td>
+      <td>-0.504393</td>
+      <td>-0.118753</td>
+      <td>0.065669</td>
+      <td>0.944582</td>
+      <td>-0.104356</td>
+      <td>0.914001</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1980-01-07</th>
+      <td>-38.009720</td>
+      <td>4.019625</td>
+      <td>-5.887105</td>
+      <td>13.379266</td>
+      <td>-20.226370</td>
+      <td>4.801418</td>
+      <td>6.400393</td>
+      <td>11.723924</td>
+      <td>-8.659736</td>
+      <td>-8.612528</td>
+      <td>...</td>
+      <td>0.051424</td>
+      <td>0.821256</td>
+      <td>-2.687226</td>
+      <td>0.651472</td>
+      <td>1.059976</td>
+      <td>-1.929149</td>
+      <td>-0.453576</td>
+      <td>1.068940</td>
+      <td>0.618271</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>1980-01-08</th>
+      <td>-34.863663</td>
+      <td>11.881107</td>
+      <td>-6.606359</td>
+      <td>17.054499</td>
+      <td>-15.121107</td>
+      <td>0.562327</td>
+      <td>7.612006</td>
+      <td>16.370739</td>
+      <td>-6.755383</td>
+      <td>-10.065058</td>
+      <td>...</td>
+      <td>1.001702</td>
+      <td>-0.064835</td>
+      <td>1.070372</td>
+      <td>1.129120</td>
+      <td>-1.428332</td>
+      <td>-0.093315</td>
+      <td>1.185032</td>
+      <td>0.751979</td>
+      <td>-1.476684</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>1980-01-09</th>
+      <td>-33.971447</td>
+      <td>18.720575</td>
+      <td>-5.965404</td>
+      <td>16.722181</td>
+      <td>-10.919018</td>
+      <td>-5.900314</td>
+      <td>14.618680</td>
+      <td>20.214432</td>
+      <td>-2.905432</td>
+      <td>-10.410510</td>
+      <td>...</td>
+      <td>-0.098284</td>
+      <td>0.475928</td>
+      <td>-0.874887</td>
+      <td>-0.678157</td>
+      <td>-1.394359</td>
+      <td>-0.716754</td>
+      <td>0.984028</td>
+      <td>0.583310</td>
+      <td>0.910224</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>1980-01-10</th>
+      <td>-28.490183</td>
+      <td>22.090690</td>
+      <td>-1.804453</td>
+      <td>9.930626</td>
+      <td>-4.594120</td>
+      <td>-12.815430</td>
+      <td>17.030561</td>
+      <td>23.749277</td>
+      <td>1.279469</td>
+      <td>-9.830633</td>
+      <td>...</td>
+      <td>-0.510699</td>
+      <td>1.297119</td>
+      <td>-0.641934</td>
+      <td>-1.033464</td>
+      <td>1.170796</td>
+      <td>-0.106079</td>
+      <td>0.916167</td>
+      <td>-0.007603</td>
+      <td>-1.205183</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>1980-01-11</th>
+      <td>-21.166956</td>
+      <td>24.271530</td>
+      <td>0.805970</td>
+      <td>6.284653</td>
+      <td>4.392328</td>
+      <td>-22.509256</td>
+      <td>15.751587</td>
+      <td>23.979956</td>
+      <td>-1.041694</td>
+      <td>-9.028451</td>
+      <td>...</td>
+      <td>0.613630</td>
+      <td>2.685050</td>
+      <td>0.701567</td>
+      <td>1.032856</td>
+      <td>1.121258</td>
+      <td>-0.571920</td>
+      <td>2.351231</td>
+      <td>-0.000394</td>
+      <td>-0.580469</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>1980-01-12</th>
+      <td>-16.967825</td>
+      <td>29.551199</td>
+      <td>-0.092014</td>
+      <td>0.567062</td>
+      <td>10.934127</td>
+      <td>-25.895533</td>
+      <td>10.684091</td>
+      <td>23.411680</td>
+      <td>-2.515929</td>
+      <td>-7.409112</td>
+      <td>...</td>
+      <td>-0.778724</td>
+      <td>0.029323</td>
+      <td>-0.914700</td>
+      <td>-0.224886</td>
+      <td>2.377127</td>
+      <td>-0.562898</td>
+      <td>-0.852580</td>
+      <td>0.242198</td>
+      <td>-0.812764</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>1980-01-13</th>
+      <td>-16.442064</td>
+      <td>34.381878</td>
+      <td>-1.596162</td>
+      <td>-4.456469</td>
+      <td>13.118640</td>
+      <td>-21.128666</td>
+      <td>9.538948</td>
+      <td>18.711926</td>
+      <td>-3.897312</td>
+      <td>-6.331969</td>
+      <td>...</td>
+      <td>-1.689167</td>
+      <td>-0.613295</td>
+      <td>1.860680</td>
+      <td>-0.308751</td>
+      <td>0.660964</td>
+      <td>1.425019</td>
+      <td>0.615175</td>
+      <td>0.836278</td>
+      <td>0.135530</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>1980-01-14</th>
+      <td>-14.416080</td>
+      <td>34.938694</td>
+      <td>1.544435</td>
+      <td>-11.595861</td>
+      <td>8.571088</td>
+      <td>-14.159596</td>
+      <td>9.663253</td>
+      <td>11.076651</td>
+      <td>-2.172947</td>
+      <td>-1.255228</td>
+      <td>...</td>
+      <td>0.938118</td>
+      <td>-0.710766</td>
+      <td>-1.290799</td>
+      <td>-0.766214</td>
+      <td>-0.367171</td>
+      <td>-0.204406</td>
+      <td>0.749413</td>
+      <td>-0.423714</td>
+      <td>1.126867</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1980-01-15</th>
+      <td>-16.896048</td>
+      <td>29.763033</td>
+      <td>-0.717802</td>
+      <td>-13.603620</td>
+      <td>4.040178</td>
+      <td>-7.684150</td>
+      <td>5.012915</td>
+      <td>9.828358</td>
+      <td>1.324926</td>
+      <td>4.578108</td>
+      <td>...</td>
+      <td>2.125940</td>
+      <td>0.760590</td>
+      <td>0.007390</td>
+      <td>0.073007</td>
+      <td>0.258059</td>
+      <td>-0.117675</td>
+      <td>-0.180956</td>
+      <td>0.830830</td>
+      <td>-1.158373</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1980-01-16</th>
+      <td>-16.679764</td>
+      <td>21.637192</td>
+      <td>1.111004</td>
+      <td>-13.322928</td>
+      <td>1.472966</td>
+      <td>2.664834</td>
+      <td>-0.762725</td>
+      <td>13.516553</td>
+      <td>-3.472689</td>
+      <td>7.637381</td>
+      <td>...</td>
+      <td>-0.139329</td>
+      <td>-0.323692</td>
+      <td>0.309169</td>
+      <td>0.678729</td>
+      <td>-1.232095</td>
+      <td>1.747436</td>
+      <td>0.107276</td>
+      <td>-0.313198</td>
+      <td>1.086275</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1980-01-17</th>
+      <td>-20.574488</td>
+      <td>11.893551</td>
+      <td>-3.015108</td>
+      <td>-7.168150</td>
+      <td>-3.125025</td>
+      <td>5.404135</td>
+      <td>2.573101</td>
+      <td>20.284046</td>
+      <td>-2.641044</td>
+      <td>4.637306</td>
+      <td>...</td>
+      <td>-1.521679</td>
+      <td>-1.481659</td>
+      <td>1.171755</td>
+      <td>1.470556</td>
+      <td>1.087315</td>
+      <td>1.373402</td>
+      <td>0.066750</td>
+      <td>-0.686039</td>
+      <td>0.377611</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1980-01-18</th>
+      <td>-25.673403</td>
+      <td>3.111177</td>
+      <td>-11.141095</td>
+      <td>2.902052</td>
+      <td>-8.516670</td>
+      <td>3.981602</td>
+      <td>-1.938519</td>
+      <td>32.041393</td>
+      <td>3.910355</td>
+      <td>1.654513</td>
+      <td>...</td>
+      <td>1.790295</td>
+      <td>1.753360</td>
+      <td>3.337880</td>
+      <td>0.437507</td>
+      <td>-3.035865</td>
+      <td>-0.639013</td>
+      <td>3.950031</td>
+      <td>0.669722</td>
+      <td>-0.740184</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>1980-01-19</th>
+      <td>-22.424797</td>
+      <td>2.513969</td>
+      <td>-2.413604</td>
+      <td>0.886266</td>
+      <td>-15.783141</td>
+      <td>5.240276</td>
+      <td>-7.621118</td>
+      <td>30.379236</td>
+      <td>0.740506</td>
+      <td>7.491266</td>
+      <td>...</td>
+      <td>1.151593</td>
+      <td>1.259341</td>
+      <td>0.547388</td>
+      <td>-1.173551</td>
+      <td>-2.457101</td>
+      <td>-0.619342</td>
+      <td>1.243298</td>
+      <td>0.212413</td>
+      <td>-2.834227</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>1980-01-20</th>
+      <td>-20.705406</td>
+      <td>0.273789</td>
+      <td>6.800401</td>
+      <td>-3.200514</td>
+      <td>-24.619478</td>
+      <td>10.884646</td>
+      <td>-13.464667</td>
+      <td>27.652296</td>
+      <td>0.198158</td>
+      <td>13.107958</td>
+      <td>...</td>
+      <td>-0.420327</td>
+      <td>1.419521</td>
+      <td>0.748786</td>
+      <td>-0.762287</td>
+      <td>1.285687</td>
+      <td>-2.047619</td>
+      <td>-0.159989</td>
+      <td>0.980989</td>
+      <td>-1.211664</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+<p>20 rows × 423 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nearest_centroids_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">nearest_centroids_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;mixed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcs_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">pcs_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;mixed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nearest_centroids_df</span><span class="p">[</span><span class="s1">&#39;energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nearest_centroids_df</span><span class="p">[</span><span class="s1">&#39;hs1g1&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">nearest_centroids_df</span><span class="p">[</span><span class="s1">&#39;tp1g1&#39;</span><span class="p">]</span>
+<span class="n">nearest_centroids_df_aux</span> <span class="o">=</span> <span class="n">nearest_centroids_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pcs_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pcs_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">nearest_centroids_df_aux</span><span class="p">[</span><span class="s1">&#39;energy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;True Energy&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Energy&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Energy Predictions&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/69d9f72d01ee9a11560702cd41618f7d59349c23678f9cb8027a2956632485b0.png" src="../_images/69d9f72d01ee9a11560702cd41618f7d59349c23678f9cb8027a2956632485b0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">36</span><span class="p">))</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">):</span>
+    <span class="n">aux_df</span> <span class="o">=</span> <span class="n">pcs_df</span><span class="p">[</span><span class="n">pcs_df</span><span class="p">[</span><span class="s1">&#39;kma_bmus&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">aux_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">pc</span><span class="p">],</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pcs_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">pc</span><span class="p">],</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;All&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;WT </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1bb4ff2bcf72cf8e9e45498e4d2a89b88bd5cb80731efa09a8c2e8ffd8a368c2.png" src="../_images/1bb4ff2bcf72cf8e9e45498e4d2a89b88bd5cb80731efa09a8c2e8ffd8a368c2.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03b_02_pcs_mslp_sst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Load Data (Cyclone Model)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03b_04_alr_clusters_20cr.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GEOCEAN / ShoreShop3
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

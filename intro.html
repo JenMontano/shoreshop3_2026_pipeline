@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ShoreShop3_2026 — Hydrodynamic forcing for North Carolina &#8212; ShoreShop3_2026 — NC wave forcing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="/shoreshop3_2026_pipeline/intro.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="01_BinWaves — ShoreShop wave hindcast pipeline" href="chapters/01_binwaves.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ShoreShop3_2026 — NC wave forcing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 — BinWaves (present climate)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/01_binwaves.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/01_propagation.html">Notebook — grid1 propagation (BinWaves core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 — Wind-wave metamodel</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/02_wind_metamodel.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/02_kma_wind_pipeline.html">Notebook — grid1 KMA wind pipeline (core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 — Wave emulator</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/03_wave_emulator.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/03a_stochastic_gcm.html">03A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03a_06_mlr_tcs.html">Load Data</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03a_07_assing_tcs.html">Load Synthetic Tracks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chapters/03b_century_gcm_waves.html">03B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_00_partitions_cluster_points.html">Notebook — 03B partitions at super points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_01_testing_clustering.html">MDA &amp; K-Means Clustering of Waves Conditions</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_02_pcs_mslp_sst.html">Load Data (Cyclone Model)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_03_clusters_and_pcs.html">Notebook — 03B link clusters ↔ PCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03b_04_alr_clusters_20cr.html">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 — Tropical cyclones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/04_cyclones.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/04a_cyclones_metamodel.html">04A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04a_13_reconstruction_trazas.html">Notebook — 04A apply metamodel to emulated tracks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/04b_cyclones_emulator.html">04B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04b_00_cyclones_spectra.html">Cyclones MetaModel North Carolina</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04b_01_partitions_ptm4.html">Notebook — 04B PTM4 partition &amp; merge</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Book build</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Build &amp; serve instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ShoreShop3_2026 — Hydrodynamic forcing for North Carolina</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-scope">Scientific scope</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#present-climate-19802023">Present climate (1980–2023)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#past-century-future-climate-18702100">Past century &amp; future climate (1870–2100)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-pipeline-this-repo">Computational pipeline (this repo)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-summary">Stage summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-process-notebooks">Key process notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-handoffs">Data handoffs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-run-order">Recommended run order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-conventions">Shared conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-map">Documentation map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-notes">Repository notes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="shoreshop3-2026-hydrodynamic-forcing-for-north-carolina">
+<h1>ShoreShop3_2026 — Hydrodynamic forcing for North Carolina<a class="headerlink" href="#shoreshop3-2026-hydrodynamic-forcing-for-north-carolina" title="Link to this heading">#</a></h1>
+<p>Quantitative predictions of coastal erosion and accretion rely critically on the quality of atmospheric and oceanic forcing. This repository implements the <strong>wave-climate component</strong> of the <a class="reference external" href="https://shoreshop3.netlify.app/">ShoreShop3 benchmark</a> for the North Carolina coast: computationally efficient, high-resolution hydrodynamic forcing for shoreline evolution models at scales from <strong>hourly events</strong> to <strong>multi-decadal variability</strong>, and from the <strong>nearshore</strong> (up to <strong>500 m</strong> along reference transects) to the <strong>regional coastline</strong>.</p>
+<blockquote>
+<div><p><strong>Jupyter Book:</strong> the same overview is rendered at <code class="docutils literal notranslate"><span class="pre">docs/intro.html</span></code> — run <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">docs/build.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">docs/serve.sh</span></code> (<a class="reference internal" href="README.html"><span class="doc std std-doc">Build instructions</span></a>).</p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="scientific-scope">
+<h2>Scientific scope<a class="headerlink" href="#scientific-scope" title="Link to this heading">#</a></h2>
+<section id="present-climate-19802023">
+<h3>Present climate (1980–2023)<a class="headerlink" href="#present-climate-19802023" title="Link to this heading">#</a></h3>
+<p><strong>BinWaves</strong> — a hybrid additive downscaling model (Cagigal et al., 2023) — propagates WHACS offshore spectra through four overlapping SWAN grids and reconstructs nearshore directional wave spectra. A <strong>wind-wave metamodel</strong> (PCA =&gt; MDA =&gt; KMA (250) wind clusters + SWAN re-runs on 250 behavioural map units) is merged with BinWaves swell to represent <strong>locally generated wind seas</strong>, producing an hourly <strong>BinWaves + BMUS</strong> hindcast.</p>
+</section>
+<section id="past-century-future-climate-18702100">
+<h3>Past century &amp; future climate (1870–2100)<a class="headerlink" href="#past-century-future-climate-18702100" title="Link to this heading">#</a></h3>
+<p>A <strong>climate-based wave emulator</strong> jointly simulates <strong>regular sea states</strong> and <strong>tropical cyclones (TCs)</strong>:</p>
+<ul class="simple">
+<li><p><strong>Regular climate:</strong> MSLP (and SST) PCA identifies dominant atmospheric modes (EOFs/PCs; Camus et al., 2014). Daily PCs are linked to <strong>wave clusters</strong> (KMA) via an <strong>Autoregressive Logistic Regression (ALR)</strong> model, with seasonal structure and large-scale modes (NAO, MJO). Synthetic atmospheric sequences drive offshore → nearshore translation through BinWaves + the wind metamodel.</p></li>
+<li><p><strong>Tropical cyclones:</strong> Historical and emulated TC tracks expand plausible storm scenarios. A <strong>TC track-type MLR</strong> (03A) feeds a <strong>SWAN parametric metamodel</strong> (04A) that predicts cyclone wave fields; <strong>04B</strong> downscales spectra and <strong>splices</strong> TC peaks into the non-TC GCM (<code class="docutils literal notranslate"><span class="pre">earth3</span></code>) baselines from 03B.</p></li>
+</ul>
+<p>Together, the framework delivers:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Product</p></th>
+<th class="head"><p>Period</p></th>
+<th class="head"><p>Resolution</p></th>
+<th class="head"><p>Folder</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hourly wave hindcast</p></td>
+<td><p>1980–2023</p></td>
+<td><p>Full domain + 500 m sites</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/outputs/NorthCarolina/</span></code>, <code class="docutils literal notranslate"><span class="pre">.../merged_500m_binwaves_bmus/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Century regular + TC climate</p></td>
+<td><p>1870–2015 (emulated)</p></td>
+<td><p>500 m reference sites</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B</span></code>, <code class="docutils literal notranslate"><span class="pre">04B</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Future wave projections</p></td>
+<td><p>2015–2100</p></td>
+<td><p>500 m; multiple GCMs, SSP2-4.5 / SSP5-8.5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B</span></code>, <code class="docutils literal notranslate"><span class="pre">04B</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="computational-pipeline-this-repo">
+<h2>Computational pipeline (this repo)<a class="headerlink" href="#computational-pipeline-this-repo" title="Link to this heading">#</a></h2>
+<p>Four linked stages. Each has a detailed README — use the sidebar or the <a class="reference internal" href="#documentation-map">documentation map</a> below.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  PRESENT CLIMATE                    EMULATOR &amp; PROJECTIONS
+  ─────────────────                  ─────────────────────────
+
+  01 BinWaves          WHACS → SWAN propagation → spectral
+       │               reconstruction → partitions (4 grids)
+       ▼
+  02 Wind Metamodel    KMA wind clusters → merge wind-sea
+       │               with BinWaves → NorthCarolina + 500 m
+       │
+       ├──────────────────────────────┐
+       ▼                              ▼
+  03B Century waves        03A TC track MLR (CMIP6 MSLP/SST)
+  Wave-cluster KMA         emu_tracks → 04A SWAN metamodel
+  ALR =&gt; Century &amp; GCM
+  projections             → 04B spectra reconstruction TCs + GCM Non-TC emulator
+       │                              │
+       └──────────┬───────────────────┘
+                  ▼
+         earth3_ssp245|585_with_cyclones/
+         (500 m forcing with TC peaks embedded)
+</pre></div>
+</div>
+<section id="stage-summary">
+<h3>Stage summary<a class="headerlink" href="#stage-summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Scientific role</p></th>
+<th class="head"><p>Key method</p></th>
+<th class="head"><p>Main outputs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/01_binwaves.html"><span class="doc std std-doc"><strong>01 — BinWaves</strong></span></a></p></td>
+<td><p>Nearshore swell hindcast</p></td>
+<td><p>BinWaves / SWAN, kp reconstruction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">01_BinWaves/outputs/cropped_variables/</span></code>, <code class="docutils literal notranslate"><span class="pre">.../merged_grids/</span></code>, <code class="docutils literal notranslate"><span class="pre">gridN/outputs/kp_coeffs_*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/02_wind_metamodel.html"><span class="doc std std-doc"><strong>02 — Wind Metamodel</strong></span></a></p></td>
+<td><p>Wind-sea correction</p></td>
+<td><p>KMA (250 BMUs) + smooth grid merge</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/outputs/NorthCarolina/</span></code>, <code class="docutils literal notranslate"><span class="pre">.../merged_500m_binwaves_bmus/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/03_wave_emulator.html"><span class="doc std std-doc"><strong>03 — Wave Emulator</strong></span></a></p></td>
+<td><p>Past &amp; future wave climate</p></td>
+<td><p>PCA + wave-cluster ALR; TC MLR (03A)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/outputs/earth3_veg_ssp245|585/</span></code>, <code class="docutils literal notranslate"><span class="pre">03A/outputs/tc_logit/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/04_cyclones.html"><span class="doc std std-doc"><strong>04 — Cyclones</strong></span></a></p></td>
+<td><p>TC wave fields &amp; splice</p></td>
+<td><p>PCA/RBF metamodel (04A); BinWaves downscale + partitions (04B)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">04A/outputs/predicted_emu_tracks_*</span></code>, <code class="docutils literal notranslate"><span class="pre">04B/outputs/earth3_ssp*_with_cyclones/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>03</strong> and <strong>04</strong> sub-branches:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Subfolder</p></th>
+<th class="head"><p>Branch</p></th>
+<th class="head"><p>Feeds</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/03a_stochastic_gcm.html"><span class="doc std std-doc">03A — Stochastic GCMs</span></a></p></td>
+<td><p>CMIP6 MSLP/SST PCA + TC track-type MLR</p></td>
+<td><p>→ <strong>04A</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/03b_century_gcm_waves.html"><span class="doc std std-doc">03B — Century GCM waves</span></a></p></td>
+<td><p>Wave-cluster KMA + ALR + GCM runs</p></td>
+<td><p>→ <strong>04B</strong> baselines (no TCs)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/04a_cyclones_metamodel.html"><span class="doc std std-doc">04A — Cyclones metamodel</span></a></p></td>
+<td><p>SWAN parametric cases → metamodel</p></td>
+<td><p>→ <strong>04B</strong> catalog</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/04b_cyclones_emulator.html"><span class="doc std std-doc">04B — Cyclones emulator</span></a></p></td>
+<td><p>Spectra → partitions → splice into 03B</p></td>
+<td><p>Final 500 m series <strong>with</strong> TCs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-process-notebooks">
+<h2>Key process notebooks<a class="headerlink" href="#key-process-notebooks" title="Link to this heading">#</a></h2>
+<p>Each stage README covers merge/post-processing across all four grids. The <strong>core physics / ML steps</strong> for one grid (or the emulator chain) are illustrated by these notebooks (included in the Jupyter Book sidebar):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Notebook</p></th>
+<th class="head"><p>What it shows</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>01</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">01_BinWaves/grid1/01_Propagation.ipynb</span></code></p></td>
+<td><p>BinWaves SWAN propagation → kp coefficients</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>02</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/grid1/00_kma_wind_pipeline.ipynb</span></code></p></td>
+<td><p>KMA wind clusters → SWAN wind-sea cases</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>03B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/00_Partitions_cluster_points.ipynb</span></code></p></td>
+<td><p>PTM4 partitions at four super points</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>03B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/01_Testing_ClusteringAlgorithms_partitions_all.ipynb</span></code></p></td>
+<td><p>Wave-cluster (BMU) selection</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>03B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/02_PCs_MSLP_SST.ipynb</span></code></p></td>
+<td><p>MSLP/SST PCA for training</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>03B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/03_Clusters_and_PCS.ipynb</span></code></p></td>
+<td><p>Calibrate clusters ↔ atmospheric PCs</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>03B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/04_ALR_Clusters_20CR.ipynb</span></code></p></td>
+<td><p>ALR model training (20CR)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>03A</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03A/06_mlr_tcs.ipynb</span></code>, <code class="docutils literal notranslate"><span class="pre">03A/07_assing_tcs.ipynb</span></code></p></td>
+<td><p>TC track-type MLR → GCM catalogue</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>04A</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">04A/13_reconstrucion_trazas.ipynb</span></code></p></td>
+<td><p>Metamodel on emulated tracks</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>04B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">04B/00_Cylcones_NC.ipynb</span></code>, <code class="docutils literal notranslate"><span class="pre">04B/01_Partitions_cyclones_compact_PTM4.ipynb</span></code></p></td>
+<td><p>Cyclone spectra → PTM4 → splice</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Grid merge / 500 m post-processing: <code class="docutils literal notranslate"><span class="pre">01_BinWaves/04_PostProcessing…</span></code>, <code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/01A</span></code>, <code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/01B</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="data-handoffs">
+<h2>Data handoffs<a class="headerlink" href="#data-handoffs" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Producer</p></th>
+<th class="head"><p>Output</p></th>
+<th class="head"><p>Consumer</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>01</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">01_BinWaves/outputs/cropped_variables/</span></code></p></td>
+<td><p><strong>02</strong></p></td>
+<td><p>Geometry template for KMA merge</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>01</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gridN/outputs/kp_coeffs_*</span></code></p></td>
+<td><p><strong>04B</strong></p></td>
+<td><p>Offshore → nearshore TC spectra</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>02</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/outputs/NorthCarolina/{var}_*.nc</span></code></p></td>
+<td><p><strong>03B</strong></p></td>
+<td><p>ALR validation &amp; BMU bootstrap</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>02</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/outputs/merged_500m_binwaves_bmus/</span></code></p></td>
+<td><p><strong>03B</strong>, <strong>04B</strong></p></td>
+<td><p>500 m hindcast reference</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>03A</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03A/outputs/tc_logit/.../emu_tracks_*</span></code></p></td>
+<td><p><strong>04A</strong></p></td>
+<td><p>Emulated TC catalogue</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>03A</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03A/outputs/cmip6_models/mslp_*_pcs_95.csv</span></code></p></td>
+<td><p><strong>03B</strong></p></td>
+<td><p>GCM MSLP PCs for ALR</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>03B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">03B/outputs/earth3_veg_ssp245|585/</span></code></p></td>
+<td><p><strong>04B</strong></p></td>
+<td><p>Baseline climate <strong>without</strong> TCs</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>04A</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">04A/outputs/predicted_emu_tracks_*</span></code></p></td>
+<td><p><strong>04B</strong></p></td>
+<td><p>Metamodel cyclone Hs, Tp, wind</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>04B</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">04B/outputs/earth3_ssp*_with_cyclones/</span></code></p></td>
+<td><p>shoreline models</p></td>
+<td><p>Final forcing <strong>with</strong> TC peaks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Paths are <strong>repo-relative</strong>; <strong>04B</strong> reads upstream products via <code class="docutils literal notranslate"><span class="pre">04B/paths.py</span></code> (no copies in <code class="docutils literal notranslate"><span class="pre">04B/inputs/</span></code> for tracks or baselines).</p>
+</section>
+<hr class="docutils" />
+<section id="recommended-run-order">
+<h2>Recommended run order<a class="headerlink" href="#recommended-run-order" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1. 01_BinWaves          propagation → reconstruction → partitions (per grid) → crop → merge all grids
+2. 02_Wind_Metamodel    01A full domain + 01B 500 m products
+3. 03B                  partitions → PCA → MDA → KMA → ALR GCM notebooks
+4. 03A                  CMIP6 preprocess + TC MLR (parallel with 3B after step 2)
+5. 04A                  SWAN metamodel train → 13_reconstrucion_trazas
+6. 04B                  00 spectra → reconstruct → 01 partitions → splice
+</pre></div>
+</div>
+<p><strong>Prerequisites:</strong> 03B ALR needs <strong>02/01A</strong>; 04A step 13 needs <strong>03A/06 + 07</strong>; 04B splice needs <strong>04A/outputs</strong>, <strong>03B/earth3_veg_ssp</strong>*, <strong>01/kp_coeffs</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="shared-conventions">
+<h2>Shared conventions<a class="headerlink" href="#shared-conventions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Grids:</strong> <code class="docutils literal notranslate"><span class="pre">grid1</span></code>–<code class="docutils literal notranslate"><span class="pre">grid4</span></code> — four overlapping SWAN domains (see <a class="reference internal" href="chapters/01_binwaves.html"><span class="doc std std-doc">01 — BinWaves</span></a>). Single-grid setups skip crop/merge; use kp coefficients directly after propagation.</p></li>
+<li><p><strong>Spatial merge:</strong> smooth buffer blend across grid overlaps (<a class="reference internal" href="chapters/02_wind_metamodel.html"><span class="doc std std-doc">02</span></a>; same math in <a class="reference internal" href="chapters/04b_cyclones_emulator.html"><span class="doc std std-doc">04B</span></a> cyclone merge).</p></li>
+<li><p><strong>500 m sites:</strong> <code class="docutils literal notranslate"><span class="pre">02_Wind_Metamodel/inputs/water_level_statistics.geojson</span></code>; cyclone partitioning uses <code class="docutils literal notranslate"><span class="pre">04B/inputs/isobath_10m_points_500m.geojson</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="documentation-map">
+<span id="id1"></span><h2>Documentation map<a class="headerlink" href="#documentation-map" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Chapter</p></th>
+<th class="head"><p>Contents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/01_binwaves.html"><span class="doc std std-doc">01 — BinWaves</span></a></p></td>
+<td><p>WHACS propagation, buoy correction, reconstruction, partitions</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/02_wind_metamodel.html"><span class="doc std std-doc">02 — Wind Metamodel</span></a></p></td>
+<td><p>KMA pipeline, BinWaves+BMUS merge, full domain and 500 m products</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/03_wave_emulator.html"><span class="doc std std-doc">03 — Wave Emulator</span></a></p></td>
+<td><p>03A ↔ 03B overview</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/03a_stochastic_gcm.html"><span class="doc std std-doc">03A — Stochastic GCMs</span></a></p></td>
+<td><p>CMIP6 preprocessing, TC track MLR</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/03b_century_gcm_waves.html"><span class="doc std std-doc">03B — Century GCM waves</span></a></p></td>
+<td><p>Wave clusters, ALR, GCM projections</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/04_cyclones.html"><span class="doc std std-doc">04 — Cyclones</span></a></p></td>
+<td><p>04A ↔ 04B overview</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="chapters/04a_cyclones_metamodel.html"><span class="doc std std-doc">04A — Metamodel</span></a></p></td>
+<td><p>SWAN cases, PCA/RBF training</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="chapters/04b_cyclones_emulator.html"><span class="doc std std-doc">04B — Emulator &amp; splice</span></a></p></td>
+<td><p>Spectra, PTM4 partitions, climate splice</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>Browse this book:</strong> run <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">docs/build.sh</span></code>, then <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">docs/serve.sh</span></code> and open <a class="reference external" href="http://localhost:8765/intro.html">http://localhost:8765/intro.html</a> (SSH tunnel if remote). See <a class="reference internal" href="README.html"><span class="doc std std-doc">Build instructions</span></a>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="repository-notes">
+<h2>Repository notes<a class="headerlink" href="#repository-notes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Git:</strong> track code and notebooks only; <code class="docutils literal notranslate"><span class="pre">outputs/</span></code>, <code class="docutils literal notranslate"><span class="pre">*.nc</span></code>, and large inputs are in <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p><strong>Legacy paths:</strong> outputs may still show old absolute paths; active workflows use in-repo relative paths and <code class="docutils literal notranslate"><span class="pre">04B/paths.py</span></code>.</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="chapters/01_binwaves.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">01_BinWaves — ShoreShop wave hindcast pipeline</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-scope">Scientific scope</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#present-climate-19802023">Present climate (1980–2023)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#past-century-future-climate-18702100">Past century &amp; future climate (1870–2100)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-pipeline-this-repo">Computational pipeline (this repo)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-summary">Stage summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-process-notebooks">Key process notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-handoffs">Data handoffs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-run-order">Recommended run order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-conventions">Shared conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-map">Documentation map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-notes">Repository notes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GEOCEAN / ShoreShop3
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

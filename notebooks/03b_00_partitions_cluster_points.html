@@ -1,0 +1,1209 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>🌊 Partitions - Grid 1 (Single Point) &#8212; ShoreShop3_2026 — NC wave forcing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03b_00_partitions_cluster_points';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="/shoreshop3_2026_pipeline/notebooks/03b_00_partitions_cluster_points.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MDA &amp; K-Means Clustering of Waves Conditions" href="03b_01_testing_clustering.html" />
+    <link rel="prev" title="03B — Century GCM wave emulator (KMA clusters + ALR)" href="../chapters/03b_century_gcm_waves.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ShoreShop3_2026 — NC wave forcing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01 — BinWaves (present climate)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/01_binwaves.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_propagation.html">Notebook — grid1 propagation (BinWaves core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 — Wind-wave metamodel</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/02_wind_metamodel.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_kma_wind_pipeline.html">Notebook — grid1 KMA wind pipeline (core)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 — Wave emulator</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03_wave_emulator.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03a_stochastic_gcm.html">03A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03a_06_mlr_tcs.html">Load Data</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03a_07_assing_tcs.html">Load Synthetic Tracks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../chapters/03b_century_gcm_waves.html">03B — Documentation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebook — 03B partitions at super points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_01_testing_clustering.html">MDA &amp; K-Means Clustering of Waves Conditions</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_02_pcs_mslp_sst.html">Load Data (Cyclone Model)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03b_03_clusters_and_pcs.html">Notebook — 03B link clusters ↔ PCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_04_alr_clusters_20cr.html">Load Data (PCs MSLP - ERA5 &amp; Wave Clusters)</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 — Tropical cyclones</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04_cyclones.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04a_cyclones_metamodel.html">04A — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04a_13_reconstruction_trazas.html">Notebook — 04A apply metamodel to emulated tracks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/04b_cyclones_emulator.html">04B — Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04b_00_cyclones_spectra.html">Cyclones MetaModel North Carolina</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04b_01_partitions_ptm4.html">Notebook — 04B PTM4 partition &amp; merge</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Book build</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Build &amp; serve instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/03b_00_partitions_cluster_points.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>🌊 Partitions - Grid 1 (Single Point)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="partitions-grid-1-single-point">
+<h1>🌊 Partitions - Grid 1 (Single Point)<a class="headerlink" href="#partitions-grid-1-single-point" title="Link to this heading">#</a></h1>
+<p>This notebook processes wave spectra partitioning for a specific point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wavespectra</span>  <span class="c1"># registers .spec accessor</span>
+
+<span class="c1"># ============================================================================</span>
+<span class="c1"># Simplified processing: 4 grids, 1 point per grid, all variables, all years</span>
+<span class="c1"># Output: one NetCDF per variable in `outputs/`, with 4 points</span>
+<span class="c1"># ============================================================================</span>
+
+<span class="c1"># Region / output configuration</span>
+<span class="n">REGION_NAME</span> <span class="o">=</span> <span class="s2">&quot;NorthCarolina&quot;</span> 
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="s2">&quot;outputs/partitions_SuperPoint/&quot;</span>
+<span class="n">BULK_OUTPUT_DIR</span> <span class="o">=</span> <span class="s2">&quot;outputs/partitions_SuperPoint/&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">BULK_OUTPUT_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Input spectrum: one file per grid (from 01_BinWaves reconstructed spectra)</span>
+<span class="n">BINWAVES_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../../01_BinWaves&quot;</span><span class="p">)</span>
+<span class="n">INPUT_SPECTRA_FILES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;grid1&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BINWAVES_DIR</span><span class="p">,</span> <span class="s2">&quot;grid1/inputs/grid1_41013_spec_WHACS_buoy_correted_15D.nc&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;grid2&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BINWAVES_DIR</span><span class="p">,</span> <span class="s2">&quot;grid2/inputs/grid2_superPoint_15D.nc&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;grid3&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BINWAVES_DIR</span><span class="p">,</span> <span class="s2">&quot;grid3/inputs/grid3_superPoint_15D.nc&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;grid4&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BINWAVES_DIR</span><span class="p">,</span> <span class="s2">&quot;grid4/inputs/grid4_44014_spec_WHACS_buoy_correted_15D.nc&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">UWND_FILE</span> <span class="o">=</span> <span class="s2">&quot;inputs/uwnd.nc&quot;</span>
+<span class="n">VWND_FILE</span> <span class="o">=</span> <span class="s2">&quot;inputs/vwnd.nc&quot;</span>
+<span class="c1"># wind data from WHACS</span>
+<span class="n">GEBCO_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BINWAVES_DIR</span><span class="p">,</span> <span class="s2">&quot;inputs/gebco_bathymetry.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># Target points: 1 per grid (lat, lon)</span>
+<span class="n">TARGET_POINTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;grid1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;grid1&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">33.441</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">77.766</span><span class="p">},</span>
+    <span class="s2">&quot;grid2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;grid2&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">33.8928</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">76.9845</span><span class="p">},</span>
+    <span class="s2">&quot;grid3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;grid3&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">35.10</span><span class="p">,</span>   <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">75.36</span><span class="p">},</span>
+    <span class="s2">&quot;grid4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;grid4&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">36.603</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">74.837</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Load forcing datasets (wind and bathymetry)</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">open_netcdf_with_fallback</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fallback_paths</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Open NetCDF trying explicit engines and optional fallback paths.&quot;&quot;&quot;</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">path</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">fallback_paths</span><span class="p">:</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">fallback_paths</span><span class="p">)</span>
+
+    <span class="n">last_err</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">eng</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;netcdf4&quot;</span><span class="p">,</span> <span class="s2">&quot;scipy&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">eng</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">eng</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="n">last_err</span> <span class="o">=</span> <span class="n">exc</span>
+                <span class="k">continue</span>
+
+    <span class="k">if</span> <span class="n">last_err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not open any candidate NetCDF file for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">. Last error: </span><span class="si">{</span><span class="n">last_err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;None of the candidate files exist for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">. Checked: </span><span class="si">{</span><span class="n">candidates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading wind components (WHACS)...&quot;</span><span class="p">)</span>
+<span class="n">uwnd</span> <span class="o">=</span> <span class="n">open_netcdf_with_fallback</span><span class="p">(</span>
+    <span class="n">UWND_FILE</span><span class="p">,</span>
+    <span class="n">fallback_paths</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;inputs/WHACS/uwnd_NorthCarolina_closest4.nc&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">vwnd</span> <span class="o">=</span> <span class="n">open_netcdf_with_fallback</span><span class="p">(</span>
+    <span class="n">VWND_FILE</span><span class="p">,</span>
+    <span class="n">fallback_paths</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;inputs/WHACS/vwnd_NorthCarolina_closest4.nc&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">uwnd_var</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">uwnd</span><span class="o">.</span><span class="n">data_vars</span> <span class="k">if</span> <span class="s2">&quot;uwnd&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;u&quot;</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;u_&quot;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">vwnd_var</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vwnd</span><span class="o">.</span><span class="n">data_vars</span> <span class="k">if</span> <span class="s2">&quot;vwnd&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;v&quot;</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;v_&quot;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  U wind variable: </span><span class="si">{</span><span class="n">uwnd_var</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  V wind variable: </span><span class="si">{</span><span class="n">vwnd_var</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Loading GEBCO bathymetry...&quot;</span><span class="p">)</span>
+<span class="n">gebco</span> <span class="o">=</span> <span class="n">open_netcdf_with_fallback</span><span class="p">(</span><span class="n">GEBCO_FILE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  GEBCO loaded.&quot;</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Helper: wind seapoint coordinates (1D lon/lat arrays for WHACS seapoints)</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Preparing wind seapoint coordinate arrays (for nearest-neighbour search)...&quot;</span><span class="p">)</span>
+<span class="n">uwnd_filtered</span> <span class="o">=</span> <span class="n">uwnd</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1980-01-01&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>  <span class="c1"># 1979 coords may be problematic</span>
+
+<span class="n">lat_coord</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">lon_coord</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">uwnd_filtered</span><span class="o">.</span><span class="n">coords</span><span class="p">:</span>
+    <span class="n">lc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;lat&quot;</span> <span class="ow">in</span> <span class="n">lc</span><span class="p">:</span>
+        <span class="n">lat_coord</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">if</span> <span class="s2">&quot;lon&quot;</span> <span class="ow">in</span> <span class="n">lc</span><span class="p">:</span>
+        <span class="n">lon_coord</span> <span class="o">=</span> <span class="n">c</span>
+
+<span class="c1"># If not in coords, check data_vars</span>
+<span class="k">if</span> <span class="n">lat_coord</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">uwnd_filtered</span><span class="o">.</span><span class="n">data_vars</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;lat&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">lat_coord</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">break</span>
+<span class="k">if</span> <span class="n">lon_coord</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">uwnd_filtered</span><span class="o">.</span><span class="n">data_vars</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;lon&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">lon_coord</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">break</span>
+
+<span class="k">if</span> <span class="n">lat_coord</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">lon_coord</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find lat/lon in wind dataset. Coords: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">uwnd_filtered</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span><span class="si">}</span><span class="s2">, vars: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">uwnd_filtered</span><span class="o">.</span><span class="n">data_vars</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">lat_da</span> <span class="o">=</span> <span class="n">uwnd_filtered</span><span class="p">[</span><span class="n">lat_coord</span><span class="p">]</span>
+<span class="n">lon_da</span> <span class="o">=</span> <span class="n">uwnd_filtered</span><span class="p">[</span><span class="n">lon_coord</span><span class="p">]</span>
+
+<span class="c1"># Build 1D arrays (one coordinate per seapoint) robustly for both:</span>
+<span class="c1"># - closest4 files: (seapoint, time)</span>
+<span class="c1"># - other files:    (time, seapoint) or already (seapoint,)</span>
+<span class="k">if</span> <span class="s2">&quot;seapoint&quot;</span> <span class="ow">in</span> <span class="n">lat_da</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+    <span class="n">sel_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">lat_da</span><span class="o">.</span><span class="n">dims</span> <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="s2">&quot;seapoint&quot;</span><span class="p">}</span>
+    <span class="n">uwnd_lat</span> <span class="o">=</span> <span class="n">lat_da</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="o">**</span><span class="n">sel_index</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">uwnd_lon</span> <span class="o">=</span> <span class="n">lon_da</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="o">**</span><span class="n">sel_index</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Fallback: flatten and use as-is (legacy behavior)</span>
+    <span class="n">uwnd_lat</span> <span class="o">=</span> <span class="n">lat_da</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">uwnd_lon</span> <span class="o">=</span> <span class="n">lon_da</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Wind seapoints: </span><span class="si">{</span><span class="n">uwnd_lon</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> points&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_closest_seapoint</span><span class="p">(</span><span class="n">lon_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lat_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return index of closest WHACS seapoint to (lon, lat).&quot;&quot;&quot;</span>
+    <span class="c1"># Convert to 0–360 longitude if needed</span>
+    <span class="n">lon360</span> <span class="o">=</span> <span class="n">lon_deg</span> <span class="o">+</span> <span class="mi">360</span> <span class="k">if</span> <span class="n">lon_deg</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">lon_deg</span>
+
+    <span class="n">lon_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uwnd_lon</span> <span class="o">-</span> <span class="n">lon360</span><span class="p">)</span>
+    <span class="n">lon_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">lon_diff</span><span class="p">,</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">lon_diff</span><span class="p">)</span>  <span class="c1"># handle wrap-around</span>
+    <span class="n">lat_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uwnd_lat</span> <span class="o">-</span> <span class="n">lat_deg</span><span class="p">)</span>
+
+    <span class="n">dist2</span> <span class="o">=</span> <span class="n">lon_diff</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">lat_diff</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dist2</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">distance_km_to_seapoint</span><span class="p">(</span><span class="n">lon_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lat_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">seapoint_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Approximate great-circle distance [km] between target and WHACS seapoint.&quot;&quot;&quot;</span>
+    <span class="c1"># Target in degrees</span>
+    <span class="n">lat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lat_deg</span><span class="p">)</span>
+    <span class="n">lon1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lon_deg</span><span class="p">)</span>
+
+    <span class="c1"># Seapoint lon is in 0–360; convert back to -180..180 for distance</span>
+    <span class="n">seap_lon_360</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">uwnd_lon</span><span class="p">[</span><span class="n">seapoint_idx</span><span class="p">])</span>
+    <span class="n">seap_lon</span> <span class="o">=</span> <span class="n">seap_lon_360</span> <span class="k">if</span> <span class="n">seap_lon_360</span> <span class="o">&lt;=</span> <span class="mf">180.0</span> <span class="k">else</span> <span class="n">seap_lon_360</span> <span class="o">-</span> <span class="mf">360.0</span>
+    <span class="n">lat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">uwnd_lat</span><span class="p">[</span><span class="n">seapoint_idx</span><span class="p">]))</span>
+    <span class="n">lon2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">seap_lon</span><span class="p">)</span>
+
+    <span class="n">dlat</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span>
+    <span class="n">dlon</span> <span class="o">=</span> <span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlat</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlon</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span>
+    <span class="n">R_earth_km</span> <span class="o">=</span> <span class="mf">6371.0</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">R_earth_km</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">distance_km_between_points</span><span class="p">(</span><span class="n">lat1_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon1_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lat2_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon2_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Great-circle distance [km] between two (lat, lon) points in degrees.&quot;&quot;&quot;</span>
+    <span class="n">lat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lat1_deg</span><span class="p">)</span>
+    <span class="n">lon1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lon1_deg</span><span class="p">)</span>
+    <span class="n">lat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lat2_deg</span><span class="p">)</span>
+    <span class="n">lon2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lon2_deg</span><span class="p">)</span>
+
+    <span class="n">dlat</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span>
+    <span class="n">dlon</span> <span class="o">=</span> <span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlat</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlon</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span>
+    <span class="n">R_earth_km</span> <span class="o">=</span> <span class="mf">6371.0</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">R_earth_km</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Helper: single-depth extraction from GEBCO for a (lon, lat) pair</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_depth_from_gebco</span><span class="p">(</span><span class="n">lon_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lat_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return (positive) water depth [m] from GEBCO nearest to (lon, lat).&quot;&quot;&quot;</span>
+    <span class="c1"># Find depth/elevation variable</span>
+    <span class="n">depth_var</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">gebco</span><span class="o">.</span><span class="n">data_vars</span><span class="p">:</span>
+        <span class="n">vl</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">&quot;elevation&quot;</span> <span class="ow">in</span> <span class="n">vl</span> <span class="ow">or</span> <span class="s2">&quot;depth&quot;</span> <span class="ow">in</span> <span class="n">vl</span> <span class="ow">or</span> <span class="s2">&quot;bathymetry&quot;</span> <span class="ow">in</span> <span class="n">vl</span> <span class="ow">or</span> <span class="n">vl</span> <span class="o">==</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>
+            <span class="n">depth_var</span> <span class="o">=</span> <span class="n">var</span>
+            <span class="k">break</span>
+    <span class="k">if</span> <span class="n">depth_var</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">depth_var</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">gebco</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Find coordinate names</span>
+    <span class="n">gebco_lon</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">gebco_lat</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">gebco</span><span class="o">.</span><span class="n">coords</span><span class="p">:</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">&quot;lon&quot;</span> <span class="ow">in</span> <span class="n">cl</span> <span class="ow">or</span> <span class="n">cl</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+            <span class="n">gebco_lon</span> <span class="o">=</span> <span class="n">coord</span>
+        <span class="k">if</span> <span class="s2">&quot;lat&quot;</span> <span class="ow">in</span> <span class="n">cl</span> <span class="ow">or</span> <span class="n">cl</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+            <span class="n">gebco_lat</span> <span class="o">=</span> <span class="n">coord</span>
+
+    <span class="k">if</span> <span class="n">gebco_lon</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">gebco_lat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Could not find lon/lat coordinates in GEBCO dataset&quot;</span><span class="p">)</span>
+
+    <span class="n">depth</span> <span class="o">=</span> <span class="n">gebco</span><span class="p">[</span><span class="n">depth_var</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">depth</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span>
+
+    <span class="n">depth_at_point</span> <span class="o">=</span> <span class="n">depth</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+        <span class="p">{</span><span class="n">gebco_lon</span><span class="p">:</span> <span class="n">lon_deg</span><span class="p">,</span> <span class="n">gebco_lat</span><span class="p">:</span> <span class="n">lat_deg</span><span class="p">},</span>
+        <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">depth_at_point</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Helper: wind speed/direction for one seapoint, aligned to spectra time</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_wind_for_times</span><span class="p">(</span><span class="n">time_index</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">seapoint_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return wspd, wdir as DataArrays with dimension &#39;time&#39; aligned to spectra time.&quot;&quot;&quot;</span>
+    <span class="n">t_min</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time_index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">t_max</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time_index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="n">uwnd_sel</span> <span class="o">=</span> <span class="n">uwnd</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span><span class="p">))</span>
+    <span class="n">vwnd_sel</span> <span class="o">=</span> <span class="n">vwnd</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">t_min</span><span class="p">,</span> <span class="n">t_max</span><span class="p">))</span>
+
+    <span class="n">u_site</span> <span class="o">=</span> <span class="n">uwnd_sel</span><span class="p">[</span><span class="n">uwnd_var</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">seapoint</span><span class="o">=</span><span class="n">seapoint_idx</span><span class="p">)</span>
+    <span class="n">v_site</span> <span class="o">=</span> <span class="n">vwnd_sel</span><span class="p">[</span><span class="n">vwnd_var</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">seapoint</span><span class="o">=</span><span class="n">seapoint_idx</span><span class="p">)</span>
+
+    <span class="n">wspd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_site</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">v_site</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># Wind direction: oceanographic convention, 0–360°</span>
+    <span class="n">wdir</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u_site</span><span class="p">,</span> <span class="n">v_site</span><span class="p">)</span> <span class="o">*</span> <span class="mf">180.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">+</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">%</span> <span class="mf">360.0</span>
+
+    <span class="n">wspd</span> <span class="o">=</span> <span class="n">wspd</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">wdir</span> <span class="o">=</span> <span class="n">wdir</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time_index</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wspd</span><span class="p">,</span> <span class="n">wdir</span>
+
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Helper: PTM4 partitioning for a single site (no Dask, simple &amp; robust)</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">partition_single_site</span><span class="p">(</span><span class="n">spectra_site</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">wspd</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">wdir</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run PTM4 partitioning for a single spatial point, returning a DataArray.</span>
+
+<span class="sd">    spectra_site: Dataset with variables &#39;efth&#39; (time, freq, dir) and &#39;dpt&#39; (time)</span>
+<span class="sd">    wspd, wdir:   wind speed/direction DataArrays with dimension &#39;time&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dpt</span> <span class="o">=</span> <span class="n">spectra_site</span><span class="p">[</span><span class="s2">&quot;dpt&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Ensure only dimension coordinates (drop scalar coords that confuse wavespectra)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_clean</span><span class="p">(</span><span class="n">var</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+        <span class="n">drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">coords</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">dims</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">var</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span> <span class="k">if</span> <span class="n">drop</span> <span class="k">else</span> <span class="n">var</span>
+
+    <span class="n">wspd_c</span> <span class="o">=</span> <span class="n">_clean</span><span class="p">(</span><span class="n">wspd</span><span class="p">)</span>
+    <span class="n">wdir_c</span> <span class="o">=</span> <span class="n">_clean</span><span class="p">(</span><span class="n">wdir</span><span class="p">)</span>
+    <span class="n">dpt_c</span> <span class="o">=</span> <span class="n">_clean</span><span class="p">(</span><span class="n">dpt</span><span class="p">)</span>
+
+    <span class="c1"># Align times exactly</span>
+    <span class="n">target_time</span> <span class="o">=</span> <span class="n">spectra_site</span><span class="o">.</span><span class="n">efth</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span>
+    <span class="n">wspd_c</span> <span class="o">=</span> <span class="n">wspd_c</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">target_time</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">wdir_c</span> <span class="o">=</span> <span class="n">wdir_c</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">target_time</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">dpt_c</span> <span class="o">=</span> <span class="n">dpt_c</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">target_time</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+
+    <span class="c1"># PTM1: one wind sea + `swells` swell systems. swells=1 -&gt; 2 partitions total.</span>
+    <span class="n">dspart</span> <span class="o">=</span> <span class="n">spectra_site</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">partition</span><span class="o">.</span><span class="n">ptm4</span><span class="p">(</span>
+        <span class="n">wspd_c</span><span class="p">,</span>
+        <span class="n">wdir_c</span><span class="p">,</span>
+        <span class="n">dpt_c</span><span class="p">,</span>
+        <span class="c1"># swells=1,</span>
+        <span class="c1"># smooth=False,</span>
+    <span class="p">)</span>
+    <span class="c1"># wavespectra here returns a DataArray (efth with an extra &#39;part&#39; dim).</span>
+    <span class="c1"># Ensure it is fully in-memory (no dask chunks).</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dspart</span><span class="p">,</span> <span class="s2">&quot;chunks&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dspart</span><span class="o">.</span><span class="n">chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dspart</span> <span class="o">=</span> <span class="n">dspart</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">dspart</span>
+
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Processing loop over 4 grids / 4 points</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="n">PART_VARS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span> <span class="s2">&quot;tp&quot;</span><span class="p">,</span> <span class="s2">&quot;dp&quot;</span><span class="p">,</span> <span class="s2">&quot;spr&quot;</span><span class="p">]</span>  <span class="c1"># significant height, peak period, peak dir, spreading</span>
+<span class="n">BULK_VARS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hs&quot;</span><span class="p">,</span> <span class="s2">&quot;tp&quot;</span><span class="p">,</span> <span class="s2">&quot;dp&quot;</span><span class="p">]</span>           <span class="c1"># full-spectrum bulk variables</span>
+
+<span class="c1"># Metadata for partitioned outputs (used for per-year and per-grid files)</span>
+<span class="n">GRID_PART_OUTPUTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hs&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;phs&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_significant_wave_height&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;tp&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;ptp&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_peak_period&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;dp&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;pdp&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_peak_direction&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;degrees&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;spr&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;spr&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_directional_spreading&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;degrees&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">GRID_BULK_OUTPUTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;hs&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bulk_significant_wave_height&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;tp&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;tp&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bulk_peak_period&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;dp&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;dp&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bulk_peak_direction&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;degrees&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># Accumulators per grid/point</span>
+<span class="n">per_grid_results</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">grid_order</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">TARGET_POINTS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_efth_dataset</span><span class="p">(</span><span class="n">ds</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure dataset has &#39;efth&#39; variable (spectra). Handles common naming conventions.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;efth&quot;</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ds</span>
+    <span class="c1"># Try common alternatives</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;__xarray_dataarray_variable__&quot;</span><span class="p">,</span> <span class="s2">&quot;spec&quot;</span><span class="p">,</span> <span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;efth&quot;</span><span class="p">})</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find spectra variable. Available: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_single_site_spectra</span><span class="p">(</span><span class="n">ds</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">lat</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lon</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract spectra for target point: use closest site if multi-site, else use as-is.&quot;&quot;&quot;</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">_get_efth_dataset</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+    <span class="c1"># Find spatial dimension (site, point, station, etc.)</span>
+    <span class="n">site_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">efth</span><span class="o">.</span><span class="n">dims</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;freq&quot;</span><span class="p">,</span> <span class="s2">&quot;dir&quot;</span><span class="p">,</span> <span class="s2">&quot;direction&quot;</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">site_dims</span><span class="p">:</span>
+        <span class="c1"># Single point: no site dimension</span>
+        <span class="n">spectra_site</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span> <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="s2">&quot;efth&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">site_dim</span> <span class="o">=</span> <span class="n">site_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_sites</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="n">site_dim</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n_sites</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">spectra_site</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">({</span><span class="n">site_dim</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span> <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="s2">&quot;efth&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Find closest site by coord_x/coord_y or lat/lon</span>
+            <span class="n">lon_c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">coords</span> <span class="k">if</span> <span class="s2">&quot;lon&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;x&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">lat_c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">coords</span> <span class="k">if</span> <span class="s2">&quot;lat&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;y&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">lon_c</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">lat_c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Multi-site dataset needs coord_x/coord_y or lat/lon&quot;</span><span class="p">)</span>
+            <span class="n">lons_s</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">lon_c</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">lats_s</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">lat_c</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="k">if</span> <span class="n">lons_s</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">lons_s</span><span class="p">,</span> <span class="n">lats_s</span> <span class="o">=</span> <span class="n">lons_s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lats_s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dist2</span> <span class="o">=</span> <span class="p">(</span><span class="n">lons_s</span> <span class="o">-</span> <span class="n">lon</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">lats_s</span> <span class="o">-</span> <span class="n">lat</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="n">site_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dist2</span><span class="p">))</span>
+            <span class="n">spectra_site</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">({</span><span class="n">site_dim</span><span class="p">:</span> <span class="n">site_idx</span><span class="p">})</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span> <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="s2">&quot;efth&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">spectra_site</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_single_grid</span><span class="p">(</span><span class="n">grid_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Process one grid (one target point) using its dedicated input spectrum file.&quot;&quot;&quot;</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">TARGET_POINTS</span><span class="p">[</span><span class="n">grid_name</span><span class="p">]</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">72</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">) at lat=</span><span class="si">{</span><span class="n">lat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, lon=</span><span class="si">{</span><span class="n">lon</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">72</span><span class="p">)</span>
+
+    <span class="n">fpath</span> <span class="o">=</span> <span class="n">INPUT_SPECTRA_FILES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">grid_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fpath</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input spectrum not found for </span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">fpath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Input: </span><span class="si">{</span><span class="n">fpath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Precompute nearest wind seapoint and bathymetric depth for this location</span>
+    <span class="n">seapoint_idx</span> <span class="o">=</span> <span class="n">find_closest_seapoint</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+    <span class="n">dist_km</span> <span class="o">=</span> <span class="n">distance_km_to_seapoint</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">seapoint_idx</span><span class="p">)</span>
+    <span class="n">depth_val</span> <span class="o">=</span> <span class="n">get_depth_from_gebco</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Closest wind seapoint index: </span><span class="si">{</span><span class="n">seapoint_idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Distance to closest seapoint: </span><span class="si">{</span><span class="n">dist_km</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Bathymetric depth: </span><span class="si">{</span><span class="n">depth_val</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check for existing per-grid checkpoints (partition + bulk)</span>
+    <span class="n">checkpoint_files_part</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">src_name</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;varname&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">src_name</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">GRID_PART_OUTPUTS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">checkpoint_files_bulk</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">src_name</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BULK_OUTPUT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;varname&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">src_name</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">GRID_BULK_OUTPUTS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">checkpoint_files_part</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">checkpoint_files_bulk</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Checkpoint files found (partition + bulk), loading instead of recomputing...&quot;</span><span class="p">)</span>
+        <span class="n">part_merged</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">checkpoint_files_part</span><span class="p">[</span><span class="n">name</span><span class="p">])[</span><span class="n">GRID_PART_OUTPUTS</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;varname&quot;</span><span class="p">]]</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">PART_VARS</span>
+        <span class="p">}</span>
+        <span class="n">bulk_merged</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">checkpoint_files_bulk</span><span class="p">[</span><span class="n">name</span><span class="p">])[</span><span class="n">GRID_BULK_OUTPUTS</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;varname&quot;</span><span class="p">]]</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">BULK_VARS</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">lat</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">lon</span><span class="p">,</span> <span class="s2">&quot;part&quot;</span><span class="p">:</span> <span class="n">part_merged</span><span class="p">,</span> <span class="s2">&quot;bulk&quot;</span><span class="p">:</span> <span class="n">bulk_merged</span><span class="p">}</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Loading spectra file...&quot;</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+    <span class="n">spectra_site</span> <span class="o">=</span> <span class="n">_get_single_site_spectra</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+
+    <span class="c1"># Attach depth as 1D time series (constant in time)</span>
+    <span class="n">depth_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">spectra_site</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">depth_val</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+        <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span>
+        <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">spectra_site</span><span class="o">.</span><span class="n">time</span><span class="p">},</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dpt&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">spectra_site</span> <span class="o">=</span> <span class="n">spectra_site</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">dpt</span><span class="o">=</span><span class="n">depth_da</span><span class="p">)</span>
+
+    <span class="c1"># Full-spectrum bulk parameters (same site/time used for partitioning)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Computing full-spectrum bulk parameters...&quot;</span><span class="p">)</span>
+    <span class="n">spec_full</span> <span class="o">=</span> <span class="n">spectra_site</span><span class="o">.</span><span class="n">spec</span>
+    <span class="n">bulk_merged</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;hs&quot;</span><span class="p">:</span> <span class="n">spec_full</span><span class="o">.</span><span class="n">hs</span><span class="p">(),</span>
+        <span class="s2">&quot;tp&quot;</span><span class="p">:</span> <span class="n">spec_full</span><span class="o">.</span><span class="n">tp</span><span class="p">(),</span>
+        <span class="s2">&quot;dp&quot;</span><span class="p">:</span> <span class="n">spec_full</span><span class="o">.</span><span class="n">dpm</span><span class="p">(),</span>
+    <span class="p">}</span>
+
+    <span class="n">wspd</span><span class="p">,</span> <span class="n">wdir</span> <span class="o">=</span> <span class="n">get_wind_for_times</span><span class="p">(</span><span class="n">spectra_site</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">seapoint_idx</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Running PTM4 partitioning...&quot;</span><span class="p">)</span>
+    <span class="n">dspart_site</span> <span class="o">=</span> <span class="n">partition_single_site</span><span class="p">(</span><span class="n">spectra_site</span><span class="p">,</span> <span class="n">wspd</span><span class="p">,</span> <span class="n">wdir</span><span class="p">)</span>
+
+    <span class="n">n_parts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dspart_site</span><span class="o">.</span><span class="n">sizes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;part&quot;</span><span class="p">,</span> <span class="n">dspart_site</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span>
+    <span class="n">part_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_parts</span><span class="p">))</span>
+
+    <span class="n">hs_parts</span><span class="p">,</span> <span class="n">tp_parts</span><span class="p">,</span> <span class="n">dp_parts</span><span class="p">,</span> <span class="n">spr_parts</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">part_indices</span><span class="p">:</span>
+        <span class="n">part_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="s2">&quot;efth&quot;</span><span class="p">:</span> <span class="n">dspart_site</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">p</span><span class="p">)})</span>
+        <span class="n">spec_part</span> <span class="o">=</span> <span class="n">part_ds</span><span class="o">.</span><span class="n">spec</span>
+        <span class="n">hs_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spec_part</span><span class="o">.</span><span class="n">hs</span><span class="p">())</span>
+        <span class="n">tp_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spec_part</span><span class="o">.</span><span class="n">tp</span><span class="p">())</span>
+        <span class="n">dp_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spec_part</span><span class="o">.</span><span class="n">dpm</span><span class="p">())</span>
+        <span class="n">spr_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spec_part</span><span class="o">.</span><span class="n">dspr</span><span class="p">())</span>
+
+    <span class="n">phs_file</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">hs_parts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;part&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">part_indices</span><span class="p">)</span>
+    <span class="n">ptp_file</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">tp_parts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;part&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">part_indices</span><span class="p">)</span>
+    <span class="n">pdp_file</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dp_parts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;part&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">part_indices</span><span class="p">)</span>
+    <span class="n">spr_file</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">spr_parts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;part&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">part_indices</span><span class="p">)</span>
+
+    <span class="n">part_merged</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hs&quot;</span><span class="p">:</span> <span class="n">phs_file</span><span class="p">,</span> <span class="s2">&quot;tp&quot;</span><span class="p">:</span> <span class="n">ptp_file</span><span class="p">,</span> <span class="s2">&quot;dp&quot;</span><span class="p">:</span> <span class="n">pdp_file</span><span class="p">,</span> <span class="s2">&quot;spr&quot;</span><span class="p">:</span> <span class="n">spr_file</span><span class="p">}</span>
+
+    <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">del</span> <span class="n">spectra_site</span><span class="p">,</span> <span class="n">dspart_site</span><span class="p">,</span> <span class="n">hs_parts</span><span class="p">,</span> <span class="n">tp_parts</span><span class="p">,</span> <span class="n">dp_parts</span><span class="p">,</span> <span class="n">spr_parts</span><span class="p">,</span> <span class="n">spec_full</span><span class="p">,</span> <span class="n">wspd</span><span class="p">,</span> <span class="n">wdir</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
+    <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+    <span class="c1"># Save per-grid checkpoint files</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Saving per-grid checkpoint files (time, part)...&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">src_name</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">GRID_PART_OUTPUTS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">varname</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;varname&quot;</span><span class="p">]</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">part_merged</span><span class="p">[</span><span class="n">src_name</span><span class="p">]</span>  <span class="c1"># dims: time, part</span>
+        <span class="n">ds_out</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="n">varname</span><span class="p">:</span> <span class="n">da</span><span class="p">})</span>
+        <span class="n">ds_out</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">REGION_NAME</span><span class="p">,</span>
+            <span class="s2">&quot;grid&quot;</span><span class="p">:</span> <span class="n">grid_name</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;PTM4-partitioned </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> at single point for </span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">})</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">varname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+        <span class="n">ds_out</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="n">varname</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zlib&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complevel&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}})</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Saving per-grid bulk checkpoint files (time)...&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">src_name</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">GRID_BULK_OUTPUTS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">varname</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;varname&quot;</span><span class="p">]</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">bulk_merged</span><span class="p">[</span><span class="n">src_name</span><span class="p">]</span>  <span class="c1"># dims: time</span>
+        <span class="n">ds_out</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="n">varname</span><span class="p">:</span> <span class="n">da</span><span class="p">})</span>
+        <span class="n">ds_out</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">REGION_NAME</span><span class="p">,</span>
+            <span class="s2">&quot;grid&quot;</span><span class="p">:</span> <span class="n">grid_name</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Full-spectrum </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> at single point for </span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">})</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BULK_OUTPUT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">varname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+        <span class="n">ds_out</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="n">varname</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zlib&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complevel&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}})</span>
+
+    <span class="c1"># Return results for this grid</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+        <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">lat</span><span class="p">,</span>
+        <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">lon</span><span class="p">,</span>
+        <span class="s2">&quot;part&quot;</span><span class="p">:</span> <span class="n">part_merged</span><span class="p">,</span>
+        <span class="s2">&quot;bulk&quot;</span><span class="p">:</span> <span class="n">bulk_merged</span><span class="p">,</span>
+    <span class="p">}</span>
+
+
+<span class="c1"># Process the four grids sequentially (more stable on limited-memory kernels)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Processing 4 grids sequentially...&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">grid_name</span> <span class="ow">in</span> <span class="n">grid_order</span><span class="p">:</span>
+    <span class="n">per_grid_results</span><span class="p">[</span><span class="n">grid_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">process_single_grid</span><span class="p">(</span><span class="n">grid_name</span><span class="p">)</span>
+
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="c1"># Combine 4 points into single arrays and write one NetCDF per variable</span>
+<span class="c1"># ----------------------------------------------------------------------------</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Combining all 4 grid points and writing NetCDF outputs...&quot;</span><span class="p">)</span>
+
+<span class="c1"># Use time from the first grid as reference (from partitioned hs, first part)</span>
+<span class="n">ref_grid</span> <span class="o">=</span> <span class="n">grid_order</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ref_time</span> <span class="o">=</span> <span class="n">per_grid_results</span><span class="p">[</span><span class="n">ref_grid</span><span class="p">][</span><span class="s2">&quot;part&quot;</span><span class="p">][</span><span class="s2">&quot;hs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">time</span>
+
+<span class="n">point_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grid_order</span><span class="p">]</span>
+<span class="n">point_lats</span> <span class="o">=</span> <span class="p">[</span><span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grid_order</span><span class="p">]</span>
+<span class="n">point_lons</span> <span class="o">=</span> <span class="p">[</span><span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;lon&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grid_order</span><span class="p">]</span>
+
+<span class="c1"># Helper to stack per-grid partition data along new &#39;point&#39; dimension</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stack_over_points</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack partitioned per-grid results for variable `name` over a new &#39;point&#39; dimension.</span>
+
+<span class="sd">    Result dims: (time, point, part)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grid_order</span><span class="p">:</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;part&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># Drop non-dimension coords that differ between grids</span>
+        <span class="n">drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">coords</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">dims</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">drop</span><span class="p">:</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span>
+        <span class="c1"># Align time to reference (just in case)</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">ref_time</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="p">[</span><span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]])</span>
+        <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;no_conflicts&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stack_bulk_over_points</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack bulk per-grid results for variable `name` over a new &#39;point&#39; dimension.</span>
+
+<span class="sd">    Result dims: (time, point)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grid_order</span><span class="p">:</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;bulk&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">coords</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">dims</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">drop</span><span class="p">:</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">ref_time</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+        <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="p">[</span><span class="n">per_grid_results</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">]])</span>
+        <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">compat</span><span class="o">=</span><span class="s2">&quot;no_conflicts&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># --- Partitioned variables ---</span>
+<span class="c1"># We write one file per physical quantity, with dims (time, point, part).</span>
+<span class="n">part_outputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hs&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;phs&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_significant_wave_height&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;tp&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;ptp&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_peak_period&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;dp&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;pdp&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_peak_direction&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;degrees&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;spr&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;spr&quot;</span><span class="p">,</span>  <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;partition_directional_spreading&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;degrees&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">src_name</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">part_outputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">da</span> <span class="o">=</span> <span class="n">stack_over_points</span><span class="p">(</span><span class="n">src_name</span><span class="p">)</span>  <span class="c1"># dims: time, point, part</span>
+    <span class="n">varname</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;varname&quot;</span><span class="p">]</span>
+    <span class="n">ds_out</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="n">varname</span><span class="p">:</span> <span class="n">da</span><span class="p">})</span>
+    <span class="n">ds_out</span> <span class="o">=</span> <span class="n">ds_out</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span>
+        <span class="n">lat</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">point_lats</span><span class="p">),</span>
+        <span class="n">lon</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">point_lons</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ds_out</span><span class="p">[</span><span class="n">varname</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">],</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]})</span>
+    <span class="n">ds_out</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">REGION_NAME</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;PTM4-partitioned </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> at 4 selected points (one per grid)&quot;</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">varname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">REGION_NAME</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Writing </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+    <span class="n">ds_out</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="n">varname</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zlib&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complevel&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}})</span>
+
+<span class="n">bulk_outputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;hs&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bulk_significant_wave_height&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;tp&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;tp&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bulk_peak_period&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;dp&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;varname&quot;</span><span class="p">:</span> <span class="s2">&quot;dp&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bulk_peak_direction&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;degrees&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">src_name</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">bulk_outputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">da</span> <span class="o">=</span> <span class="n">stack_bulk_over_points</span><span class="p">(</span><span class="n">src_name</span><span class="p">)</span>  <span class="c1"># dims: time, point</span>
+    <span class="n">varname</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;varname&quot;</span><span class="p">]</span>
+    <span class="n">ds_out</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="n">varname</span><span class="p">:</span> <span class="n">da</span><span class="p">})</span>
+    <span class="n">ds_out</span> <span class="o">=</span> <span class="n">ds_out</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span>
+        <span class="n">lat</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">point_lats</span><span class="p">),</span>
+        <span class="n">lon</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">point_lons</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ds_out</span><span class="p">[</span><span class="n">varname</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">],</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]})</span>
+    <span class="n">ds_out</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">REGION_NAME</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Full-spectrum </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> at 4 selected points (one per grid)&quot;</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BULK_OUTPUT_DIR</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">varname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">REGION_NAME</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Writing </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+    <span class="n">ds_out</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="p">{</span><span class="n">varname</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zlib&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;complevel&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;shuffle&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Partition outputs written to:&quot;</span><span class="p">,</span> <span class="n">OUTPUT_DIR</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bulk outputs written to:&quot;</span><span class="p">,</span> <span class="n">BULK_OUTPUT_DIR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading wind components (WHACS)...
+  U wind variable: uwnd
+  V wind variable: vwnd
+
+Loading GEBCO bathymetry...
+  GEBCO loaded.
+
+Preparing wind seapoint coordinate arrays (for nearest-neighbour search)...
+  Wind seapoints: 2572 points
+
+Processing 4 grids sequentially...
+
+========================================================================
+Processing grid1 (grid1) at lat=33.4410, lon=-77.7660
+========================================================================
+  Input: /lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/grid1/inputs/grid1_41013_spec_WHACS_buoy_correted_15D.nc
+  Closest wind seapoint index: 569
+  Distance to closest seapoint: 1.53 km
+  Bathymetric depth: 27.00 m
+  Loading spectra file...
+  Computing full-spectrum bulk parameters...
+  Running PTM4 partitioning...
+  Saving per-grid checkpoint files (time, part)...
+  Saving per-grid bulk checkpoint files (time)...
+
+========================================================================
+Processing grid2 (grid2) at lat=33.8928, lon=-76.9845
+========================================================================
+  Input: /lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/grid2/inputs/grid2_superPoint_15D.nc
+  Closest wind seapoint index: 842
+  Distance to closest seapoint: 2.44 km
+  Bathymetric depth: 35.00 m
+  Loading spectra file...
+  Computing full-spectrum bulk parameters...
+  Running PTM4 partitioning...
+  Saving per-grid checkpoint files (time, part)...
+  Saving per-grid bulk checkpoint files (time)...
+
+========================================================================
+Processing grid3 (grid3) at lat=35.1000, lon=-75.3600
+========================================================================
+  Input: /lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/grid3/inputs/grid3_superPoint_15D.nc
+  Closest wind seapoint index: 1340
+  Distance to closest seapoint: 3.10 km
+  Bathymetric depth: 24.00 m
+  Loading spectra file...
+  Computing full-spectrum bulk parameters...
+  Running PTM4 partitioning...
+  Saving per-grid checkpoint files (time, part)...
+  Saving per-grid bulk checkpoint files (time)...
+
+========================================================================
+Processing grid4 (grid4) at lat=36.6030, lon=-74.8370
+========================================================================
+  Input: /lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/grid4/inputs/grid4_44014_spec_WHACS_buoy_correted_15D.nc
+  Closest wind seapoint index: 2281
+  Distance to closest seapoint: 3.28 km
+  Bathymetric depth: 47.00 m
+  Loading spectra file...
+  Computing full-spectrum bulk parameters...
+  Running PTM4 partitioning...
+  Saving per-grid checkpoint files (time, part)...
+  Saving per-grid bulk checkpoint files (time)...
+
+Combining all 4 grid points and writing NetCDF outputs...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/phs_NorthCarolina.nc ...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/ptp_NorthCarolina.nc ...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/pdp_NorthCarolina.nc ...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/spr_NorthCarolina.nc ...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/hs_NorthCarolina.nc ...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/tp_NorthCarolina.nc ...
+  Writing /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/dp_NorthCarolina.nc ...
+
+Partition outputs written to: /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/
+Bulk outputs written to: /nfs/home/geocean/montanoj/New_data_Shoreshop/outputs/
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapters/03b_century_gcm_waves.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">03B — Century GCM wave emulator (KMA clusters + ALR)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03b_01_testing_clustering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MDA &amp; K-Means Clustering of Waves Conditions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GEOCEAN / ShoreShop3
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
