@@ -6,10 +6,11 @@
 # Pass --no-dm or --no-tm02 to skip optional outputs.
 
 set -euo pipefail
-GRID="/lustre/geocean/WORK/users/montanoj/personal/Wind_Metamodel/grid2"
-INPUT="/lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/outputs/cropped_variables"
+GRID="$(cd "$(dirname "$0")/.." && pwd)"
+REPO_ROOT="$(cd "$GRID/../.." && pwd)"
+INPUT="$REPO_ROOT/01_BinWaves/outputs/cropped_variables"
 OUTPUT="$GRID/outputs/BinWaves_BMUS"
-PYTHON="/nfs/home/geocean/montanoj/miniforge3/envs/bluemath-dev/bin/python3"
+PYTHON="${PYTHON:-python3}"
 
 cd "$GRID"
 export PYTHONPATH="$GRID:${PYTHONPATH:-}"

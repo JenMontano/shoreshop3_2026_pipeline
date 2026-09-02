@@ -16,7 +16,7 @@ combined fields with the same site list, coordinates, chunking, and variable lay
 Example::
 
     python -m utils.build_kma_merged_grids \\
-        --input-folder /lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/outputs/cropped_variables \\
+        --input-folder ../../01_BinWaves/outputs/cropped_variables \\
         --output-folder outputs/BinWaves_BMUS \\
         --grid-id 1
 """
@@ -46,8 +46,8 @@ from utils.kma_cluster_swan import (
     load_bmu_assignments,
 )
 
-DEFAULT_INPUT_FOLDER = (
-    "/lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/outputs/cropped_variables"
+DEFAULT_INPUT_FOLDER = str(
+    Path(__file__).resolve().parents[3] / "01_BinWaves" / "outputs" / "cropped_variables"
 )
 DEFAULT_OUTPUT_FOLDER = "outputs/BinWaves_BMUS"
 DEFAULT_GRID_ID = 1

@@ -19,7 +19,8 @@ warnings.filterwarnings(
 )
 
 # ---------------- CONFIG ----------------
-DATA_DIR = "/home/grupos/geocean/montanoj/ShoreShop2026/grid2/outputs/output_variables/hs"
+_BINWAVES_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = str(_BINWAVES_ROOT / "grid2/outputs/output_variables/hs")
 VAR_NAME = "hs"      # change if your variable has a different name
 TIME_NAME = "time"   # change if your time coordinate is named differently
 
@@ -220,7 +221,7 @@ if __name__ == "__main__":
 
 
 def convert_output_variables_to_float32(
-    base_dir: str = "/home/grupos/geocean/montanoj/ShoreShop2026/grid1/outputs/output_variables",
+    base_dir: str | None = None,
     out_root: str | None = None,
     overwrite: bool = False,
     compress: bool = True,
@@ -255,6 +256,8 @@ def convert_output_variables_to_float32(
         - str: process single variable (e.g., "hs")
         - list: process multiple variables (e.g., ["hs", "tp", "dm"])
     """
+    if base_dir is None:
+        base_dir = str(_BINWAVES_ROOT / "grid1/outputs/output_variables")
     if out_root is None:
         out_root = os.path.join(base_dir, "float_32")
 
@@ -856,9 +859,9 @@ def concatenate_float32_grids_by_variable(
 
 
 def crop_concatenated_files_by_spatial_mask(
-    input_dir="/home/grupos/geocean/montanoj/ShoreShop2026/outputs/concatenated_grids_float32",
-    output_dir="/home/grupos/geocean/montanoj/ShoreShop2026/outputs/cropped_variables",
-    shoreline_geojson_file="inputs/CoastSat_shoreline_NC_merged.geojson",
+    input_dir=None,
+    output_dir=None,
+    shoreline_geojson_file=None,
     outer_boundary_line_coords=None,
     exclusion_polygon_coords=None,
     exclude_coordinates=None,
@@ -931,6 +934,13 @@ def crop_concatenated_files_by_spatial_mask(
     except ImportError:
         HAS_CARTOPY = False
     
+    if input_dir is None:
+        input_dir = _BINWAVES_ROOT / "outputs/concatenated_grids_float32"
+    if output_dir is None:
+        output_dir = _BINWAVES_ROOT / "outputs/cropped_variables"
+    if shoreline_geojson_file is None:
+        shoreline_geojson_file = _BINWAVES_ROOT / "inputs/CoastSat_shoreline_NC_merged.geojson"
+
     # Convert to Path objects
     input_dir = Path(input_dir)
     output_dir = Path(output_dir)
@@ -1522,9 +1532,13 @@ def crop_concatenated_files_by_points_geojson(
     from scipy.spatial import cKDTree
     from tqdm.auto import tqdm
 
-    input_dir = Path(input_dir)
-    output_dir = Path(output_dir)
-    points_geojson_file = Path(points_geojson_file)
+    def _resolve(path):
+        path = Path(path)
+        return path if path.is_absolute() else _BINWAVES_ROOT / path
+
+    input_dir = _resolve(input_dir)
+    output_dir = _resolve(output_dir)
+    points_geojson_file = _resolve(points_geojson_file)
 
     if not input_dir.exists():
         raise FileNotFoundError(f"Input directory not found: {input_dir}")

@@ -1,0 +1,55 @@
+# Table of contents — README chapters + representative process notebooks (symlinks in docs/notebooks/).
+format: jb-book
+root: intro
+parts:
+  - caption: "01 — BinWaves (present climate)"
+    chapters:
+      - file: chapters/01_binwaves
+        title: Documentation
+      - file: notebooks/01_propagation
+        title: "Notebook — grid1 propagation (BinWaves core)"
+
+  - caption: "02 — Wind-wave metamodel"
+    chapters:
+      - file: chapters/02_wind_metamodel
+        title: Documentation
+      - file: notebooks/02_kma_wind_pipeline
+        title: "Notebook — grid1 KMA wind pipeline (core)"
+
+  - caption: "03 — Wave emulator"
+    chapters:
+      - file: chapters/03_wave_emulator
+        title: Overview
+      - file: chapters/03a_stochastic_gcm
+        title: "03A — Documentation"
+      - file: notebooks/03a_06_mlr_tcs
+        title: "Notebook — 03A TC track-type MLR (train)"
+      - file: notebooks/03a_07_assing_tcs
+        title: "Notebook — 03A assign TCs to GCM days"
+      - file: chapters/03b_century_gcm_waves
+        title: "03B — Documentation"
+      - file: notebooks/03b_00_partitions_cluster_points
+        title: "Notebook — 03B partitions at super points"
+      - file: notebooks/03b_01_testing_clustering
+        title: "Process — 03B wave-cluster selection (open in Jupyter)"
+      - file: notebooks/03b_02_pcs_mslp_sst
+        title: "Process — 03B MSLP/SST PCA (open in Jupyter)"
+      - file: notebooks/03b_03_clusters_and_pcs
+        title: "Notebook — 03B link clusters ↔ PCs"
+      - file: notebooks/03b_04_alr_clusters_20cr
+        title: "Notebook — 03B ALR training (20CR)"
+
+  - caption: "04 — Tropical cyclones"
+    chapters:
+      - file: chapters/04_cyclones
+        title: Overview
+      - file: chapters/04a_cyclones_metamodel
+        title: "04A — Documentation"
+      - file: notebooks/04a_13_reconstruction_trazas
+        title: "Notebook — 04A apply metamodel to emulated tracks"
+      - file: chapters/04b_cyclones_emulator
+        title: "04B — Documentation"
+      - file: notebooks/04b_00_cyclones_spectra
+        title: "Notebook — 04B JONSWAP cyclone spectra"
+      - file: notebooks/04b_01_partitions_ptm4
+        title: "Notebook — 04B PTM4 partition & merge"

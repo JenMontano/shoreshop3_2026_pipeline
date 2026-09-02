@@ -72,8 +72,8 @@ from utils.gcm_comparison import (
 )
 
 DEFAULT_DEEP_K2 = 0.023
-DEFAULT_WHACS_FOLDER = Path(
-    "/nfs/home/geocean/montanoj/ShoreShop2026/inputs/WHACS"
+DEFAULT_WHACS_FOLDER = (
+    Path(__file__).resolve().parents[3] / "01_BinWaves" / "inputs" / "WHACS"
 )
 DEFAULT_KMA_MERGED_GRIDS_FOLDER = "outputs/BinWaves_BMUS"
 DEFAULT_BINWAVES_MERGED_GRIDS_FOLDER = DEFAULT_MERGED_GRIDS_FOLDER
@@ -120,7 +120,7 @@ def _uses_kma_merged_grids_folder(
         folder = resolve_path(folder, project_root)
     folder = folder.resolve()
     name = folder.name.lower()
-    if name in ("binwaves_bmus", "merged_grids_binwaves_kma"):
+    if name in ("binwaves_bmus", "merged_grids_binwaves_kma", "northcarolina"):
         return True
     if "binwaves_bmus" in name or "merged_grids_binwaves_kma" in name:
         return True
@@ -375,7 +375,7 @@ def _load_merged_batch_at_sites(
         site_dim = _guess_site_dim(ds, lat_name, lon_name)
         nc_var = _resolve_nc_var(ds, variable)
         da = ds[nc_var].isel({site_dim: site_indices})
-        # Some merged grids (e.g. merged_grids_binwaves_bmus) store lat/lon as data_vars;
+        # Some merged grids (e.g. outputs/NorthCarolina) store lat/lon as data_vars;
         # BinWaves_BMUS files already carry them as coords on the variable.
         if lat_name not in da.coords:
             lat = ds[lat_name].isel({site_dim: site_indices})
@@ -1067,7 +1067,7 @@ def plot_region_cumulative_qs_map(
     Default ``use_cartopy=True``: lon/lat map with land/ocean fill (same style as
     ``plot_region_sites_map``), colored points only — no alongshore connector.
 
-    Pass ``bathymetry_nc`` (e.g. ``inputs/gebco_bathymetry.nc``) to replace the flat
+    Pass ``bathymetry_nc`` (e.g. ``01_BinWaves/inputs/gebco_bathymetry.nc``) to replace the flat
     ocean fill with GEBCO depth shading and isobaths. By default, colour levels
     emphasise shallow water at 5, 10, 15, 25, 35, and 50 m, with coarser bins deeper.
 

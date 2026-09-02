@@ -14,15 +14,19 @@ import pandas as pd
 import xarray as xr
 from tqdm.auto import tqdm
 
-SHORESHOP_UTILS = Path("/lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/utils")
-if str(SHORESHOP_UTILS) not in sys.path:
-    sys.path.insert(0, str(SHORESHOP_UTILS))
+_HERE = Path(__file__).resolve().parent
+DEFAULT_PROJECT_ROOT = _HERE.parent
+_REPO_ROOT = DEFAULT_PROJECT_ROOT.parent
+_BINWAVES_UTILS = _REPO_ROOT / "01_BinWaves" / "utils"
+if str(_BINWAVES_UTILS) not in sys.path:
+    sys.path.insert(0, str(_BINWAVES_UTILS))
 
 from outputs_grids import compute_distance_to_border, merge_multiple_grids  # noqa: E402
 
-DEFAULT_PROJECT_ROOT = Path("/lustre/geocean/WORK/users/montanoj/personal/Wind_Metamodel")
 DEFAULT_GRID_NAMES = ("grid1", "grid2", "grid3", "grid4")
 BINWAVES_TAG = "BinWaves_BMUS"
+DEFAULT_MERGED_DIRNAME = "NorthCarolina"
+DEFAULT_MERGED_SUFFIX = "_NorthCarolina"
 PRIORITY_VARIABLES = ("hs", "tp", "dm", "dp", "tm02", "phs0", "ptp0", "dp0")
 CIRCULAR_BLEND_VARS = frozenset({"dp", "dm", "dp0"})
 WEBPAGE_VARS = ("hs", "tp", "dp", "dm")
@@ -399,7 +403,7 @@ def merge_binwaves_bmus_variable(
 ) -> Path:
     """Sequentially merge one variable across grids (grid1+grid2 → +grid3 → +grid4)."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    final_output_file = output_dir / f"{var_name}_merged_all.nc"
+    final_output_file = output_dir / f"{var_name}{DEFAULT_MERGED_SUFFIX}.nc"
     if final_output_file.exists():
         return final_output_file
 
@@ -486,7 +490,7 @@ def merge_all_binwaves_bmus(
 ) -> dict[str, Path]:
     """Merge all discovered variables; returns map var → output path."""
     project_root = Path(project_root)
-    output_dir = Path(output_dir or project_root / "outputs" / "merged_grids_binwaves_bmus")
+    output_dir = Path(output_dir or project_root / "outputs" / DEFAULT_MERGED_DIRNAME)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if variables is None:
@@ -498,7 +502,7 @@ def merge_all_binwaves_bmus(
     results: dict[str, Path] = {}
 
     for var_name in variables:
-        final_path = output_dir / f"{var_name}_merged_all.nc"
+        final_path = output_dir / f"{var_name}{DEFAULT_MERGED_SUFFIX}.nc"
         if skip_existing and final_path.is_file():
             print(f"Skip {var_name}: {final_path.name} exists")
             results[var_name] = final_path
@@ -750,7 +754,7 @@ def merge_all_binwaves_bmus_smooth(
 ) -> dict[str, Path]:
     """Merge all variables with smooth buffer blending (circular for dp/dm/dp0, linear otherwise)."""
     project_root = Path(project_root)
-    output_dir = Path(output_dir or project_root / "outputs" / "merged_grids_binwaves_bmus")
+    output_dir = Path(output_dir or project_root / "outputs" / DEFAULT_MERGED_DIRNAME)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if variables is None:
@@ -761,7 +765,7 @@ def merge_all_binwaves_bmus_smooth(
     results: dict[str, Path] = {}
 
     for var_name in variables:
-        final_path = output_dir / f"{var_name}_merged_all.nc"
+        final_path = output_dir / f"{var_name}{DEFAULT_MERGED_SUFFIX}.nc"
         if skip_existing and final_path.is_file():
             print(f"Skip {var_name}: {final_path.name} exists")
             results[var_name] = final_path
@@ -825,7 +829,7 @@ def generate_webpage_geojson(
     merged_dir: Path,
     output_dir: Path,
     *,
-    merged_suffix: str = "_merged_all",
+    merged_suffix: str = DEFAULT_MERGED_SUFFIX,
     time_start: str | None = None,
     time_end: str | None = None,
 ) -> dict[str, Path]:

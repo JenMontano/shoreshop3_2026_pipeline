@@ -224,7 +224,7 @@ def main():
         help=(
             "Path to the offshore spectra file. Either case-binned "
             "efth(case_num, time) or raw efth(time, freq, dir). Default: "
-            "gridN/offshore_spectra_case_gridN.nc"
+            "gridN/outputs/offshore_spectra_case_gridN.nc"
         ),
     )
     parser.add_argument(
@@ -262,7 +262,7 @@ def main():
         default=None,
         help=(
             "Directory to write reconstructed spectra to. "
-            "Default: reconstructed_spectra/gridN next to this script."
+            "Default: gridN/outputs/reconstructed_spectra"
         ),
     )
     parser.add_argument(
@@ -282,9 +282,9 @@ def main():
     periods = parse_periods(args.periods)
     grid_num = args.grid
 
-    # Get the directory where this script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    grid_dir = os.path.join(script_dir, f"grid{grid_num}")
+    # Resolve paths relative to 01_BinWaves (this file lives in utils/)
+    binwaves_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    grid_dir = os.path.join(binwaves_root, f"grid{grid_num}")
 
     def first_existing(*candidates):
         for candidate in candidates:
@@ -293,11 +293,16 @@ def main():
         return candidates[0]
 
     offshore_spectra_path = args.offshore or first_existing(
-        os.path.join(grid_dir, f"offshore_spectra_case_grid{grid_num}.nc"),
         os.path.join(grid_dir, "outputs", f"offshore_spectra_case_grid{grid_num}.nc"),
+        os.path.join(grid_dir, f"offshore_spectra_case_grid{grid_num}.nc"),
     )
     if offshore_spectra_path and not os.path.exists(offshore_spectra_path) and os.path.exists(offshore_spectra_path + ".nc"):
         offshore_spectra_path = offshore_spectra_path + ".nc"
+    if not os.path.exists(offshore_spectra_path):
+        raise FileNotFoundError(
+            "Offshore spectra not found for grid "
+            f"{grid_num}. Looked in {grid_dir}/outputs and {grid_dir}."
+        )
     kp_coeffs_path = args.kps or first_existing(
         os.path.join(grid_dir, "outputs", f"kp_coeffs_filtered_grid{grid_num}.nc"),
         os.path.join(grid_dir, f"kp_coeffs_filtered_grid{grid_num}.nc"),
@@ -307,9 +312,9 @@ def main():
         grid_dir, "CASES", "swan_cases_averaged.csv"
     )
 
-    # Output directory: custom via --output-dir, or reconstructed_spectra/gridN
+    # Output directory: custom via --output-dir, or gridN/outputs/reconstructed_spectra
     output_dir = args.output_dir or os.path.join(
-        script_dir, "reconstructed_spectra", f"grid{grid_num}"
+        grid_dir, "outputs", "reconstructed_spectra"
     )
     os.makedirs(output_dir, exist_ok=True)
 

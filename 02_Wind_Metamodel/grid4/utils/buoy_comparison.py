@@ -11,7 +11,9 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-DEFAULT_BUOY_DATA_DIR = Path("/nfs/home/geocean/montanoj/ShoreShop2026/inputs/buoy_data")
+DEFAULT_BUOY_DATA_DIR = (
+    Path(__file__).resolve().parents[3] / "01_BinWaves" / "inputs" / "buoy_data"
+)
 _BUOY_TP_COLUMNS = ("Tp_Buoy", "TP_Buoy", "Tp", "PeakPeriod_Buoy", "Tm_Buoy")
 BUOY_COLOR = "black"
 HINDCAST_COLOR = "fuchsia"
@@ -245,6 +247,7 @@ def resolve_hindcast_nc(hindcast_folder: Path, variable: str, *, grid_id: int = 
     gid = f"grid{grid_id}"
     candidates = (
         folder / f"{variable}_{gid}_BinWaves_BMUS.nc",
+        folder / f"{variable}_NorthCarolina.nc",
         folder / f"{variable}_merged_all.nc",
         folder / f"{variable}_500m.nc",
     )

@@ -6,20 +6,21 @@
 # Pass --no-dm or --no-tm02 to skip optional outputs.
 
 set -euo pipefail
-GRID4="/lustre/geocean/WORK/users/montanoj/personal/Wind_Metamodel/grid4"
-INPUT="/lustre/geocean/WORK/users/montanoj/personal/ShoreShop2026/outputs/cropped_variables"
-OUTPUT="$GRID4/outputs/BinWaves_BMUS"
-PYTHON="/nfs/home/geocean/montanoj/miniforge3/envs/bluemath-dev/bin/python3"
+GRID="$(cd "$(dirname "$0")/.." && pwd)"
+REPO_ROOT="$(cd "$GRID/../.." && pwd)"
+INPUT="$REPO_ROOT/01_BinWaves/outputs/cropped_variables"
+OUTPUT="$GRID/outputs/BinWaves_BMUS"
+PYTHON="${PYTHON:-python3}"
 
-cd "$GRID4"
-export PYTHONPATH="$GRID4:${PYTHONPATH:-}"
+cd "$GRID"
+export PYTHONPATH="$GRID:${PYTHONPATH:-}"
 export PYTHONUNBUFFERED=1
 
 "$PYTHON" -m utils.build_kma_merged_grids \
   --input-folder "$INPUT" \
   --output-folder "$OUTPUT" \
   --grid-id 4 \
-  --project-root "$GRID4" \
+  --project-root "$GRID" \
   --cluster-cases-root inputs/CASES_ONLY_WIND \
   --kma-bmu-csv outputs/KMA/nearest_centroids_idxs_kma_pcs.csv \
   --time-chunk 8760 \

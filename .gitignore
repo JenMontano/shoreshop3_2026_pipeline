@@ -1,50 +1,62 @@
-# NetCDF and related binary data
+# Jupyter Book build
+docs/_build/
+
+# Notebook backups & checkpoints
+*.ipynb.bak
+.ipynb_checkpoints/
+
+# Pipeline outputs (NetCDF, merged products, partitions — regenerate from notebooks)
+**/outputs/
+outputs/
+**/outputs_bulk/
+
+# Legacy duplicate projection folders
+**/Projections/
+
+# Large inputs & SWAN case runs (keep repo for code/notebooks only)
+**/inputs/**
+**/CASES/
+**/cases/
+**/logs/
+**/figures/
+# Allow small site-list / geometry inputs
+!**/inputs/**/*.geojson
+!**/inputs/**/*.csv
+!**/inputs/**/*.json
+
+# Data files
 *.nc
 *.nc4
-*.hdf
-*.hdf5
+*.grb
+*.grb2
 *.h5
-*.mat
-*.npz
+*.hdf5
 *.pkl
 *.pickle
-*.pth
-*.pt
-
-# Heavy data directories (anywhere; any case)
-inputs/
-outputs/
-outputs_bulk/
-Projections/
-cases/
-CASES/
-figures/
-
-# Common heavy media (generated plots / videos)
-*.png
-*.jpg
-*.jpeg
-*.tif
-*.tiff
-*.pdf
-*.mp4
-*.gif
+*.npz
+*.npy
 
 # Python / notebooks
 __pycache__/
 *.py[cod]
-*$py.class
-.ipynb_checkpoints/
-.venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 venv/
-.env
-.env.*
+.venv/
+.venv-docs/
 
-# Local / runtime junk
-*.tmp
+# Logs & editor
 *.log
-logs/
-.DS_Store
 .vscode/
-.cursor/
-.git_broken_old_ignore
+
+# Optional: duplicate cyclone track copies at 04B root (use paths.py → 04A/outputs)
+04_NC_Cyclones/04B_Cyclones_emulator/predicted_emu_tracks_*.nc
+04_NC_Cyclones/04B_Cyclones_emulator/inputs/earth3_veg_*/
+04_NC_Cyclones/04B_Cyclones_emulator/inputs/predicted_emu_tracks_*
+
+# OS
+.DS_Store
+*.swp
+*~

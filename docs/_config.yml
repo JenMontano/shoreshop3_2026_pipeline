@@ -1,0 +1,35 @@
+# Jupyter Book configuration — https://jupyterbook.org/en/stable/
+title: ShoreShop3_2026 — NC wave forcing
+author: GEOCEAN / ShoreShop3
+copyright: "2026"
+logo: ""
+description: >-
+  Hydrodynamic forcing for North Carolina shoreline models: BinWaves hindcast,
+  wind-wave metamodel, century-scale wave emulator, and tropical-cyclone downscaling.
+
+# Do not execute pipeline notebooks when building docs (README-only book).
+execute:
+  execute_notebooks: off
+  allow_errors: false
+
+# MyST markdown — tables, code blocks in READMEs.
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - deflist
+    - linkify
+
+html:
+  home_page_in_navbar: true
+  use_edit_page_button: false
+  use_issues_button: false
+  use_repository_button: false
+  extra_navbar: ""
+  favicon: ""
+  baseurl: ""
+
+sphinx:
+  config:
+    html_theme_options:
+      navigation_depth: 3
+      collapse_navigation: false
