@@ -8,8 +8,9 @@ from pathlib import Path
 import numpy as np
 import xarray as xr
 
-NC_DYNAMIC_UTILS = Path("/lustre/geocean/WORK/users/montanoj/personal/NC_Dynamic /utils")
-sys.path.insert(0, str(NC_DYNAMIC_UTILS))
+_WIND_MM_UTILS = Path(__file__).resolve().parent.parent / "utils"
+if str(_WIND_MM_UTILS) not in sys.path:
+    sys.path.insert(0, str(_WIND_MM_UTILS))
 
 from wind_to_bathy_grid import SWAN_INPGRID  # noqa: E402
 

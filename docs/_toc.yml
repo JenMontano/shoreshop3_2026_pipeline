@@ -31,9 +31,9 @@ parts:
       - file: notebooks/03b_00_partitions_cluster_points
         title: "Notebook — 03B partitions at super points"
       - file: notebooks/03b_01_testing_clustering
-        title: "Process — 03B wave-cluster selection (open in Jupyter)"
+        title: "Notebook — 03B wave-cluster selection"
       - file: notebooks/03b_02_pcs_mslp_sst
-        title: "Process — 03B MSLP/SST PCA (open in Jupyter)"
+        title: "Notebook — 03B MSLP/SST PCA (training)"
       - file: notebooks/03b_03_clusters_and_pcs
         title: "Notebook — 03B link clusters ↔ PCs"
       - file: notebooks/03b_04_alr_clusters_20cr
@@ -53,3 +53,8 @@ parts:
         title: "Notebook — 04B JONSWAP cyclone spectra"
       - file: notebooks/04b_01_partitions_ptm4
         title: "Notebook — 04B PTM4 partition & merge"
+
+  - caption: Book build
+    chapters:
+      - file: README
+        title: Build & serve instructions

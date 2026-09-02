@@ -30,6 +30,8 @@ html:
 
 sphinx:
   config:
+    suppress_warnings:
+      - myst.xref_missing
     html_theme_options:
       navigation_depth: 3
       collapse_navigation: false

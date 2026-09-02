@@ -75,9 +75,10 @@ DEFAULT_LONGSHORE_K = 0.39
 
 # Natural Earth coastline clip for North Carolina (lon_min, lat_min, lon_max, lat_max)
 NC_COAST_BBOX = (-79.5, 33.0, -74.0, 37.0)
-DEFAULT_MERGED_GRIDS_FOLDER = "/nfs/home/geocean/montanoj/ShoreShop2026/outputs/merged_grids"
+_REPO_ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_MERGED_GRIDS_FOLDER = str(_REPO_ROOT / "01_BinWaves" / "outputs" / "merged_grids")
 DEFAULT_HISTORICAL_PARTITIONS_FOLDER = DEFAULT_MERGED_GRIDS_FOLDER
-DEFAULT_BUOY_DATA_DIR = "/nfs/home/geocean/montanoj/ShoreShop2026/inputs/buoy_data"
+DEFAULT_BUOY_DATA_DIR = str(_REPO_ROOT / "01_BinWaves" / "inputs" / "buoy_data")
 DEFAULT_SWAN_TIMESERIES_FOLDER = "outputs/wind_simulations"
 SWAN_BULK_LABEL = "swan bulk"
 _SWAN_BULK_NC_VARS = {"hs": "Hsig", "tp": "Tps", "dp": "pdir"}
@@ -97,7 +98,7 @@ HISTORICAL_DATASET_FOLDERS: dict[HistoricalDataset, str] = {
 }
 
 # NDBC / NC buoy locations as ``{id: (lon, lat)}`` (converted internally to lat/lon).
-# Matches ShoreShop2026 buoy_data pickles where coordinates are known.
+# Matches buoy_data pickles under 01_BinWaves/inputs/buoy_data.
 DEFAULT_NC_BUOYS: dict[str, tuple[float, float]] = {
     "44088": (-74.839, 36.612),
     "44014": (-74.837, 36.603),
