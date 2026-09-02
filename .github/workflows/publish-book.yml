@@ -1,5 +1,8 @@
-# Build docs/ Jupyter Book and publish to GitHub Pages.
-# After first push: repo Settings → Pages → Source = "GitHub Actions".
+# Build docs/ Jupyter Book and publish to GitHub Pages (gh-pages branch).
+#
+# Pages settings (one time):
+#   Settings → Pages → Source = "Deploy from a branch"
+#   Branch = gh-pages / (root)
 name: Publish Jupyter Book
 
 on:
@@ -8,16 +11,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,18 +39,17 @@ jobs:
       - name: Build book
         run: jupyter-book build docs
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/_build/html
+      - name: Prepare site (drop non-public build extras)
+        run: |
+          test -f docs/_build/html/index.html
+          rm -rf docs/_build/html/_sources docs/_build/html/_downloads
+          touch docs/_build/html/.nojekyll
+          du -sh docs/_build/html
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
+          publish_branch: gh-pages
+          force_orphan: true

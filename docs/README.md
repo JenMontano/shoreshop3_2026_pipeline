@@ -43,8 +43,11 @@ Workflow: [`.github/workflows/publish-book.yml`](../.github/workflows/publish-bo
 **One-time setup on GitHub**
 
 1. Open [repo Settings → Pages](https://github.com/JenMontano/shoreshop3_2026_pipeline/settings/pages)
-2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”)
-3. Push to `main` (or re-run the **Publish Jupyter Book** workflow under Actions)
+2. Under **Build and deployment → Source**, choose **Deploy from a branch** (not “GitHub Actions”)
+3. **Branch:** `gh-pages` → folder **`/ (root)`** → Save
+4. Push to `main` (or re-run **Publish Jupyter Book** under Actions)
+
+After the workflow succeeds (~1–3 min), the site URL appears at the top of the Pages settings.
 
 Local `baseurl` stays empty; CI sets `/shoreshop3_2026_pipeline` only for the Pages build.
 
