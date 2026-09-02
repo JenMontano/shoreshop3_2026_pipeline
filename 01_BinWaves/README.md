@@ -15,10 +15,10 @@ External WHACS + bathymetry + buoys
         │
         ▼
   All-grids post-processing (04 / utils)
-  concat → mask → merge → crop to 500 m points
+  concat → mask → crop → merge to 500 m points
         │
         ▼
-  outputs/cropped_variables/  ──►  02_Wind_Metamodel (primary handoff)
+  outputs/cropped_variables/  ──►  02_Wind_Metamodel (primary handoff/ per grid)
   outputs/merged_grids/       ──►  02_Wind_Metamodel (reference / partitions)
 ```
 
@@ -47,7 +47,7 @@ External WHACS + bathymetry + buoys
 ├── 00_NDBC_buoy_data_download.ipynb
 ├── 03_Partitions_grid{N}_all.ipynb
 ├── 04_PostProcessing_all_grids (Original Slow).ipynb
-└── WHACS_vs_BUOY.ipynb     # Optional validation
+└── WHACS_vs_BUOY.ipynb     # Optional WHACS check
 ```
 
 ---

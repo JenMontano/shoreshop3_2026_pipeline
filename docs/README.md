@@ -1,6 +1,6 @@
 # ShoreShop3_2026 — Jupyter Book
 
-Static documentation site built from the repo README files. **No duplicate content** — chapter pages are symlinks to each stage README.
+Static documentation site built from the repo README files. Stage chapters are symlinks to each folder README; the start page (`intro.md`) is a book-specific copy of the root overview with chapter links.
 
 ## Build locally
 
@@ -32,9 +32,16 @@ Open the book in a **web browser** (not the Cursor editor — HTML preview does 
 
 Start page is **`intro.html`** (`index.html` only redirects there).
 
-## After editing READMEs
+## After editing documentation
 
-Edit any `README.md` in the repo, then re-run `bash docs/build.sh`. Symlinks in `docs/chapters/` point at those files.
+- **Stage READMEs** (`01_BinWaves/README.md`, …): edit, then re-run `bash docs/build.sh`. Symlinks in `docs/chapters/` pick them up automatically.
+- **Root overview** (`README.md`): GitHub-facing links (`01_BinWaves/README.md`, …). After changing prose there, regenerate the book intro:
+
+```bash
+python3 docs/sync_intro_from_readme.py   # or copy link substitutions manually into docs/intro.md
+```
+
+If you only change stage READMEs, rebuilding the book is enough.
 
 ## Layout
 
@@ -42,12 +49,12 @@ Edit any `README.md` in the repo, then re-run `bash docs/build.sh`. Symlinks in 
 |------|------|
 | `docs/_config.yml` | Book title, theme, notebook execution off |
 | `docs/_toc.yml` | Sidebar navigation |
-| `docs/intro.md` | Symlink → `../README.md` |
-| `docs/chapters/*.md` | Symlinks → each stage README |
+| `docs/intro.md` | Book start page (chapter links; prose mirrors root `README.md`) |
 | `docs/chapters/*.md` | Symlinks → each stage README |
 | `docs/notebooks/*.ipynb` | Symlinks → **key process notebooks** (rendered, not executed) |
 | `docs/_build/html/` | Generated site (gitignored) |
 
 ## Note on cross-links
 
-README links like `[02 …](02_Wind_Metamodel/README.md)` resolve in GitHub but may show warnings in the book build; use the **left sidebar** for navigation between stages.
+- **GitHub:** use root `README.md` — links point at folder READMEs.
+- **Jupyter Book:** use `intro.html` and the sidebar — `intro.md` links use `chapters/…`.
