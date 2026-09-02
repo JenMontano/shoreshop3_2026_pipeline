@@ -32,6 +32,22 @@ Open the book in a **web browser** (not the Cursor editor — HTML preview does 
 
 Start page is **`intro.html`** (`index.html` only redirects there).
 
+## Public site (GitHub Pages)
+
+After enabling Pages (see below), the book is published at:
+
+**https://jenmontano.github.io/shoreshop3_2026_pipeline/intro.html**
+
+Workflow: [`.github/workflows/publish-book.yml`](../.github/workflows/publish-book.yml) — runs on every push to `main`.
+
+**One-time setup on GitHub**
+
+1. Open [repo Settings → Pages](https://github.com/JenMontano/shoreshop3_2026_pipeline/settings/pages)
+2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”)
+3. Push to `main` (or re-run the **Publish Jupyter Book** workflow under Actions)
+
+Local `baseurl` stays empty; CI sets `/shoreshop3_2026_pipeline` only for the Pages build.
+
 ## After editing documentation
 
 - **Stage READMEs** (`01_BinWaves/README.md`, …): edit, then re-run `bash docs/build.sh`. Symlinks in `docs/chapters/` pick them up automatically.
