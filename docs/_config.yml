@@ -19,13 +19,16 @@ parse:
     - deflist
     - linkify
 
+repository:
+  url: https://github.com/JenMontano/shoreshop3_2026_pipeline
+  path_to_book: docs
+  branch: main
+
 html:
   home_page_in_navbar: true
   use_edit_page_button: false
   use_issues_button: false
   use_repository_button: true
-  repository_url: https://github.com/JenMontano/shoreshop3_2026_pipeline
-  repository_branch: main
   extra_navbar: ""
   favicon: ""
   baseurl: ""
